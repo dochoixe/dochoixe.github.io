@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dàn áo và ốp xe máy | DOCHOIXE99</title>
+    <meta
+      name="description"
+      content="Dàn áo và ốp xe máy tại DOCHOIXE99, gửi tên xe và đời xe để kiểm tra sản phẩm phù hợp trước khi lắp."
+    />
+    <style>
+      :root {
+        --ink: #08090b;
+        --ink-2: #111318;
+        --panel: #16191f;
+        --line: #2b2f37;
+        --white: #fff;
+        --muted: #a9adb6;
+        --red: #ff352f;
+        --orange: #ff7437;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+        --radius: 26px;
+        --container: min(1420px, calc(100% - 64px));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 96px;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--white);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+          Arial, sans-serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            circle at 12% 10%,
+            rgba(255, 53, 47, 0.13),
+            transparent 24%
+          ),
+          radial-gradient(
+            circle at 90% 45%,
+            rgba(255, 116, 55, 0.08),
+            transparent 22%
+          );
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .container {
+        width: var(--container);
+        margin-inline: auto;
+      }
+
+      .progress {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--red), #ffbd42);
+      }
+
+      .topbar {
+        height: 34px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background: #0f1115;
+        color: #c6c8cf;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .topbar .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .topbar b {
+        color: #fff;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 9, 11, 0.82);
+        backdrop-filter: blur(18px);
+        transition: 0.25s;
+      }
+
+      header.scrolled {
+        box-shadow: 0 10px 45px rgba(0, 0, 0, 0.38);
+      }
+
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 25px;
+        font-weight: 950;
+        letter-spacing: -0.05em;
+      }
+
+      .brand-logo {
+        width: 54px;
+        height: 54px;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 16px;
+        box-shadow: 0 9px 24px rgba(255, 53, 47, 0.25);
+      }
+
+      .brand-copy {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand-name {
+        white-space: nowrap;
+      }
+
+      .brand-name em {
+        color: var(--red);
+        font-style: normal;
+      }
+
+      .brand-tagline {
+        margin-top: 6px;
+        color: #989ca6;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .navlinks {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .navlinks a {
+        color: #d9dbe0;
+        transition: 0.2s;
+      }
+
+      .navlinks a:hover {
+        color: var(--red);
+      }
+
+      .cta-small,
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 13px;
+        background: var(--red);
+        color: #fff;
+        font-weight: 850;
+        box-shadow: 0 10px 26px rgba(255, 53, 47, 0.22);
+        transition: 0.2s;
+      }
+
+      .cta-small {
+        padding: 13px 19px;
+        font-size: 13px;
+      }
+
+      .btn {
+        min-height: 50px;
+        padding: 0 20px;
+      }
+
+      .btn.secondary {
+        border: 1px solid var(--line);
+        background: #14171c;
+        box-shadow: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero {
+        min-height: 620px;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        display: grid;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero-media {
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background: #111318;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: linear-gradient(
+          90deg,
+          rgba(5, 6, 8, 0.99) 0%,
+          rgba(5, 6, 8, 0.93) 40%,
+          rgba(5, 6, 8, 0.34) 72%,
+          rgba(5, 6, 8, 0.16) 100%
+        );
+      }
+
+      .hero-copy {
+        max-width: 720px;
+        padding: 96px 0;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        color: #ffb2af;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 36px;
+        height: 3px;
+        background: var(--red);
+      }
+
+      h1 {
+        max-width: 820px;
+        margin: 20px 0;
+        font-size: clamp(56px, 7vw, 104px);
+        line-height: 0.9;
+        letter-spacing: -0.07em;
+        text-transform: uppercase;
+      }
+
+      h1 span {
+        color: var(--red);
+      }
+
+      .hero-copy p {
+        max-width: 620px;
+        margin: 0;
+        color: #c3c6cd;
+        font-size: 18px;
+        line-height: 1.75;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      section.content-section {
+        padding: 86px 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 28px;
+        margin-bottom: 32px;
+      }
+
+      .section-head h2,
+      .guide-copy h2,
+      .cta-box h2 {
+        margin: 10px 0 0;
+        font-size: clamp(34px, 4vw, 56px);
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .section-head p {
+        max-width: 520px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+
+      .product-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        transition: 0.25s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 53, 47, 0.55);
+      }
+
+      .product-image,
+      .image-placeholder {
+        min-height: 310px;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 310px;
+        object-fit: cover;
+      }
+
+      .product-image {
+        position: relative;
+        overflow: hidden;
+        background: #0d0f12;
+      }
+
+      .product-image::after {
+        content: "ẢNH MINH HỌA • AI STUDIO";
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        padding: 7px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        background: rgba(8, 9, 11, 0.72);
+        color: #d9dbe0;
+        font-size: 9px;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        backdrop-filter: blur(10px);
+      }
+
+      .brand-chip {
+        display: inline-flex;
+        align-items: center;
+        margin-bottom: 2px;
+        padding: 7px 10px;
+        border: 1px solid rgba(255, 53, 47, 0.35);
+        border-radius: 999px;
+        background: rgba(255, 53, 47, 0.08);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+      }
+
+      .image-placeholder {
+        display: grid;
+        place-items: center;
+        padding: 30px;
+        background:
+          linear-gradient(135deg, rgba(255, 53, 47, 0.08), transparent 55%),
+          #101216;
+        color: #7f848e;
+        text-align: center;
+      }
+
+      .image-placeholder span {
+        padding: 12px 16px;
+        border: 1px dashed #3a3e47;
+        border-radius: 12px;
+      }
+
+      .product-copy {
+        padding: 26px;
+      }
+
+      .product-copy small {
+        color: #ff8a86;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .product-copy h3 {
+        margin: 10px 0;
+        font-size: 27px;
+      }
+
+      .product-copy p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .product-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+      }
+
+      .product-meta strong {
+        color: #ff8985;
+      }
+
+      .guide {
+        border-block: 1px solid var(--line);
+        background: #0d0f12;
+      }
+
+      .guide-grid {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 36px;
+        align-items: center;
+      }
+
+      .guide-panel {
+        min-height: 430px;
+        display: grid;
+        place-items: center;
+        padding: 36px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background:
+          radial-gradient(circle at 25% 20%, rgba(255, 53, 47, 0.2), transparent 32%),
+          #121419;
+        text-align: center;
+      }
+
+      .guide-panel strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 28px;
+      }
+
+      .guide-panel span,
+      .guide-copy > p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .steps {
+        display: grid;
+        gap: 13px;
+        margin-top: 26px;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 15px;
+        align-items: start;
+        padding: 17px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: #14171c;
+      }
+
+      .step i {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: #2b1116;
+        color: #ff827d;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .step b {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .step small {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .notice {
+        margin-top: 22px;
+        padding: 18px 20px;
+        border-left: 3px solid var(--red);
+        border-radius: 0 14px 14px 0;
+        background: rgba(255, 53, 47, 0.08);
+        color: #c8cbd2;
+        line-height: 1.7;
+      }
+
+      .cta-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 42px;
+        border: 1px solid rgba(255, 53, 47, 0.36);
+        border-radius: var(--radius);
+        background:
+          radial-gradient(circle at 85% 0, rgba(255, 53, 47, 0.25), transparent 34%),
+          var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .cta-box p {
+        max-width: 650px;
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .floating-contact {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 90;
+        display: grid;
+        gap: 10px;
+      }
+
+      .floating-contact a {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--red);
+        color: #fff;
+        font-weight: 900;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      @media (max-width: 980px) {
+        :root {
+          --container: min(100% - 36px, 1420px);
+        }
+
+        .navlinks a:not(.cta-small) {
+          display: none;
+        }
+
+        .section-head {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .guide-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 700px) {
+        :root {
+          --container: min(100% - 22px, 1420px);
+        }
+
+        .topbar span:last-child,
+        .brand-tagline {
+          display: none;
+        }
+
+        .brand-logo {
+          width: 46px;
+          height: 46px;
+        }
+
+        .brand {
+          font-size: 21px;
+        }
+
+        .cta-small {
+          padding: 11px 13px;
+        }
+
+        .hero {
+          min-height: 580px;
+        }
+
+        .hero-copy {
+          padding: 76px 0;
+        }
+
+        h1 {
+          font-size: clamp(48px, 16vw, 72px);
+          letter-spacing: -0.06em;
+        }
+
+        .hero-copy p {
+          font-size: 16px;
+        }
+
+        section.content-section {
+          padding: 62px 0;
+        }
+
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .product-image,
+        .image-placeholder,
+        .product-image img {
+          min-height: 280px;
+          height: 280px;
+        }
+
+        .cta-box {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 28px;
+        }
+
+        .actions,
+        .actions .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="progress" id="progress"></div>
+
+    <div class="topbar">
+      <div class="container">
+        <span><b>DOCHOIXE99</b> • Đồ chơi xe máy • Phụ tùng • Phụ kiện</span>
+        <span>Hotline: <b data-phone-text>0878 976 186</b></span>
+      </div>
+    </div>
+
+    <header id="header">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Về trang chủ DOCHOIXE99">
+          <img
+            class="brand-logo"
+            id="shared-logo"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111318'/%3E%3Ctext x='50' y='59' text-anchor='middle' fill='%23ff352f' font-family='Arial' font-size='28' font-weight='900'%3ED99%3C/text%3E%3C/svg%3E"
+            alt="Logo DOCHOIXE99"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">DOCHOIXE<em>99</em></span>
+            <span class="brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span>
+          </span>
+        </a>
+
+        <nav class="navlinks" aria-label="Điều hướng chính">
+          <a href="index.html#kham-pha-xe">Dòng xe</a>
+          <a href="index.html#phu-tung">Phụ tùng</a>
+          <a href="index.html#phu-kien">Phụ kiện</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#lien-he">Liên hệ</a>
+          <a class="cta-small" data-link="phone" href="tel:0878976186">
+            Gọi <span data-phone-text>0878 976 186</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-media" id="hero-media">
+          <div class="image-placeholder">
+            <span>Đang tải ảnh dàn áo từ trang chủ</span>
+          </div>
+        </div>
+
+        <div class="container hero-copy">
+          <div class="eyebrow">Ngoại hình xe máy</div>
+          <h1>Dàn áo <span>&amp; ốp</span></h1>
+          <p>
+            Chọn dàn áo và ốp theo đúng dòng xe, đời xe và vị trí cần thay.
+            Gửi thông tin xe để DOCHOIXE99 kiểm tra sản phẩm phù hợp trước khi
+            lắp.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#danh-muc">Xem danh mục</a>
+            <a
+              class="btn secondary"
+              data-link="zalo"
+              href="https://zalo.me/0878976186"
+              target="_blank"
+              rel="noopener"
+              >Nhắn Zalo ↗</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="danh-muc">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Danh mục sản phẩm</div>
+              <h2>Dàn áo và ốp xe máy</h2>
+            </div>
+            <p>
+              Website chưa công bố danh sách mẫu, giá hoặc khả năng tương thích
+              cụ thể. Vui lòng liên hệ để kiểm tra theo xe thực tế.
+            </p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="dan-ao-vario-click-ai.png"
+                  alt="Ảnh minh họa dàn áo có tem cho Vario và Click"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-copy">
+                <span class="brand-chip">HONDA</span>
+                <h3>Dàn áo Vario / Click</h3>
+                <p>
+                  Bộ dàn áo phối tem thể thao. Gửi đúng tên xe, đời xe và ảnh xe
+                  hiện tại để kiểm tra phiên bản phù hợp trước khi lắp.
+                </p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a
+                    data-link="zalo"
+                    href="https://zalo.me/0878976186"
+                    target="_blank"
+                    rel="noopener"
+                    >Kiểm tra sản phẩm ↗</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="dan-ao-exciter-150-ai.png"
+                  alt="Ảnh minh họa dàn áo có tem cho Exciter 150"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-copy">
+                <span class="brand-chip">YAMAHA</span>
+                <h3>Dàn áo Exciter 150</h3>
+                <p>
+                  Dàn áo phối tem phong cách thể thao. Gửi đời xe và ảnh xe để
+                  kiểm tra mẫu, vị trí lắp và sản phẩm đang có.
+                </p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a
+                    data-link="zalo"
+                    href="https://zalo.me/0878976186"
+                    target="_blank"
+                    rel="noopener"
+                    >Kiểm tra sản phẩm ↗</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img
+                  src="dan-ao-future-125-ai.png"
+                  alt="Ảnh minh họa bộ nhám có tem cho Future 125"
+                  loading="lazy"
+                />
+              </div>
+              <div class="product-copy">
+                <span class="brand-chip">HONDA</span>
+                <h3>Bộ nhám Future 125</h3>
+                <p>
+                  Bộ chi tiết nhám phối tem trang trí. Cần gửi đúng đời xe và
+                  ảnh vị trí cần thay để đối chiếu trước khi đặt.
+                </p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a
+                    data-link="zalo"
+                    href="https://zalo.me/0878976186"
+                    target="_blank"
+                    rel="noopener"
+                    >Kiểm tra sản phẩm ↗</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section guide" id="cach-chon">
+        <div class="container guide-grid">
+          <div class="guide-panel">
+            <div>
+              <strong>Kiểm tra trước khi lắp</strong>
+              <span>
+                Dàn áo và ốp cần được đối chiếu theo xe thực tế. Không lựa chọn
+                chỉ dựa vào hình minh họa.
+              </span>
+            </div>
+          </div>
+
+          <div class="guide-copy">
+            <div class="eyebrow">Cách chọn phù hợp</div>
+            <h2>Gửi đủ thông tin để được tư vấn</h2>
+            <p>
+              DOCHOIXE99 cần thông tin cơ bản của xe và vị trí bạn muốn thay
+              hoặc lắp thêm để kiểm tra sản phẩm.
+            </p>
+
+            <div class="steps">
+              <div class="step">
+                <i>1</i>
+                <div>
+                  <b>Gửi tên xe và đời xe</b>
+                  <small>Cung cấp đúng thông tin xe đang sử dụng.</small>
+                </div>
+              </div>
+              <div class="step">
+                <i>2</i>
+                <div>
+                  <b>Gửi ảnh xe thực tế</b>
+                  <small>Chụp rõ vị trí cần thay dàn áo hoặc lắp ốp.</small>
+                </div>
+              </div>
+              <div class="step">
+                <i>3</i>
+                <div>
+                  <b>Xác nhận trước khi đặt</b>
+                  <small>Kiểm tra sản phẩm và khả năng tương thích trước khi lắp.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="notice">
+              Hình ảnh dùng để minh họa. Sản phẩm, giá và khả năng tương thích
+              cần được xác nhận trực tiếp trước khi đặt.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container cta-box">
+          <div>
+            <div class="eyebrow">Liên hệ DOCHOIXE99</div>
+            <h2>Gửi thông tin xe để kiểm tra</h2>
+            <p>
+              Gửi tên xe, đời xe và ảnh vị trí cần thay để được tư vấn dàn áo
+              hoặc ốp phù hợp.
+            </p>
+          </div>
+          <div class="actions">
+            <a
+              class="btn"
+              data-link="zalo"
+              href="https://zalo.me/0878976186"
+              target="_blank"
+              rel="noopener"
+              >Nhắn Zalo ngay ↗</a
+            >
+            <a class="btn secondary" data-link="phone" href="tel:0878976186">
+              Gọi <span data-phone-text>0878 976 186</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <div class="floating-contact">
+      <a
+        data-link="zalo"
+        href="https://zalo.me/0878976186"
+        target="_blank"
+        rel="noopener"
+        aria-label="Nhắn Zalo"
+        >Z</a
+      >
+      <a data-link="phone" href="tel:0878976186" aria-label="Gọi điện">☎</a>
+    </div>
+
+    <script src="config-links.js"></script>
+    <script src="footer.js"></script>
+    <script>
+      const cfg = window.DOCHOIXE99_CONFIG || {};
+      const phone = cfg.PHONE_RAW || "0878976186";
+      const phoneDisplay = cfg.PHONE_DISPLAY || "0878 976 186";
+
+      document.querySelectorAll('[data-link="phone"]').forEach((link) => {
+        link.href = "tel:" + phone;
+      });
+
+      document.querySelectorAll('[data-link="zalo"]').forEach((link) => {
+        link.href = "https://zalo.me/" + phone;
+      });
+
+      document.querySelectorAll("[data-phone-text]").forEach((element) => {
+        element.textContent = phoneDisplay;
+      });
+
+      const header = document.getElementById("header");
+      const progress = document.getElementById("progress");
+
+      function updateScroll() {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        const percent = max > 0 ? (scrollY / max) * 100 : 0;
+        header.classList.toggle("scrolled", scrollY > 15);
+        progress.style.width = percent + "%";
+      }
+
+      addEventListener("scroll", updateScroll, { passive: true });
+      updateScroll();
+
+      async function reuseIndexAssets() {
+        try {
+          const response = await fetch("index.html", { cache: "no-store" });
+          if (!response.ok) return;
+
+          const html = await response.text();
+          const indexDocument = new DOMParser().parseFromString(html, "text/html");
+          const indexLogo = indexDocument.querySelector(".brand-logo");
+          const indexImages = [...indexDocument.querySelectorAll("img")];
+          const bodyImage = indexImages.find(
+            (image) => image.alt.trim() === "Phụ tùng dàn áo xe máy",
+          );
+
+          if (indexLogo && indexLogo.src) {
+            document.getElementById("shared-logo").src = indexLogo.src;
+            const footerLogo = document.querySelector(".shared-footer-logo");
+            if (footerLogo) footerLogo.src = indexLogo.src;
+          }
+
+          if (bodyImage && bodyImage.src) {
+            document.getElementById("hero-media").innerHTML =
+              '<img src="' +
+              bodyImage.src +
+              '" alt="Phụ tùng dàn áo xe máy" />';
+          }
+        } catch (error) {
+          console.warn("Không thể lấy hình ảnh từ index.html", error);
+        }
+      }
+
+      reuseIndexAssets();
+    </script>
+  </body>
+</html>
