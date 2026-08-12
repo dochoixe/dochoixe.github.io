@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pô và cổ pô xe máy | DOCHOIXE99</title>
+    <meta
+      name="description"
+      content="Tham khảo pô, cổ pô và bộ pô xe máy tại DOCHOIXE99. Gửi tên xe, đời xe và ảnh xe để kiểm tra sản phẩm phù hợp trước khi lắp."
+    />
+    <style>
+      :root {
+        --ink: #08090b;
+        --ink-2: #111318;
+        --panel: #16191f;
+        --line: #2b2f37;
+        --white: #fff;
+        --muted: #a9adb6;
+        --red: #ff352f;
+        --orange: #ff7437;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+        --radius: 26px;
+        --container: min(1420px, calc(100% - 64px));
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--ink);
+        color: var(--white);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 12% 10%, rgba(255, 53, 47, 0.13), transparent 24%),
+          radial-gradient(circle at 90% 45%, rgba(255, 116, 55, 0.08), transparent 22%);
+      }
+      a { color: inherit; text-decoration: none; }
+      img { display: block; max-width: 100%; }
+      .container { width: var(--container); margin-inline: auto; }
+
+      .progress {
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--red), #ffbd42);
+      }
+      .topbar {
+        height: 34px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background: #0f1115;
+        color: #c6c8cf;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .topbar .container { display: flex; justify-content: space-between; gap: 20px; }
+      .topbar b { color: #fff; }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 9, 11, 0.82);
+        backdrop-filter: blur(18px);
+        transition: 0.25s;
+      }
+      header.scrolled { box-shadow: 0 10px 45px rgba(0, 0, 0, 0.38); }
+      .nav {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-size: 25px;
+        font-weight: 950;
+        letter-spacing: -0.05em;
+      }
+      .brand-logo {
+        width: 54px;
+        height: 54px;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 16px;
+        box-shadow: 0 9px 24px rgba(255, 53, 47, 0.25);
+      }
+      .brand-copy { display: flex; flex-direction: column; line-height: 1; }
+      .brand-name { white-space: nowrap; }
+      .brand-name em { color: var(--red); font-style: normal; }
+      .brand-tagline {
+        margin-top: 6px;
+        color: #989ca6;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .navlinks { display: flex; align-items: center; gap: 30px; font-size: 14px; font-weight: 700; }
+      .navlinks a { color: #d9dbe0; transition: 0.2s; }
+      .navlinks a:hover { color: var(--red); }
+
+      .cta-small, .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        border-radius: 13px;
+        background: var(--red);
+        color: #fff;
+        font-weight: 850;
+        box-shadow: 0 10px 26px rgba(255, 53, 47, 0.22);
+        transition: 0.2s;
+      }
+      .cta-small { padding: 13px 19px; font-size: 13px; }
+      .btn { min-height: 50px; padding: 0 20px; }
+      .btn.secondary { border: 1px solid #343943; background: rgba(12, 14, 18, 0.75); box-shadow: none; }
+      .btn:hover, .cta-small:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+      .hero {
+        position: relative;
+        min-height: 700px;
+        display: grid;
+        align-items: end;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero-media { position: absolute; inset: 0; }
+      .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(90deg, rgba(8, 9, 11, 0.98) 0%, rgba(8, 9, 11, 0.75) 43%, rgba(8, 9, 11, 0.2) 78%),
+          linear-gradient(0deg, #08090b 0%, transparent 55%);
+      }
+      .hero-copy { position: relative; z-index: 2; padding: 108px 0; }
+      .eyebrow {
+        color: #ff8580;
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+      }
+      h1 {
+        max-width: 800px;
+        margin: 15px 0 22px;
+        font-size: clamp(58px, 7vw, 108px);
+        line-height: 0.9;
+        letter-spacing: -0.075em;
+      }
+      h1 span { color: var(--red); }
+      .hero-copy p { max-width: 650px; margin: 0; color: #c3c6cd; font-size: 18px; line-height: 1.75; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+      section.content-section { padding: 86px 0; }
+      .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
+      .section-head h2, .guide-copy h2, .cta-box h2 {
+        margin: 10px 0 0;
+        font-size: clamp(34px, 4vw, 56px);
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+      .section-head p { max-width: 540px; margin: 0; color: var(--muted); line-height: 1.75; }
+      .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+      .product-card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        transition: 0.25s;
+      }
+      .product-card:hover { transform: translateY(-6px); border-color: rgba(255, 53, 47, 0.55); }
+      .product-image { position: relative; overflow: hidden; min-height: 380px; background: #0d0f12; }
+      .product-image img { width: 100%; height: 380px; object-fit: cover; transition: 0.35s; }
+      .product-card:hover .product-image img { transform: scale(1.025); }
+      .product-image::after {
+        content: "ẢNH MINH HỌA • AI STUDIO";
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        padding: 7px 9px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        background: rgba(8, 9, 11, 0.72);
+        color: #d9dbe0;
+        font-size: 9px;
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        backdrop-filter: blur(10px);
+      }
+      .product-copy { padding: 26px; }
+      .product-copy small {
+        color: #ff8a86;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .product-copy h3 { margin: 10px 0; font-size: 27px; }
+      .product-copy p { margin: 0; color: var(--muted); line-height: 1.7; }
+      .product-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+      }
+      .product-meta strong { color: #ff8985; }
+
+      .guide { border-block: 1px solid var(--line); background: #0d0f12; }
+      .guide-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 36px; align-items: center; }
+      .guide-panel {
+        min-height: 430px;
+        display: grid;
+        place-items: center;
+        padding: 36px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: radial-gradient(circle at 25% 20%, rgba(255, 53, 47, 0.2), transparent 32%), #121419;
+        text-align: center;
+      }
+      .guide-panel strong { display: block; margin-bottom: 10px; font-size: 28px; }
+      .guide-panel span, .guide-copy > p { color: var(--muted); line-height: 1.7; }
+      .steps { display: grid; gap: 13px; margin-top: 26px; }
+      .step {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 15px;
+        align-items: start;
+        padding: 17px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: #14171c;
+      }
+      .step i {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: #2b1116;
+        color: #ff827d;
+        font-style: normal;
+        font-weight: 900;
+      }
+      .step b { display: block; margin-bottom: 5px; }
+      .step small { color: var(--muted); line-height: 1.5; }
+      .notice {
+        margin-top: 18px;
+        padding: 17px;
+        border-left: 3px solid var(--red);
+        border-radius: 0 12px 12px 0;
+        background: rgba(255, 53, 47, 0.07);
+        color: #c8cbd1;
+        line-height: 1.65;
+      }
+      .cta-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        padding: 42px;
+        border: 1px solid rgba(255, 53, 47, 0.36);
+        border-radius: var(--radius);
+        background: radial-gradient(circle at 85% 0, rgba(255, 53, 47, 0.25), transparent 34%), var(--panel);
+        box-shadow: var(--shadow);
+      }
+      .cta-box p { max-width: 650px; margin: 12px 0 0; color: var(--muted); line-height: 1.7; }
+      .floating-contact { position: fixed; right: 18px; bottom: 18px; z-index: 90; display: grid; gap: 10px; }
+      .floating-contact a {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--red);
+        color: #fff;
+        font-weight: 900;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      }
+
+      @media (max-width: 980px) {
+        :root { --container: min(100% - 36px, 1420px); }
+        .navlinks a:not(.cta-small) { display: none; }
+        .section-head { align-items: start; flex-direction: column; }
+        .guide-grid { grid-template-columns: 1fr; }
+        .product-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 700px) {
+        :root { --container: min(100% - 22px, 1420px); }
+        .topbar span:last-child, .brand-tagline { display: none; }
+        .brand-logo { width: 46px; height: 46px; }
+        .brand { font-size: 21px; }
+        .cta-small { padding: 11px 13px; }
+        .hero { min-height: 580px; }
+        .hero-copy { padding: 76px 0; }
+        h1 { font-size: clamp(48px, 16vw, 72px); letter-spacing: -0.06em; }
+        .hero-copy p { font-size: 16px; }
+        section.content-section { padding: 62px 0; }
+        .product-grid { grid-template-columns: 1fr; }
+        .product-image, .product-image img { min-height: 280px; height: 280px; }
+        .cta-box { align-items: flex-start; flex-direction: column; padding: 28px; }
+        .actions, .actions .btn { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress" id="progress"></div>
+
+    <div class="topbar">
+      <div class="container">
+        <span><b>DOCHOIXE99</b> • Đồ chơi xe máy • Phụ tùng • Phụ kiện</span>
+        <span>Hotline: <b data-phone-text>0878 976 186</b></span>
+      </div>
+    </div>
+
+    <header id="header">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Về trang chủ DOCHOIXE99">
+          <img
+            class="brand-logo"
+            id="shared-logo"
+            src="logo-dochoixe99.jpg"
+            alt="Logo DOCHOIXE99"
+          />
+          <span class="brand-copy">
+            <span class="brand-name">DOCHOIXE<em>99</em></span>
+            <span class="brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span>
+          </span>
+        </a>
+        <nav class="navlinks" aria-label="Điều hướng chính">
+          <a href="index.html#kham-pha-xe">Dòng xe</a>
+          <a href="index.html#phu-tung">Phụ tùng</a>
+          <a href="index.html#phu-kien">Phụ kiện</a>
+          <a href="index.html#blog">Blog</a>
+          <a href="index.html#lien-he">Liên hệ</a>
+          <a class="cta-small" data-link="phone" href="tel:0878976186">Gọi <span data-phone-text>0878 976 186</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-media">
+          <img src="po-titan-banner-ai.png" alt="Ảnh minh họa các mẫu pô titan và cổ pô titan xe máy" />
+        </div>
+        <div class="container hero-copy">
+          <div class="eyebrow">Âm sắc • Ngoại hình • Hoàn thiện</div>
+          <h1>Pô <span>&amp; cổ pô</span></h1>
+          <p>
+            Pô titan và cổ pô titan kiểu dáng gọn dành cho các nhóm xe đang có
+            trên DOCHOIXE99. Gửi đúng tên xe, đời xe và ảnh xe để kiểm tra trước khi lắp.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#danh-muc">Xem danh mục</a>
+            <a class="btn secondary" data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Nhắn Zalo ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section" id="danh-muc">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Danh mục tham khảo</div>
+              <h2>Pô và cổ pô xe máy</h2>
+            </div>
+            <p>
+              Hình ảnh AI tham khảo phong cách pô titan xe máy tại Việt Nam.
+              Các dòng xe liệt kê là nhóm cần kiểm tra, không mặc định dùng chung một bộ pô.
+            </p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card">
+              <div class="product-image">
+                <img src="po-titan-xe-ga-ai.png" alt="Ảnh minh họa pô titan cho nhóm xe tay ga" loading="lazy" />
+              </div>
+              <div class="product-copy">
+                <small>Nhóm xe tay ga</small>
+                <h3>Pô titan form gọn</h3>
+                <p>Mẫu tham khảo cho Vario, Air Blade, SH, Vision, Lead, NVX, Janus và Vespa Sprint. Cần kiểm tra riêng theo từng xe và đời xe.</p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Kiểm tra sản phẩm ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="po-titan-xe-con-ai.png" alt="Ảnh minh họa pô titan cho Exciter và Winner X" loading="lazy" />
+              </div>
+              <div class="product-copy">
+                <small>Nhóm xe côn tay</small>
+                <h3>Pô titan thể thao</h3>
+                <p>Mẫu tham khảo cho Exciter và Winner X. Gửi đúng phiên bản, đời xe và ảnh pô hiện tại để đối chiếu trước khi chọn.</p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Kiểm tra sản phẩm ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="co-po-titan-ai.png" alt="Ảnh minh họa cổ pô titan cho xe máy một xi-lanh" loading="lazy" />
+              </div>
+              <div class="product-copy">
+                <small>Cổ pô titan</small>
+                <h3>Cổ pô titan vảy cá</h3>
+                <p>Mẫu cổ pô đơn cho xe tay ga, xe số và xe côn tay. Hình dáng, vị trí bắt và kích thước phải kiểm tra theo đúng xe.</p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Gửi ảnh xe ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-image">
+                <img src="po-titan-pho-thong-ai.png" alt="Ảnh minh họa pô titan cho Honda Wave và Yamaha Sirius" loading="lazy" />
+              </div>
+              <div class="product-copy">
+                <small>Nhóm xe số</small>
+                <h3>Pô titan dáng cân đối</h3>
+                <p>Mẫu tham khảo cho Honda Wave và Yamaha Sirius. Cần gửi đúng đời xe và ảnh vị trí lắp để kiểm tra sản phẩm.</p>
+                <div class="product-meta">
+                  <strong>Giá liên hệ</strong>
+                  <a data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Kiểm tra sản phẩm ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section guide" id="cach-chon">
+        <div class="container guide-grid">
+          <div class="guide-panel">
+            <div>
+              <strong>Kiểm tra trước khi lắp</strong>
+              <span>Không chọn pô hoặc cổ pô chỉ dựa vào hình minh họa. Cần đối chiếu vị trí bắt, kích thước và xe thực tế.</span>
+            </div>
+          </div>
+          <div class="guide-copy">
+            <div class="eyebrow">Chọn đúng cho xe</div>
+            <h2>Gửi đủ thông tin để được tư vấn</h2>
+            <p>Thông tin xe và vị trí lắp giúp kiểm tra sản phẩm phù hợp trước khi đặt.</p>
+            <div class="steps">
+              <div class="step"><i>1</i><div><b>Gửi tên xe và đời xe</b><small>Cung cấp đúng thông tin xe đang sử dụng.</small></div></div>
+              <div class="step"><i>2</i><div><b>Gửi ảnh pô đang dùng</b><small>Chụp rõ pô, cổ pô và vị trí liên kết trên xe.</small></div></div>
+              <div class="step"><i>3</i><div><b>Xác nhận trước khi đặt</b><small>Kiểm tra sản phẩm, khả năng tương thích và giá thực tế.</small></div></div>
+            </div>
+            <div class="notice">Việc thay đổi hệ thống xả có thể chịu quy định về tiếng ồn hoặc khí thải tại nơi sử dụng. Hãy kiểm tra quy định hiện hành và lắp đặt an toàn.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="container cta-box">
+          <div>
+            <div class="eyebrow">Liên hệ DOCHOIXE99</div>
+            <h2>Gửi ảnh xe để kiểm tra</h2>
+            <p>Gửi tên xe, đời xe và ảnh hệ thống xả hiện tại để được tư vấn pô hoặc cổ pô phù hợp.</p>
+          </div>
+          <div class="actions">
+            <a class="btn" data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Nhắn Zalo ngay ↗</a>
+            <a class="btn secondary" data-link="phone" href="tel:0878976186">Gọi <span data-phone-text>0878 976 186</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+
+    <div class="floating-contact">
+      <a data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener" aria-label="Nhắn Zalo">Z</a>
+      <a data-link="phone" href="tel:0878976186" aria-label="Gọi điện">☎</a>
+    </div>
+
+    <script src="config-links.js"></script>
+    <script src="footer.js"></script>
+    <script>
+      const cfg = window.DOCHOIXE99_CONFIG || {};
+      const phone = cfg.PHONE_RAW || "0878976186";
+      const phoneDisplay = cfg.PHONE_DISPLAY || "0878 976 186";
+
+      document.querySelectorAll('[data-link="phone"]').forEach((link) => {
+        link.href = "tel:" + phone;
+      });
+      document.querySelectorAll('[data-link="zalo"]').forEach((link) => {
+        link.href = "https://zalo.me/" + phone;
+      });
+      document.querySelectorAll("[data-phone-text]").forEach((element) => {
+        element.textContent = phoneDisplay;
+      });
+
+      const header = document.getElementById("header");
+      const progress = document.getElementById("progress");
+      function updateScroll() {
+        const max = document.documentElement.scrollHeight - innerHeight;
+        const percent = max > 0 ? (scrollY / max) * 100 : 0;
+        header.classList.toggle("scrolled", scrollY > 15);
+        progress.style.width = percent + "%";
+      }
+      addEventListener("scroll", updateScroll, { passive: true });
+      updateScroll();
+
+      async function reuseIndexLogo() {
+        try {
+          const response = await fetch("index.html", { cache: "no-store" });
+          if (!response.ok) return;
+          const source = await response.text();
+          const indexDocument = new DOMParser().parseFromString(source, "text/html");
+          const indexLogo = indexDocument.querySelector(".brand-logo");
+          if (indexLogo && indexLogo.src) {
+            document.getElementById("shared-logo").src = indexLogo.src;
+            const footerLogo = document.querySelector(".shared-footer-logo");
+            if (footerLogo) footerLogo.src = indexLogo.src;
+          }
+        } catch (error) {
+          console.warn("Không thể lấy logo từ index.html", error);
+        }
+      }
+      reuseIndexLogo();
+    </script>
+  </body>
+</html>
