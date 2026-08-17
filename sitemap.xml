@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dochoixe.github.io/</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://dochoixe.github.io/he-thong-phanh.html</loc>
-    <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://dochoixe.github.io/cnc-he-thong-treo.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dochoixe.github.io/dan-ao-va-op.html</loc>
+  </url>
+
+  <url>
+    <loc>https://dochoixe.github.io/po-va-co-po.html</loc>
   </url>
 </urlset>
