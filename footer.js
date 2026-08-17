@@ -39,7 +39,7 @@
     <footer id="shared-site-footer">
       <div class="shared-footer-wrap">
         <div>
-          <a class="shared-footer-brand" href="index.html">
+          <a class="shared-footer-brand" href="https://dochoixe.github.io/">
             <img class="shared-footer-logo" src="${logoSource}" alt="Logo DOCHOIXE99" width="160" height="160" loading="lazy" decoding="async">
             <span>
               <span class="shared-footer-name">DOCHOIXE<em>99</em></span>
