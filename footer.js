@@ -16,7 +16,7 @@
     .shared-footer-name em{color:#ef233c;font-style:normal}
     .shared-footer-tagline{display:block;margin-top:7px;color:#aeb3bd;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
     .shared-footer-copy{margin-top:10px;color:#b5b8c1;font-size:13px}
-    .shared-footer-note{margin-top:10px;max-width:690px;color:#676b74;font-size:11px;line-height:1.6}
+    .shared-footer-note{margin-top:10px;max-width:690px;color:#a9adb6;font-size:11px;line-height:1.6}
     .shared-footer-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
     .shared-footer-nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
     .shared-footer-nav a{color:#b8bbc4;text-decoration:none;font-size:14px;transition:.2s}
@@ -40,7 +40,7 @@
       <div class="shared-footer-wrap">
         <div>
           <a class="shared-footer-brand" href="index.html">
-            <img class="shared-footer-logo" src="${logoSource}" alt="Logo DOCHOIXE99">
+            <img class="shared-footer-logo" src="${logoSource}" alt="Logo DOCHOIXE99" width="160" height="160" loading="lazy" decoding="async">
             <span>
               <span class="shared-footer-name">DOCHOIXE<em>99</em></span>
               <span class="shared-footer-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span>
@@ -59,7 +59,7 @@
             <a href="index.html#lien-he">Liên hệ</a>
           </nav>
 
-          <div class="shared-footer-social" aria-label="Mạng xã hội DOCHOIXE99">
+          <div class="shared-footer-social" role="navigation" aria-label="Mạng xã hội DOCHOIXE99">
             <a href="${SOCIAL_LINKS.tiktok}" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 5.8a5.7 5.7 0 0 1-3.4-1.1v10a6.2 6.2 0 1 1-5.4-6.1v3.3a3 3 0 1 0 2.2 2.8V2h3.2c.3 2.2 1.5 3.5 3.4 3.8Z"/></svg>
             </a>
