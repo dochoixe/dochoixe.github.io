@@ -13,5 +13,5 @@ window.DOCHOIXE99_CONFIG = {
   WEBSITE_LABEL: "dochoixe.github.io",
 
   /* Dán URL Google Apps Script kết thúc bằng /exec vào đây */
-  LEAD_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbwSodVPdTY1mkf1u-7IeXBlLAap0nFBlc50dyZ1kKx6-1RjV3_OsXaVpFgZ9QABnDSj/exec"
+  LEAD_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbzUozX90mQ5-bVJ4-yI5hlsCetRQOWgPgwE1wzobvTMl34wOJfCJELsXQs2Sy3eO3EP/exec"
 };
