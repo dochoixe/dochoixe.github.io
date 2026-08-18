@@ -52,11 +52,11 @@
 
         <div class="shared-footer-right">
           <nav class="shared-footer-nav" aria-label="Liên kết cuối trang">
-            <a href="index.html#kham-pha-xe">Dòng xe</a>
-            <a href="index.html#phu-tung">Phụ tùng</a>
-            <a href="index.html#phu-kien">Phụ kiện</a>
-            <a href="index.html#blog">Blog</a>
-            <a href="index.html#lien-he">Liên hệ</a>
+            <a href="/#kham-pha-xe">Dòng xe</a>
+            <a href="/#phu-tung">Phụ tùng</a>
+            <a href="/#phu-kien">Phụ kiện</a>
+            <a href="/bai-viet/">Blog</a>
+            <a href="/#lien-he">Liên hệ</a>
           </nav>
 
           <div class="shared-footer-social" role="navigation" aria-label="Mạng xã hội DOCHOIXE99">
