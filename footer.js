@@ -25,8 +25,9 @@
     }
   ];
   const socialMarkup = socialItems
-    .filter((item) => validSocialUrl(SOCIAL_LINKS[item.key]))
-    .map((item) => `<a href="${SOCIAL_LINKS[item.key]}" target="_blank" rel="noopener noreferrer" aria-label="${item.label}" title="${item.label}">${item.icon}</a>`)
+    .map((item) => validSocialUrl(SOCIAL_LINKS[item.key])
+      ? `<a href="${SOCIAL_LINKS[item.key]}" target="_blank" rel="noopener noreferrer" aria-label="${item.label}" title="${item.label}">${item.icon}</a>`
+      : `<span class="is-disabled" aria-label="${item.label} — link đang cập nhật" title="${item.label} — link đang cập nhật">${item.icon}</span>`)
     .join("");
 
   const style = document.createElement("style");
@@ -41,16 +42,18 @@
     .shared-footer-tagline{display:block;margin-top:7px;color:#aeb3bd;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
     .shared-footer-copy{margin-top:10px;color:#b5b8c1;font-size:13px}
     .shared-footer-note{margin-top:10px;max-width:690px;color:#a9adb6;font-size:11px;line-height:1.6}
-    .shared-footer-right{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
+    .shared-footer-right{display:flex;align-items:flex-end;justify-content:center;gap:16px;flex-direction:column}
     .shared-footer-nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
     .shared-footer-nav a{color:#b8bbc4;text-decoration:none;font-size:14px;transition:.2s}
     .shared-footer-nav a:hover{color:#ef233c}
+    .shared-footer-social-wrap{display:flex;align-items:center;gap:11px;color:#8e939d;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
     .shared-footer-social{display:inline-flex;align-items:center;gap:8px}
-    .shared-footer-social a{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid #30343c;border-radius:50%;background:#111318;color:#aeb3bd;text-decoration:none;transition:.2s}
+    .shared-footer-social a,.shared-footer-social span{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid #30343c;border-radius:50%;background:#111318;color:#aeb3bd;text-decoration:none;transition:.2s}
     .shared-footer-social a:hover{transform:translateY(-2px);border-color:#ef233c;background:#211315;color:#ef233c}
+    .shared-footer-social .is-disabled{opacity:.55;cursor:not-allowed}
     .shared-footer-social svg{width:14px;height:14px;fill:currentColor}
     .mobile-lead-bar{display:none}
-    @media(max-width:850px){.shared-footer-wrap{align-items:flex-start;flex-direction:column}.shared-footer-right{justify-content:flex-start}.shared-footer-nav{gap:16px}}
+    @media(max-width:850px){.shared-footer-wrap{align-items:flex-start;flex-direction:column}.shared-footer-right{align-items:flex-start;justify-content:flex-start}.shared-footer-nav{gap:16px}}
     @media(max-width:520px){body{padding-bottom:70px}#shared-site-footer{padding:38px 0}.shared-footer-wrap{width:min(100% - 24px,1180px)}.shared-footer-logo{width:56px;height:56px}.shared-footer-name{font-size:23px}.shared-footer-right{align-items:flex-start;flex-direction:column}.shared-footer-nav{display:grid;grid-template-columns:repeat(2,1fr);width:100%}.floating-contact,.float{display:none!important}.mobile-lead-bar{position:fixed;z-index:1000;left:0;right:0;bottom:0;display:grid;grid-template-columns:.72fr .72fr 1.56fr;gap:1px;padding:max(7px,env(safe-area-inset-bottom)) 8px 8px;background:#090a0d;border-top:1px solid #30343c;box-shadow:0 -12px 30px rgba(0,0,0,.38)}.mobile-lead-bar a{min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#171a20;color:#fff;text-decoration:none;font-size:12px;font-weight:900}.mobile-lead-bar a:last-child{background:#d91f26}}
   `;
   document.head.appendChild(style);
@@ -80,11 +83,12 @@
             <a href="/#kham-pha-xe">Dòng xe</a>
             <a href="/#phu-tung">Phụ tùng</a>
             <a href="/#phu-kien">Phụ kiện</a>
+            <a href="/rcb-rs-series-floating.html">RCB RS</a>
             <a href="/bai-viet/">Blog</a>
             <a href="/#lien-he">Liên hệ</a>
           </nav>
 
-          ${socialMarkup ? `<div class="shared-footer-social" role="navigation" aria-label="Mạng xã hội DOCHOIXE99">${socialMarkup}</div>` : ""}
+          <div class="shared-footer-social-wrap"><span>Kết nối</span><div class="shared-footer-social" role="navigation" aria-label="Mạng xã hội DOCHOIXE99">${socialMarkup}</div></div>
         </div>
       </div>
     </footer>`;
