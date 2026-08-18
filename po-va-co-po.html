@@ -196,7 +196,7 @@
       .product-image img { width: 100%; height: 380px; object-fit: cover; transition: 0.35s; }
       .product-card:hover .product-image img { transform: scale(1.025); }
       .product-image::after {
-        content: "ẢNH MINH HỌA • AI STUDIO";
+        content: "KIỂM TRA CHUẨN LẮP";
         position: absolute;
         right: 14px;
         bottom: 14px;
@@ -345,7 +345,7 @@
           <img
             class="brand-logo"
             id="shared-logo"
-            src="logo-dochoixe99.jpg"
+            src="assets/images/logo-dochoixe99.webp"
             alt="Logo DOCHOIXE99"
           />
           <span class="brand-copy">
@@ -367,7 +367,7 @@
     <main>
       <section class="hero">
         <div class="hero-media">
-          <img src="po-titan-banner-ai.png" alt="Ảnh minh họa các mẫu pô titan và cổ pô titan xe máy" />
+          <img src="assets/images/po-va-co-po.webp" alt="Pô và cổ pô xe máy" />
         </div>
         <div class="container hero-copy">
           <div class="eyebrow">Âm sắc • Ngoại hình • Hoàn thiện</div>
@@ -391,15 +391,15 @@
               <h2>Pô và cổ pô xe máy</h2>
             </div>
             <p>
-              Hình ảnh AI tham khảo phong cách pô titan xe máy tại Việt Nam.
-              Các dòng xe liệt kê là nhóm cần kiểm tra, không mặc định dùng chung một bộ pô.
+              Các dòng xe liệt kê là nhóm tham khảo để tư vấn. Chuẩn cổ pô,
+              vị trí bắt và kích thước cần được kiểm tra riêng cho từng đời xe.
             </p>
           </div>
 
           <div class="product-grid">
             <article class="product-card">
               <div class="product-image">
-                <img src="po-titan-xe-ga-ai.png" alt="Ảnh minh họa pô titan cho nhóm xe tay ga" loading="lazy" />
+                <img src="assets/images/honda-vario-160.webp" alt="Honda Vario đại diện nhóm xe tay ga cần kiểm tra pô" loading="lazy" />
               </div>
               <div class="product-copy">
                 <small>Nhóm xe tay ga</small>
@@ -414,7 +414,7 @@
 
             <article class="product-card">
               <div class="product-image">
-                <img src="po-titan-xe-con-ai.png" alt="Ảnh minh họa pô titan cho Exciter và Winner X" loading="lazy" />
+                <img src="assets/images/yamaha-exciter-155.webp" alt="Yamaha Exciter đại diện nhóm xe côn tay cần kiểm tra pô" loading="lazy" />
               </div>
               <div class="product-copy">
                 <small>Nhóm xe côn tay</small>
@@ -429,7 +429,7 @@
 
             <article class="product-card">
               <div class="product-image">
-                <img src="co-po-titan-ai.png" alt="Ảnh minh họa cổ pô titan cho xe máy một xi-lanh" loading="lazy" />
+                <img src="assets/images/po-va-co-po.webp" alt="Pô và cổ pô xe máy cần kiểm tra kích thước" loading="lazy" />
               </div>
               <div class="product-copy">
                 <small>Cổ pô titan</small>
@@ -444,7 +444,7 @@
 
             <article class="product-card">
               <div class="product-image">
-                <img src="po-titan-pho-thong-ai.png" alt="Ảnh minh họa pô titan cho Honda Wave và Yamaha Sirius" loading="lazy" />
+                <img src="assets/images/honda-wave-alpha.webp" alt="Honda Wave đại diện nhóm xe số cần kiểm tra pô" loading="lazy" />
               </div>
               <div class="product-copy">
                 <small>Nhóm xe số</small>
@@ -532,23 +532,6 @@
       addEventListener("scroll", updateScroll, { passive: true });
       updateScroll();
 
-      async function reuseIndexLogo() {
-        try {
-          const response = await fetch("index.html", { cache: "no-store" });
-          if (!response.ok) return;
-          const source = await response.text();
-          const indexDocument = new DOMParser().parseFromString(source, "text/html");
-          const indexLogo = indexDocument.querySelector(".brand-logo");
-          if (indexLogo && indexLogo.src) {
-            document.getElementById("shared-logo").src = indexLogo.src;
-            const footerLogo = document.querySelector(".shared-footer-logo");
-            if (footerLogo) footerLogo.src = indexLogo.src;
-          }
-        } catch (error) {
-          console.warn("Không thể lấy logo từ index.html", error);
-        }
-      }
-      reuseIndexLogo();
     </script>
   </body>
 </html>

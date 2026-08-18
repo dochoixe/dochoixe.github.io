@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Chọn phụ tùng và phụ kiện theo đúng dòng xe, đời xe cùng DOCHOIXE99.">
+  <title>Chọn phụ kiện theo xe | DOCHOIXE99</title>
+  <link rel="canonical" href="https://dochoixe.github.io/chon-phu-kien-theo-xe.html">
+  <link rel="icon" type="image/webp" href="assets/images/logo-dochoixe99.webp">
+  <style>
+    :root{--bg:#08090b;--panel:#13161b;--line:#2b3039;--red:#d91f26;--hot:#ff3b35;--muted:#a9adb6;--paper:#f4f1eb;--container:min(1180px,calc(100% - 40px))}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}img{display:block;max-width:100%}.container{width:var(--container);margin:auto}
+    header{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.94);border-bottom:1px solid rgba(255,255,255,.09)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:11px;font-weight:950;font-size:25px;letter-spacing:-.05em}.brand img{width:52px;height:52px;border-radius:15px;object-fit:cover}.brand em{color:var(--hot);font-style:normal}.brand small{display:block;margin-top:5px;color:#999da6;font-size:9px;letter-spacing:.08em;text-transform:uppercase}.nav-links{display:flex;align-items:center;gap:24px;color:#d5d8de;font-size:14px;font-weight:750}.nav-links a:hover{color:var(--hot)}
+    .hero{position:relative;overflow:hidden;padding:86px 0 54px;background:radial-gradient(circle at 82% 20%,rgba(255,59,53,.17),transparent 28%)}.hero::after{content:"99";position:absolute;right:-25px;top:-65px;color:rgba(255,255,255,.025);font-size:340px;font-weight:1000}.eyebrow{color:#ffaaa6;font-size:12px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}.hero h1{max-width:900px;margin:15px 0 20px;font-size:clamp(46px,7vw,92px);line-height:.94;letter-spacing:-.065em;text-transform:uppercase}.hero h1 span{color:var(--hot)}.hero p{max-width:710px;margin:0;color:#b7bbc3;font-size:17px;line-height:1.75}
+    .selector{padding:22px 0 96px}.selector-card{display:grid;grid-template-columns:.86fr 1.14fr;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:var(--panel);box-shadow:0 30px 80px rgba(0,0,0,.28)}.vehicle-visual{position:relative;min-height:530px;display:grid;place-items:center;padding:38px;background:linear-gradient(145deg,#f7f6f2,#dddcd7)}.vehicle-visual::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:#ffd9d5}.vehicle-visual img{position:relative;z-index:1;width:95%;height:430px;object-fit:contain;mix-blend-mode:multiply}.vehicle-copy{padding:54px}.vehicle-copy h2{margin:9px 0 7px;font-size:clamp(36px,5vw,62px);letter-spacing:-.055em}.vehicle-models{margin:0 0 27px;color:#ffaaa6;font-weight:800}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:23px}.field label{display:block;margin-bottom:8px;color:#c4c7ce;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.field select,.field input{width:100%;min-height:52px;padding:0 14px;border:1px solid #343943;border-radius:13px;background:#1b1e25;color:#fff;outline:0}.field select:focus,.field input:focus{border-color:var(--hot)}
+    .need-title{margin:26px 0 12px;font-size:15px}.need-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.need{display:flex;align-items:center;gap:11px;padding:15px;border:1px solid #343943;border-radius:14px;background:#191c22;color:#d7dae0;cursor:pointer;transition:.2s}.need:hover,.need.active{border-color:var(--hot);background:#261719}.need input{accent-color:var(--red)}.note{margin:18px 0;color:#9da1aa;font-size:13px;line-height:1.65}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:1px solid #3a3f49;border-radius:14px;background:#1b1e24;color:#fff;font-weight:900;cursor:pointer}.btn.primary{border-color:var(--red);background:var(--red)}.btn:hover{transform:translateY(-2px)}
+    .how{padding:88px 0;background:var(--paper);color:#15171b}.how h2{margin:8px 0 34px;font-size:clamp(38px,5vw,64px);letter-spacing:-.055em;text-transform:uppercase}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.step{padding:26px;border:1px solid #d7d3cc;border-radius:20px;background:#fff}.step b{display:grid;width:38px;height:38px;place-items:center;border-radius:50%;background:#15171b;color:#fff}.step h3{margin:18px 0 8px;font-size:20px}.step p{margin:0;color:#62656d;line-height:1.65;font-size:14px}
+    footer{padding:40px 0;border-top:1px solid #242830;background:#090a0d;color:#999}
+    @media(max-width:820px){.nav-links{display:none}.selector-card{grid-template-columns:1fr}.vehicle-visual{min-height:360px}.vehicle-visual img{height:300px}.vehicle-copy{padding:34px 24px}.steps{grid-template-columns:1fr}.hero{padding-top:62px}}
+    @media(max-width:520px){:root{--container:calc(100% - 24px)}.brand{font-size:21px}.brand img{width:46px;height:46px}.fields,.need-grid{grid-template-columns:1fr}.vehicle-visual{min-height:310px}.vehicle-visual img{height:260px}.actions .btn{width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="assets/images/logo-dochoixe99.webp" alt="Logo DOCHOIXE99" width="160" height="160"><span>DOCHOIXE<em>99</em><small>Đồ chơi xe máy • Phụ tùng • Phụ kiện</small></span></a>
+      <nav class="nav-links" aria-label="Điều hướng chính"><a href="index.html#kham-pha-xe">Dòng xe</a><a href="index.html#phu-tung">Phụ tùng</a><a href="index.html#phu-kien">Phụ kiện</a><a href="bai-viet/">Blog</a><a href="index.html#lien-he">Liên hệ</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container"><div class="eyebrow">Tư vấn theo đúng xe</div><h1>Chọn xe trước.<br><span>Chọn đồ chuẩn hơn.</span></h1><p>Mỗi đời xe có kích thước và chuẩn lắp khác nhau. Chọn dòng xe, ghi rõ phiên bản/đời xe và nhóm cần nâng cấp để DOCHOIXE99 kiểm tra trước khi tư vấn.</p></div>
+    </section>
+
+    <section class="selector">
+      <div class="container selector-card">
+        <div class="vehicle-visual"><img id="vehicleImage" src="assets/images/honda-vario-160.webp" alt="Honda Vario 160"></div>
+        <div class="vehicle-copy">
+          <div class="eyebrow">Xe đang chọn</div>
+          <h2 id="vehicleTitle">Honda Vario</h2>
+          <p class="vehicle-models" id="vehicleModels">Vario 125 / 160</p>
+          <div class="fields">
+            <div class="field"><label for="vehicleSelect">Dòng xe</label><select id="vehicleSelect" aria-label="Chọn dòng xe"></select></div>
+            <div class="field"><label for="vehicleVersion">Phiên bản / đời xe</label><input id="vehicleVersion" maxlength="80" placeholder="Ví dụ: 160, đời 2024"></div>
+          </div>
+          <h3 class="need-title">Bạn muốn nâng cấp hạng mục nào?</h3>
+          <div class="need-grid">
+            <label class="need active"><input type="radio" name="need" value="Hệ thống phanh" checked> Hệ thống phanh</label>
+            <label class="need"><input type="radio" name="need" value="CNC và hệ thống treo"> CNC &amp; hệ thống treo</label>
+            <label class="need"><input type="radio" name="need" value="Dàn áo và ốp"> Dàn áo &amp; ốp</label>
+            <label class="need"><input type="radio" name="need" value="Pô và cổ pô"> Pô &amp; cổ pô</label>
+          </div>
+          <p class="note">Giá, tồn kho và khả năng tương thích sẽ được xác nhận theo đúng dòng xe trước khi đặt. Không tự lắp các hạng mục ảnh hưởng đến an toàn nếu chưa có kỹ thuật phù hợp.</p>
+          <div class="actions"><a class="btn primary" id="consultButton" href="index.html#lien-he">Điền thông tin tư vấn ↗</a><a class="btn" data-link="zalo" href="https://zalo.me/0878976186" target="_blank" rel="noopener">Nhắn Zalo</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how">
+      <div class="container"><div class="eyebrow" style="color:#ad151b">Quy trình rõ ràng</div><h2>Ba bước để chọn đúng</h2><div class="steps"><article class="step"><b>1</b><h3>Chọn đúng dòng xe</h3><p>Đối chiếu tên xe, phiên bản động cơ và năm sản xuất nếu có.</p></article><article class="step"><b>2</b><h3>Gửi nhu cầu thực tế</h3><p>Nêu hạng mục muốn nâng cấp, cách sử dụng và mức ngân sách dự kiến.</p></article><article class="step"><b>3</b><h3>Xác nhận trước khi đặt</h3><p>DOCHOIXE99 kiểm tra chuẩn lắp, giá và tình trạng sản phẩm rồi mới tư vấn.</p></article></div></div>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 DOCHOIXE99. Đồ chơi và phụ kiện xe máy.</div></footer>
+  <script src="config-links.js"></script>
+  <script src="footer.js"></script>
+  <script>
+    const vehicles = {
+      Vario:{title:"Honda Vario",models:"Vario 125 / 160",image:"assets/images/honda-vario-160.webp"},
+      SH:{title:"Honda SH",models:"SH125i / SH160i",image:"assets/images/honda-sh160i.webp"},
+      Vespa:{title:"Vespa Sprint",models:"Sprint / Primavera",image:"assets/images/vespa-sprint.webp"},
+      Exciter:{title:"Yamaha Exciter",models:"Exciter 150 / 155",image:"assets/images/yamaha-exciter-155.webp"},
+      Sirius:{title:"Yamaha Sirius",models:"Sirius / Sirius FI",image:"assets/images/yamaha-sirius-fi.webp"},
+      Winner:{title:"Honda Winner",models:"Winner X / Winner R",image:"assets/images/honda-winner-x.webp"},
+      Wave:{title:"Honda Wave",models:"Wave Alpha / RSX",image:"assets/images/honda-wave-alpha.webp"},
+      "Air Blade":{title:"Honda Air Blade",models:"Air Blade 125 / 160",image:"assets/images/honda-air-blade.webp"},
+      Vision:{title:"Honda Vision",models:"Vision thế hệ mới",image:"assets/images/honda-vision.webp"},
+      NVX:{title:"Yamaha NVX",models:"NVX 155",image:"assets/images/yamaha-nvx-155.webp"},
+      Janus:{title:"Yamaha Janus",models:"Janus 125",image:"assets/images/yamaha-janus-125.webp"},
+      Lead:{title:"Honda Lead",models:"Lead 125",image:"assets/images/honda-lead-125.webp"}
+    };
+    const params = new URLSearchParams(location.search);
+    const select = document.getElementById("vehicleSelect");
+    const version = document.getElementById("vehicleVersion");
+    const title = document.getElementById("vehicleTitle");
+    const models = document.getElementById("vehicleModels");
+    const image = document.getElementById("vehicleImage");
+    const button = document.getElementById("consultButton");
+    Object.keys(vehicles).forEach((key) => select.add(new Option(vehicles[key].title, key)));
+    select.value = Object.hasOwn(vehicles, params.get("xe")) ? params.get("xe") : "Vario";
+    version.value = params.get("dong") || "";
+    function updateVehicle(){
+      const item = vehicles[select.value];
+      title.textContent = item.title;
+      models.textContent = item.models;
+      image.src = item.image;
+      image.alt = item.title + " " + item.models;
+      updateLink();
+    }
+    function updateLink(){
+      const need = document.querySelector('input[name="need"]:checked').value;
+      const query = new URLSearchParams({xe:select.value,doi:version.value.trim(),"nhu-cau":need});
+      button.href = "index.html?" + query.toString() + "#lien-he";
+    }
+    select.addEventListener("change",updateVehicle);
+    version.addEventListener("input",updateLink);
+    document.querySelectorAll('input[name="need"]').forEach((radio) => radio.addEventListener("change",() => {
+      document.querySelectorAll(".need").forEach((label) => label.classList.toggle("active",label.contains(radio) && radio.checked));
+      updateLink();
+    }));
+    const config = window.DOCHOIXE99_CONFIG || {};
+    document.querySelectorAll('[data-link="zalo"]').forEach((link) => link.href = "https://zalo.me/" + (config.PHONE_RAW || "0878976186"));
+    updateVehicle();
+  </script>
+</body>
+</html>
