@@ -52,11 +52,35 @@
     .shared-footer-social a:hover{transform:translateY(-2px);border-color:#ef233c;background:#211315;color:#ef233c}
     .shared-footer-social .is-disabled{opacity:.55;cursor:not-allowed}
     .shared-footer-social svg{width:14px;height:14px;fill:currentColor}
+    .shared-header-cart{position:relative;display:inline-flex!important;width:44px;height:44px;flex:0 0 44px;align-items:center;justify-content:center;padding:0!important;border:1px solid #3b4049!important;border-radius:13px!important;background:#171a20!important;color:#fff!important;text-decoration:none!important;box-shadow:none!important}
+    .shared-header-cart:hover{border-color:#ef233c!important;color:#ff6577!important;transform:translateY(-1px)}
+    .shared-header-cart svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    .shared-header-cart-count{position:absolute;top:-7px;right:-7px;display:grid;min-width:22px;height:22px;padding:0 5px;place-items:center;border:2px solid #090a0d;border-radius:999px;background:#ef233c;color:#fff;font-size:10px;font-weight:950;line-height:1}
     .mobile-lead-bar{display:none}
     @media(max-width:850px){.shared-footer-wrap{align-items:flex-start;flex-direction:column}.shared-footer-right{align-items:flex-start;justify-content:flex-start}.shared-footer-nav{gap:16px}}
-    @media(max-width:520px){body{padding-bottom:70px}#shared-site-footer{padding:38px 0}.shared-footer-wrap{width:min(100% - 24px,1180px)}.shared-footer-logo{width:56px;height:56px}.shared-footer-name{font-size:23px}.shared-footer-right{align-items:flex-start;flex-direction:column}.shared-footer-nav{display:grid;grid-template-columns:repeat(2,1fr);width:100%}.floating-contact,.float{display:none!important}.mobile-lead-bar{position:fixed;z-index:1000;left:0;right:0;bottom:0;display:grid;grid-template-columns:.72fr .72fr 1.56fr;gap:1px;padding:max(7px,env(safe-area-inset-bottom)) 8px 8px;background:#090a0d;border-top:1px solid #30343c;box-shadow:0 -12px 30px rgba(0,0,0,.38)}.mobile-lead-bar a{min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#171a20;color:#fff;text-decoration:none;font-size:12px;font-weight:900}.mobile-lead-bar a:last-child{background:#d91f26}}
+    @media(max-width:520px){body{padding-bottom:70px}#shared-site-footer{padding:38px 0}.shared-footer-wrap{width:min(100% - 24px,1180px)}.shared-footer-logo{width:56px;height:56px}.shared-footer-name{font-size:23px}.shared-footer-right{align-items:flex-start;flex-direction:column}.shared-footer-nav{display:grid;grid-template-columns:repeat(2,1fr);width:100%}.shared-header-cart{width:40px;height:40px;flex-basis:40px}header:has(.shared-header-cart) .brand-copy{display:none!important}header:has(.shared-header-cart) .nav{gap:10px!important}header:has(.shared-header-cart) #focusSearch{display:none!important}.floating-contact,.float{display:none!important}.mobile-lead-bar{position:fixed;z-index:1000;left:0;right:0;bottom:0;display:grid;grid-template-columns:.72fr .72fr 1.56fr;gap:1px;padding:max(7px,env(safe-area-inset-bottom)) 8px 8px;background:#090a0d;border-top:1px solid #30343c;box-shadow:0 -12px 30px rgba(0,0,0,.38)}.mobile-lead-bar a{min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#171a20;color:#fff;text-decoration:none;font-size:12px;font-weight:900}.mobile-lead-bar a:last-child{background:#d91f26}}
   `;
   document.head.appendChild(style);
+
+  const existingHeaderCart = document.querySelector("header .cart-button, header [data-open-disc-cart], header [data-header-cart]");
+  if (!existingHeaderCart) {
+    const headerHost = document.querySelector("header .nav-actions") || document.querySelector("header .nav");
+    if (headerHost) {
+      let count = 0;
+      try {
+        const items = JSON.parse(localStorage.getItem("dochoixe99DiscCartV1") || "[]");
+        count = Array.isArray(items) ? items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0) : 0;
+      } catch (error) {}
+      const cartLink = document.createElement("a");
+      cartLink.className = "shared-header-cart";
+      cartLink.href = "/dia-thang-xe-may.html?cart=open";
+      cartLink.dataset.headerCart = "";
+      cartLink.setAttribute("aria-label", `Mở giỏ hàng, ${count} sản phẩm`);
+      cartLink.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 10.1a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 1.9-1.4L21 8H6.1"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="shared-header-cart-count">${count}</span>`;
+      if (headerHost.classList.contains("nav-actions")) headerHost.insertBefore(cartLink, headerHost.firstChild);
+      else headerHost.appendChild(cartLink);
+    }
+  }
 
   const footer = document.querySelector("footer");
   if (!footer) return;

@@ -2,6 +2,11 @@ body.cart-open{overflow:hidden}
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 
+.header-cart{position:relative;display:inline-grid;width:46px;height:46px;flex:0 0 46px;place-items:center;padding:0;border:1px solid #454545;border-radius:12px;background:#171717;color:#fff}
+.header-cart:hover{border-color:#e21414;color:#ff6b6b;transform:translateY(-1px)}
+.header-cart svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.header-cart span{position:absolute;top:-8px;right:-8px;display:grid;min-width:22px;height:22px;padding:0 5px;place-items:center;border:2px solid #090909;border-radius:999px;background:#e21414;color:#fff;font-size:.67rem;font-weight:950;line-height:1}
+
 .catalog-shell{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:26px;align-items:start}
 .catalog-main{min-width:0}
 .catalog-toolbar{position:sticky;top:82px;z-index:18;display:grid;grid-template-columns:minmax(220px,1.4fr) repeat(3,minmax(135px,.7fr));gap:10px;margin-bottom:18px;padding:14px;border:1px solid #343434;border-radius:15px;background:rgba(16,16,16,.96);box-shadow:0 18px 34px rgba(0,0,0,.3);backdrop-filter:blur(12px)}
@@ -80,5 +85,6 @@ button{cursor:pointer}
 .toast.error{background:#b51c25;color:#fff}
 
 @media(max-width:1080px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.header-cart{margin-left:0}.menu-toggle{margin-left:auto}}
 @media(max-width:850px){.catalog-shell{grid-template-columns:1fr}.catalog-side{position:static;grid-template-columns:repeat(2,1fr)}.catalog-toolbar{top:74px}.catalog-main{order:2}.catalog-side{order:1}}
 @media(max-width:620px){.catalog-toolbar{position:static;grid-template-columns:1fr}.catalog-grid{grid-template-columns:1fr}.catalog-side{grid-template-columns:1fr}.product-info h3,.product-code,.product-note{min-height:0}.product-image{aspect-ratio:4/3}.product-image img{padding:15px}.catalog-actions{grid-template-columns:1fr 48px}.cart-item{grid-template-columns:62px minmax(0,1fr)}.cart-item img{width:62px;height:62px}.cart-item>div:last-child{grid-column:2}}

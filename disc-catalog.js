@@ -140,4 +140,5 @@
   });
 
   renderCart();
+  if(new URLSearchParams(location.search).get("cart")==="open")openCart();
 })();
