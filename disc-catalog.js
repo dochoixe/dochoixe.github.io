@@ -3,8 +3,6 @@
   if(!root)return;
 
   const config=window.DOCHOIXE99_CONFIG||{};
-  const phone=config.PHONE_RAW||"0878976186";
-  const zalo=`https://zalo.me/${phone}`;
   const products=[
     {id:"rcb-rs-267",brand:"RCB",type:"floating",size:"267",bike:"LC135 5S 125ZR",name:"RCB RS Series Floating 267mm",code:"01D0532B",image:"assets/images/rcb-rs-floating.webp",price:Number(config.RCB_RS_267_PRICE)||1790000,note:"Tâm nhôm 7-series T6; LC135 4S/LCV8 có cấu hình cần pat.",detail:"rcb-rs-series-floating.html",source:"Giá shop tham khảo"},
     {id:"rcb-rs-298",brand:"RCB",type:"floating",size:"298",bike:"Y15ZR Y16ZR",name:"RCB RS Series Floating 298mm",code:"01D0545",image:"assets/images/rcb-rs-floating.webp",price:Number(config.RCB_RS_298_PRICE)||1990000,note:"Bản floating lớn cho Y15ZR/Y16ZR; kiểm tra mâm, pat và heo.",detail:"rcb-rs-series-floating.html",source:"Giá shop tham khảo"},
@@ -42,7 +40,7 @@
   function priceMarkup(product){
     return product.price
       ? `<strong>${formatMoney(product.price)}</strong><small>${product.source} · xác nhận lại khi đặt</small>`
-      : `<strong>Liên hệ báo giá</strong><small>${product.source}</small>`;
+      : `<strong>Giá đang cập nhật</strong><small>${product.source} · shop xác nhận khi chốt đơn</small>`;
   }
 
   function renderCatalog(){
@@ -71,8 +69,8 @@
           <p class="product-note">${product.note}</p>
           <div class="catalog-price">${priceMarkup(product)}</div>
           <div class="catalog-actions">
-            <button class="add-disc" type="button" data-add-disc="${product.id}">${product.price?"Thêm vào giỏ":"Thêm để báo giá"}</button>
-            <a class="view-disc" href="${product.detail||zalo}" ${product.detail?"":"target=\"_blank\" rel=\"noopener\""} aria-label="${product.detail?"Xem chi tiết":"Hỏi qua Zalo"} ${product.name}">${product.detail?"↗":"Z"}</a>
+            <button class="add-disc" type="button" data-add-disc="${product.id}">Thêm vào giỏ</button>
+            ${product.detail?`<a class="view-disc" href="${product.detail}" aria-label="Xem chi tiết ${product.name}">↗</a>`:""}
           </div>
         </div>
       </article>`).join(""):'<div class="empty-results"><strong>Không tìm thấy mẫu phù hợp.</strong><p>Thử xóa bớt bộ lọc hoặc nhập tên xe ngắn hơn.</p></div>';

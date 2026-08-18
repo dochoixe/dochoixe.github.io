@@ -36,9 +36,9 @@ button{cursor:pointer}
 .catalog-price{margin-top:auto;padding-top:14px;border-top:1px solid #2b2b2b}
 .catalog-price strong{display:block;color:#ff6262;font-size:1.25rem;line-height:1.2}
 .catalog-price small{color:#858585;font-size:.68rem}
-.catalog-actions{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:12px}
+.catalog-actions{display:flex;gap:8px;margin-top:12px}
 .add-disc,.view-disc{min-height:43px;border-radius:9px;font-weight:900}
-.add-disc{border:1px solid #e21414;background:#d41313;color:#fff}
+.add-disc{flex:1;border:1px solid #e21414;background:#d41313;color:#fff}
 .add-disc:hover{background:#f02323}
 .view-disc{display:grid;min-width:43px;place-items:center;border:1px solid #3b3b3b;background:#151515;color:#fff;text-decoration:none}
 .empty-results{grid-column:1/-1;padding:46px 20px;border:1px dashed #3a3a3a;border-radius:15px;text-align:center;color:#aaa}
@@ -87,4 +87,4 @@ button{cursor:pointer}
 @media(max-width:1080px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.header-cart{margin-left:0}.menu-toggle{margin-left:auto}}
 @media(max-width:850px){.catalog-shell{grid-template-columns:1fr}.catalog-side{position:static;grid-template-columns:repeat(2,1fr)}.catalog-toolbar{top:74px}.catalog-main{order:2}.catalog-side{order:1}}
-@media(max-width:620px){.catalog-toolbar{position:static;grid-template-columns:1fr}.catalog-grid{grid-template-columns:1fr}.catalog-side{grid-template-columns:1fr}.product-info h3,.product-code,.product-note{min-height:0}.product-image{aspect-ratio:4/3}.product-image img{padding:15px}.catalog-actions{grid-template-columns:1fr 48px}.cart-item{grid-template-columns:62px minmax(0,1fr)}.cart-item img{width:62px;height:62px}.cart-item>div:last-child{grid-column:2}}
+@media(max-width:620px){.catalog-toolbar{position:static;grid-template-columns:1fr}.catalog-grid{grid-template-columns:1fr}.catalog-side{grid-template-columns:1fr}.product-info h3,.product-code,.product-note{min-height:0}.product-image{aspect-ratio:4/3}.product-image img{padding:15px}.cart-item{grid-template-columns:62px minmax(0,1fr)}.cart-item img{width:62px;height:62px}.cart-item>div:last-child{grid-column:2}}
