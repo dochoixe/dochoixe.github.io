@@ -4,8 +4,6 @@
    ============================================================ */
 window.DOCHOIXE99_CONFIG = {
   HOME_URL: "https://dochoixe.github.io/",
-  BRAKE_PAGE_PATH: "dia-thang-xe-may.html",
-  CNC_PAGE_PATH: "phuoc-rcb.html",
   VEHICLE_SELECTOR_PATH: "chon-phu-kien-theo-xe.html",
   RCB_RS_PAGE_PATH: "rcb-rs-series-floating.html",
  

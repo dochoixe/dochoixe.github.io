@@ -1,90 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dochoixe.github.io/</loc>
+    <loc>https://dochoixe.github.io/bai-viet/dia-thang-rcb-260mm.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/hero-dochoixe99-1672.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/anh-dai-dien.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/dia-thang-xe-may.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/heo-dau-xe-may.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-brake-catalog-hero.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/do-choi-tay-lai.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-handle-grip-nagamaki.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/phuoc-rcb.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-ai-hero-products.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/nhong-sen-dia.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/nhong-sen-dia-hero.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/mam-xe.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/mam-rcb-ct600-vario-click.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/gioi-thieu.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/anh-dai-dien.jpg</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/chon-phu-kien-theo-xe.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/logo-dochoixe99.webp</image:loc>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://dochoixe.github.io/rcb-rs-series-floating.html</loc>
-    <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-rs-floating.webp</image:loc>
-    </image:image>
   </url>
   <url>
     <loc>https://dochoixe.github.io/bai-viet/</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
-    </image:image>
   </url>
   <url>
-    <loc>https://dochoixe.github.io/bai-viet/dia-thang-rcb-260mm.html</loc>
+    <loc>https://dochoixe.github.io/chon-phu-kien-theo-xe.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-e2-plus-floating.webp</image:loc>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/dia-thang-xe-may.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/do-choi-tay-lai.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/gioi-thieu.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/heo-dau-xe-may.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/mam-xe.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/nhong-sen-dia.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/phuoc-rcb.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
+  <url>
+    <loc>https://dochoixe.github.io/rcb-rs-series-floating.html</loc>
+    <lastmod>2026-08-19</lastmod>
   </url>
 </urlset>

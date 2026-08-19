@@ -2,18 +2,12 @@
 
 <html lang="vi">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<!-- DOCHOIXE99 site identity / favicon -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-
 <meta content="RCB RS Series Floating 267mm và 298mm: thông số, giá tham khảo, tương thích và giỏ hàng tư vấn tại DOCHOIXE99." name="description"/>
-<meta name="robots" content="index,follow,max-image-preview:large">
 <title>RCB RS Series Floating 267mm, 298mm | Giá &amp; giỏ hàng</title>
 <link href="https://dochoixe.github.io/rcb-rs-series-floating.html" rel="canonical"/>
+<link href="assets/images/logo-dochoixe99.webp" rel="icon" type="image/webp"/>
 <meta content="website" property="og:type"/>
 <meta content="RCB RS Series Floating 267mm, 298mm | DOCHOIXE99" property="og:title"/>
 <meta content="Xem giá tham khảo, thông số và thêm RCB RS Series Floating vào giỏ hàng." property="og:description"/>
@@ -31,7 +25,7 @@
     @media(max-width:880px){.navlinks{display:none}.hero-grid,.detail-grid{grid-template-columns:1fr}.hero-product{max-width:560px}.section-head{display:block}.section-head p{margin-top:18px}}
     @media(max-width:620px){:root{--container:calc(100% - 24px)}.nav{min-height:68px}.brand{font-size:20px}.brand img{width:46px;height:46px}.brand small{display:none}.cart-button{margin-left:auto;padding:0 13px}.hero{padding:35px 0 58px}.hero h1{font-size:47px}.product-grid{grid-template-columns:1fr}.product-image{height:330px}.product-actions{grid-template-columns:1fr}.details{padding:65px 0}.cart-item{grid-template-columns:64px 1fr}.cart-item img{width:64px;height:64px}.cart-item>div:last-child{grid-column:2}}
   </style>
-<link href="/site-polish.css?v=20260819-4" rel="stylesheet"/><script type="application/ld+json">
+<link href="/site-polish.css?v=20260819-1" rel="stylesheet"/><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -219,6 +213,8 @@
 </div>
 </aside>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="config-links.js"></script>
+<script src="footer.js?v=20260819-3"></script>
 <script>
     const config = window.DOCHOIXE99_CONFIG || {};
     const formatMoney = (value) => new Intl.NumberFormat("vi-VN", {style:"currency",currency:"VND",maximumFractionDigits:0}).format(value);
@@ -250,6 +246,5 @@
     orderForm.addEventListener("submit",async event=>{event.preventDefault();if(!cart.length){showToast("Giỏ hàng đang trống",true);return}if(!orderForm.reportValidity())return;const endpoint=config.LEAD_WEB_APP_URL||"";if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){showToast("Kênh nhận đơn đang bảo trì. Vui lòng nhắn Zalo.",true);return}const formData=Object.fromEntries(new FormData(orderForm).entries());if(formData.company)return;const button=orderForm.querySelector('button[type="submit"]'),original=button.textContent,total=cart.reduce((sum,item)=>sum+products[item.id].price*item.quantity,0);const payload={type:"cart_order",name:formData.name,phone:formData.phone,bike:formData.bike,note:formData.note,items:cart.map(item=>({...products[item.id],quantity:item.quantity})),total,page:location.href,submittedAt:new Date().toISOString()};button.disabled=true;button.textContent="Đang gửi...";try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});cart=[];saveCart();renderCart();orderForm.reset();closeCart();showToast("Đã nhận giỏ hàng — shop sẽ liên hệ xác nhận!")}catch(error){showToast("Không gửi được. Vui lòng gọi hoặc nhắn Zalo.",true)}finally{button.disabled=!cart.length;button.textContent=original}});
     renderCart();
   </script>
-<script src="/config-links.js?v=20260819-4"></script><script src="/footer.js?v=20260819-4"></script>
-<script src="/site-polish.js?v=20260819-4"></script></body>
+<script src="/site-polish.js?v=20260819-1"></script></body>
 </html>
