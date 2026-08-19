@@ -26,7 +26,83 @@
     @media(max-width:620px){.product-grid,.cluster,.footer-grid,.trust{grid-template-columns:1fr}.section{padding:54px 0}.hero h1{font-size:2.45rem}.hero-copy{padding:54px 0}.card-actions a{flex-basis:100%}.container{width:min(calc(100% - 22px),var(--max))}}
   </style>
 <link href="disc-catalog.css" rel="stylesheet"/>
-<link href="/site-polish.css?v=20260819-1" rel="stylesheet"/></head>
+<link href="/site-polish.css?v=20260819-1" rel="stylesheet"/>
+<style id="homepage-background-sync">
+  /* Đồng bộ nền phần nội dung theo tông nền sáng giống khu “Sản phẩm nổi bật” ở trang chủ */
+  :root{
+    --home-cream:#ece9e2;
+    --home-cream-2:#e7e3db;
+    --home-cream-3:#f5f1ea;
+    --home-line:#d7d0c5;
+    --home-text:#12151b;
+    --home-muted:#444b54;
+  }
+
+  html, body{background:var(--home-cream) !important;}
+  main{background:var(--home-cream) !important;}
+  .breadcrumb{background:transparent !important;color:#716d66 !important;}
+
+  /* Khu nội dung đổi sang nền sáng giống ảnh mẫu thứ 2 */
+  .notice{background:var(--home-cream-3) !important;color:#2e333a !important;box-shadow:0 8px 24px rgba(0,0,0,.04);line-height:1.75;}
+  .notice a{color:#b91616 !important;}
+  .section{background:var(--home-cream) !important;}
+  .section.alt{background:var(--home-cream-2) !important;border-block:1px solid var(--home-line) !important;}
+  #san-pham{background:var(--home-cream) !important;}
+
+  /* Chữ ở các vùng nền sáng chuyển sang tông tối để dễ đọc */
+  .section-head,
+  .catalog-status,
+  .two-col > div,
+  #faq > .container,
+  #gia > .container > div:first-child,
+  #lap-dat > .container > div:first-child{
+    color:var(--home-text) !important;
+  }
+
+  .section-head h2,
+  .two-col > div h2,
+  .two-col > div h3,
+  .catalog-status strong,
+  #faq h2,
+  #faq summary{
+    color:var(--home-text) !important;
+  }
+
+  .section-head p,
+  .catalog-status span,
+  .two-col > div p,
+  .breadcrumb a,
+  .breadcrumb span{
+    color:var(--home-muted) !important;
+  }
+
+  .eyebrow{color:#b71c1c !important;}
+
+  /* FAQ cũng đưa về nền sáng để đồng bộ mạch nền giao diện */
+  .faq details{
+    background:var(--home-cream-3) !important;
+    border-color:var(--home-line) !important;
+  }
+  .faq details p{color:#3f454d !important;line-height:1.72;}
+
+  .section-head p,
+  .catalog-status span,
+  .two-col > div p,
+  .breadcrumb a,
+  .breadcrumb span{
+    line-height:1.72;
+    font-weight:500;
+  }
+
+  .section-head h2,
+  .two-col > div h2,
+  #faq h2{
+    letter-spacing:-.02em;
+  }
+
+  /* Giữ nguyên card sản phẩm, nút, ảnh và bố cục */
+</style>
+</head>
 <body>
 <a class="skip" href="#main">Bỏ qua menu</a>
 <header class="site-header">
