@@ -191,6 +191,70 @@
     }
     @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
+<style id="homepage-cream-background-sync">
+  /* Đồng bộ nền sáng giống khu Sản phẩm nổi bật / trang đĩa thắng */
+  :root{
+    --home-cream:#ece9e2;
+    --home-cream-2:#e7e3db;
+    --home-cream-3:#f5f1ea;
+    --home-line:#d7d0c5;
+    --home-text:#12151b;
+    --home-muted:#444b54;
+  }
+
+  html,body{background:var(--home-cream)!important;}
+  main{background:var(--home-cream)!important;}
+
+  /* Giữ topbar, header, hero và footer nền tối như cũ */
+  .topbar{background:#0d0d0d!important;}
+  .site-header{background:rgba(7,7,7,.94)!important;}
+  .hero{background:
+    radial-gradient(circle at 78% 18%,rgba(224,20,20,.19),transparent 27%),
+    radial-gradient(circle at 18% 70%,rgba(255,255,255,.055),transparent 28%),
+    linear-gradient(180deg,#0a0a0a,#070707)!important;}
+  footer{background:#090909!important;}
+
+  /* Khu catalog chuyển sang nền kem sáng */
+  .catalog{background:var(--home-cream)!important;}
+  .product-section{background:transparent!important;}
+  .product-section + .product-section{border-top-color:var(--home-line)!important;}
+
+  /* Thanh tìm kiếm sáng, chữ tối */
+  .catalog-toolbar{
+    background:var(--home-cream-3)!important;
+    border-color:var(--home-line)!important;
+    box-shadow:0 10px 28px rgba(0,0,0,.04);
+  }
+  .searchbox{
+    background:#fffdfa!important;
+    border-color:#d4cec4!important;
+  }
+  .searchbox input{color:var(--home-text)!important;}
+  .searchbox input::placeholder{color:#7d7a74!important;}
+  .catalog-count{color:var(--home-muted)!important;}
+  .catalog-count strong{color:var(--home-text)!important;}
+
+  /* Tiêu đề và mô tả ở vùng nền sáng */
+  .section-kicker{color:#b71c1c!important;}
+  .section-heading h2{color:var(--home-text)!important;}
+  .section-heading p{color:var(--home-muted)!important;font-weight:500;line-height:1.7;}
+  .section-number{
+    color:#ded9d0!important;
+    -webkit-text-stroke:1px #c2bbb0!important;
+  }
+
+  /* Ghi chú tương thích đổi sang nền sáng dễ đọc */
+  .fit-note{
+    background:var(--home-cream-3)!important;
+    border-color:var(--home-line)!important;
+    box-shadow:0 10px 28px rgba(0,0,0,.04);
+  }
+  .fit-note strong{color:var(--home-text)!important;}
+  .fit-note p{color:var(--home-muted)!important;line-height:1.7;}
+
+  /* Card sản phẩm giữ nền đen để nổi bật trên nền kem */
+  .product-card{background:linear-gradient(180deg,#111,#0c0c0c)!important;}
+</style>
 <link href="/site-polish.css?v=20260819-1" rel="stylesheet"/><script type="application/ld+json">
 {
   "@context": "https://schema.org",
