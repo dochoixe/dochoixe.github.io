@@ -189,10 +189,86 @@
   ]
 }
 </script>
-<link href="/site-polish.css?v=20260819-1" rel="stylesheet"/></head>
+<link href="/site-polish.css?v=20260819-1" rel="stylesheet"/>
+<style id="homepage-cream-sync-phuoc">
+  :root{
+    --home-cream:#ece9e2;
+    --home-cream-2:#e7e3db;
+    --home-cream-3:#f5f1ea;
+    --home-line:#d7d0c5;
+    --home-text:#12151b;
+    --home-muted:#454b54;
+  }
+
+  html,body{background:var(--home-cream)!important;}
+  .suspension-page{background:var(--home-cream)!important;}
+
+  /* Giữ header + hero + thanh jump tối để đúng nhận diện trang chủ */
+  .topbar{background:#0d0d0d!important;color:#d8d8d8!important;}
+  header{background:#111!important;border-bottom:1px solid #282828!important;}
+  .suspension-hero{color:#fff!important;}
+  .jump{background:rgba(10,12,15,.96)!important;}
+
+  /* Logo + tên thương hiệu */
+  header .brand{display:inline-flex!important;align-items:center!important;gap:11px!important;text-decoration:none!important;min-width:max-content!important;}
+  header .brand>img{display:block!important;width:46px!important;height:46px!important;max-width:46px!important;min-width:46px!important;object-fit:cover!important;border-radius:12px!important;border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 8px 22px rgba(242,31,47,.18)!important;}
+  header .brand>span{display:block!important;line-height:1.05!important;}
+  header .brand-name{display:block!important;color:#fff!important;font-size:17px!important;font-weight:950!important;letter-spacing:.4px!important;white-space:nowrap!important;}
+  header .brand-name em{color:#f21f2f!important;font-style:normal!important;}
+  header .brand small{display:block!important;margin-top:5px!important;color:#8f949c!important;font-size:10px!important;white-space:nowrap!important;}
+
+  /* Nền nội dung sáng giống khu Sản phẩm nổi bật */
+  .breadcrumb{color:#6f6b65!important;}
+  .breadcrumb a{color:#454b54!important;}
+  .catalog,.catalog.rear,.guide,.final-cta,.category-links{background:var(--home-cream)!important;}
+  .catalog:before{background:radial-gradient(circle at 10% 8%,rgba(242,31,47,.055),transparent 25%)!important;}
+
+  .section-head h2,.guide-intro h2,.category-links h2{color:var(--home-text)!important;}
+  .section-head p,.guide-intro p,.step p,.source-note{color:var(--home-muted)!important;}
+  .kicker{color:#b51b27!important;}
+
+  /* Card sản phẩm vẫn đen để ảnh nổi bật */
+  .shock-card{background:linear-gradient(150deg,#181c23,#0d1015 65%)!important;border-color:#2c3138!important;color:#fff!important;}
+  .shock-body h3{color:#fff!important;}
+  .fit{color:#c3c8cf!important;}
+  .features li{color:#e4e7eb!important;}
+
+  /* Khối hướng dẫn chuyển sang sáng, chữ rõ */
+  .guide-intro,.step{background:var(--home-cream-3)!important;border-color:var(--home-line)!important;box-shadow:0 10px 28px rgba(0,0,0,.04)!important;}
+  .step h3{color:var(--home-text)!important;}
+  .step b{color:#fff!important;}
+
+  /* CTA cuối giữ đậm để tạo điểm chốt */
+  .final-cta{padding-top:20px!important;}
+  .cta-inner{background:linear-gradient(120deg,#1a1d22,#151014)!important;color:#fff!important;}
+  .cta-inner h2{color:#fff!important;}
+  .cta-inner p{color:#c9cbd0!important;}
+
+  /* Giá sản phẩm */
+  .shock-price{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:2px 0 16px;padding:13px 14px;border:1px solid rgba(242,31,47,.28);border-radius:12px;background:rgba(242,31,47,.075);}
+  .shock-price span{color:#aeb4be;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;}
+  .shock-price strong{color:#ff4b59;font-size:20px;line-height:1;font-weight:950;white-space:nowrap;}
+  .price-note-phuoc{margin:-14px 0 30px;color:#6a665f;font-size:12px;font-weight:600;line-height:1.6;}
+
+  /* Footer đồng bộ logo + tên */
+  footer{background:#090909!important;color:#aaa!important;}
+  .footer-brand-lock{display:flex;align-items:center;gap:11px;}
+  .footer-brand-lock img{width:42px;height:42px;object-fit:cover;border-radius:11px;border:1px solid rgba(255,255,255,.14);}
+  .footer-brand-lock strong{color:#fff;font-size:17px;letter-spacing:.4px;}
+  .footer-brand-lock strong em{color:#f21f2f;font-style:normal;}
+  .footer-brand-lock span{display:block;color:#888;font-size:11px;margin-top:3px;}
+
+  @media(max-width:600px){
+    header .brand>img{width:38px!important;height:38px!important;max-width:38px!important;min-width:38px!important;}
+    header .brand-name{font-size:15px!important;}
+    header .brand small{display:none!important;}
+    .shock-price strong{font-size:18px;}
+  }
+</style>
+</head>
 <body>
 <div class="topbar"><div class="container"><span>Phuộc RCB • hệ thống treo xe máy</span><span><b>Hotline:</b> 0878 976 186 • Kiểm tra đúng xe trước khi giao</span></div></div>
-<header><div class="container nav"><a class="brand" href="index.html"><img alt="Logo DOCHOIXE99" height="160" src="assets/images/logo-dochoixe99.webp" width="160"/><span><span class="brand-name">DOCHOIXE<em>99</em></span><small>Phụ tùng &amp; phụ kiện xe máy</small></span></a><nav aria-label="Danh mục sản phẩm" class="navlinks" data-category-menu=""><a href="index.html">Trang chủ</a><a href="dia-thang-xe-may.html">Đĩa thắng</a><a href="heo-dau-xe-may.html">Heo dầu</a><a href="tay-thang-cnc.html">Tay thắng</a><a aria-current="page" href="phuoc-rcb.html">Phuộc</a></nav><a aria-label="Mở giỏ hàng" class="catalog-cart" href="dia-thang-xe-may.html?cart=open"><span>🛒 Giỏ hàng</span><b data-global-cart-count="">0</b></a><button aria-expanded="false" aria-label="Mở danh mục" class="menu-button" data-menu-button="" type="button">☰</button></div></header>
+<header><div class="container nav"><a class="brand" href="index.html"><img alt="Logo DOCHOIXE99" height="46" src="assets/images/logo-dochoixe99.webp" width="46"/><span><span class="brand-name">DOCHOIXE<em>99</em></span><small>Phụ tùng &amp; phụ kiện xe máy</small></span></a><nav aria-label="Danh mục sản phẩm" class="navlinks" data-category-menu=""><a href="index.html">Trang chủ</a><a href="dia-thang-xe-may.html">Đĩa thắng</a><a href="heo-dau-xe-may.html">Heo dầu</a><a href="tay-thang-cnc.html">Tay thắng</a><a aria-current="page" href="phuoc-rcb.html">Phuộc</a></nav><a aria-label="Mở giỏ hàng" class="catalog-cart" href="dia-thang-xe-may.html?cart=open"><span>🛒 Giỏ hàng</span><b data-global-cart-count="">0</b></a><button aria-expanded="false" aria-label="Mở danh mục" class="menu-button" data-menu-button="" type="button">☰</button></div></header>
 <main class="suspension-page">
 <div class="container breadcrumb"><a href="index.html">Trang chủ</a> / <a href="cnc-he-thong-treo.html">CNC &amp; hệ thống treo</a> / Phuộc RCB</div>
 <section class="suspension-hero"><div class="container hero-grid">
@@ -200,34 +276,34 @@
 <div aria-label="Phuộc RCB trên background AI có nhiều hộp sản phẩm" class="showcase"><span class="photo-note">Sản phẩm RCB • Background hộp AI</span></div>
 </div></section>
 <nav aria-label="Chuyển nhanh nhóm phuộc" class="jump"><div class="container jump-inner"><strong>Chọn nhóm sản phẩm</strong><div class="jump-links"><a href="#phuoc-truoc">Phuộc trước (3)</a><a href="#phuoc-sau">Phuộc sau (12)</a><a href="#huong-dan">Chọn đúng phuộc</a></div></div></nav>
-<section class="catalog" id="phuoc-truoc"><div class="container"><div class="section-head"><div><div class="kicker">Front suspension</div><h2>Phuộc trước <span>03 sản phẩm</span></h2></div><p>Ba dòng phuộc trước RCB được tách thành từng sản phẩm riêng. Bấm ảnh nhỏ để đổi góc xem ngay trên thẻ.</p></div><div class="shock-grid" id="front-grid"></div></div></section>
-<section class="catalog rear" id="phuoc-sau"><div class="container"><div class="section-head"><div><div class="kicker">Rear suspension</div><h2>Phuộc sau <span>12 sản phẩm</span></h2></div><p>Tách riêng phuộc mono, phuộc đôi và dòng bình dầu. Kích thước là cấu hình tham khảo; shop sẽ đối chiếu đời xe trước khi xác nhận.</p></div><div class="shock-grid" id="rear-grid"></div><p class="source-note">Tên dòng, ảnh gốc và cấu hình xe được tham khảo từ <a href="https://rcb.com/collections/suspension" rel="noopener noreferrer" target="_blank">danh mục Suspension chính thức của RCB</a>. Phần nền, hộp và bục trưng bày được tạo bằng AI; sản phẩm RCB được giữ nguyên để nhận diện.</p></div></section>
+<section class="catalog" id="phuoc-truoc"><div class="container"><div class="section-head"><div><div class="kicker">Front suspension</div><h2>Phuộc trước <span>03 sản phẩm</span></h2></div><p>Ba dòng phuộc trước RCB được tách thành từng sản phẩm riêng. Bấm ảnh nhỏ để đổi góc xem ngay trên thẻ.</p></div><p class="price-note-phuoc">Giá tham khảo tại thời điểm cập nhật, có thể thay đổi theo dòng xe, màu, phiên bản và tồn kho. Shop xác nhận lại trước khi chốt.</p><div class="shock-grid" id="front-grid"></div></div></section>
+<section class="catalog rear" id="phuoc-sau"><div class="container"><div class="section-head"><div><div class="kicker">Rear suspension</div><h2>Phuộc sau <span>12 sản phẩm</span></h2></div><p>Tách riêng phuộc mono, phuộc đôi và dòng bình dầu. Kích thước là cấu hình tham khảo; shop sẽ đối chiếu đời xe trước khi xác nhận.</p></div><p class="price-note-phuoc">Giá tham khảo tại thời điểm cập nhật, có thể thay đổi theo dòng xe, màu, phiên bản và tồn kho. Shop xác nhận lại trước khi chốt.</p><div class="shock-grid" id="rear-grid"></div><p class="source-note">Tên dòng, ảnh gốc và cấu hình xe được tham khảo từ <a href="https://rcb.com/collections/suspension" rel="noopener noreferrer" target="_blank">danh mục Suspension chính thức của RCB</a>. Phần nền, hộp và bục trưng bày được tạo bằng AI; sản phẩm RCB được giữ nguyên để nhận diện.</p></div></section>
 <section class="guide" id="huong-dan"><div class="container guide-grid"><div class="guide-intro"><div class="kicker">Chọn đúng ngay từ đầu</div><h2>Đừng chọn phuộc chỉ theo màu</h2><p>Đẹp là một phần; đúng chiều dài, đúng chân liên kết và đúng tải sử dụng mới quyết định phuộc có phù hợp với xe hay không.</p></div><div class="steps"><article class="step"><b>1</b><h3>Gửi dòng xe &amp; đời xe</h3><p>Ví dụ: Vario 160 đời 2024, NVX V2 hoặc XMAX V3.</p></article><article class="step"><b>2</b><h3>Đo phuộc zin</h3><p>Đo tâm–tâm và chụp rõ chân trên, chân dưới của phuộc đang dùng.</p></article><article class="step"><b>3</b><h3>Chọn nhu cầu</h3><p>Đi phố, chở hai người, đi tour hay cần cảm giác thể thao hơn.</p></article><article class="step"><b>4</b><h3>Xác nhận mã RCB</h3><p>Shop đối chiếu mã, màu, kích thước và cấu hình trước khi giao.</p></article></div></div></section>
 <section class="final-cta"><div class="container"><div class="cta-inner"><div><h2>Chưa biết xe mình dùng mẫu nào?</h2><p>Gửi tên xe, đời xe và ảnh phuộc hiện tại — DOCHOIXE99 sẽ kiểm tra giúp bạn.</p></div><a class="s-btn primary" href="index.html#lien-he">Gửi thông tin xe</a></div></div></section>
 <section class="category-links"><div class="container"><h2>Xem các trang sản phẩm</h2><div class="category-link-grid"><a class="category-link" href="dia-thang-xe-may.html">Đĩa thắng →</a><a class="category-link" href="heo-dau-xe-may.html">Heo dầu →</a><a class="category-link" href="tay-thang-cnc.html">Tay thắng CNC →</a><a class="category-link" href="phuoc-rcb.html">Phuộc RCB →</a></div></div></section>
 </main>
-<footer><div class="container base-footer"><strong>DOCHOIXE99</strong><span>Phụ tùng và phụ kiện xe máy</span></div></footer>
+<footer><div class="container base-footer"><a class="footer-brand-lock" href="index.html" aria-label="DOCHOIXE99 - Trang chủ"><img src="assets/images/logo-dochoixe99.webp" alt="Logo DOCHOIXE99" width="42" height="42"/><span><strong>DOCHOIXE<em>99</em></strong><span>Phụ tùng &amp; phụ kiện xe máy</span></span></a></div></footer>
 <noscript><section class="container"><h2>Danh sách phuộc RCB</h2><p>Phuộc trước: FF Series USD Front Fork, FE Front Fork, FD Front Fork. Phuộc sau: S2 Line, SS Line Monoshock, C2 Series, S2 Series, Tarmax, Flow S, S3 Line 30th, Flow Pro 30th, VR Series, VD 45 Degree, Flow Pro Dual Shock và A3 Series.</p></section></noscript>
 <script>
     const products={
       front:[
-        {featured:true,type:'Phuộc trước USD',name:'RCB FF Series USD Front Fork',fit:'Phuộc hành trình ngược cho Yamaha Y15ZR; tùy chọn Gold và Premium Black/Gold. Cần kiểm tra đời xe trước khi đặt.',features:['Piston lớn','Chỉnh compression','Chỉnh rebound','Chỉnh preload'],code:'01A0189G / 01A0189Z',images:['listing-2026-07-28T150507.030.jpg?v=1785222331','listing-2026-07-28T150517.050.jpg?v=1785222331','listing-2026-07-28T150522.357.jpg?v=1785222331']},
-        {type:'Phuộc trước',name:'RCB FE Front Fork',fit:'Có cấu hình cho Y15/Y16, RS150/RSX150, LC135, Click/Vario 125–150, Aerox/NVX và NMAX; kích thước đổi theo xe.',features:['Plug & play theo mã','Tăng lực giảm chấn','Phủ bề mặt cứng'],code:'Đường kính 26 / 30 / 31 mm',images:['listing_50.jpg?v=1784253520','listing_49.jpg?v=1784253520','listing_48.jpg?v=1784253520']},
-        {type:'Phuộc trước cao cấp',name:'RCB FD Front Fork',fit:'Dòng hiệu năng cao cho Yamaha XMAX; ngàm rèn, bình dầu ngoài và lắp theo chảng ba zin của cấu hình tương thích.',features:['Ống phủ DLC','Chỉnh 3 hướng','Ngàm nhôm rèn','Bình dầu ngoài'],code:'01A0350B',images:['listing_60.jpg?v=1784258283','listing_66.jpg?v=1784258891','listing_67.jpg?v=1784258891']}
+        {featured:true,type:'Phuộc trước USD',name:'RCB FF Series USD Front Fork',price:'15.900.000 – 16.700.000 ₫',fit:'Phuộc hành trình ngược cho Yamaha Y15ZR; tùy chọn Gold và Premium Black/Gold. Cần kiểm tra đời xe trước khi đặt.',features:['Piston lớn','Chỉnh compression','Chỉnh rebound','Chỉnh preload'],code:'01A0189G / 01A0189Z',images:['listing-2026-07-28T150507.030.jpg?v=1785222331','listing-2026-07-28T150517.050.jpg?v=1785222331','listing-2026-07-28T150522.357.jpg?v=1785222331']},
+        {type:'Phuộc trước',name:'RCB FE Front Fork',price:'1.950.000 ₫',fit:'Có cấu hình cho Y15/Y16, RS150/RSX150, LC135, Click/Vario 125–150, Aerox/NVX và NMAX; kích thước đổi theo xe.',features:['Plug & play theo mã','Tăng lực giảm chấn','Phủ bề mặt cứng'],code:'Đường kính 26 / 30 / 31 mm',images:['listing_50.jpg?v=1784253520','listing_49.jpg?v=1784253520','listing_48.jpg?v=1784253520']},
+        {type:'Phuộc trước cao cấp',name:'RCB FD Front Fork',price:'Liên hệ giá',fit:'Dòng hiệu năng cao cho Yamaha XMAX; ngàm rèn, bình dầu ngoài và lắp theo chảng ba zin của cấu hình tương thích.',features:['Ống phủ DLC','Chỉnh 3 hướng','Ngàm nhôm rèn','Bình dầu ngoài'],code:'01A0350B',images:['listing_60.jpg?v=1784258283','listing_66.jpg?v=1784258891','listing_67.jpg?v=1784258891']}
       ],
       rear:[
-        {type:'Monoshock',name:'RCB S2 Line',fit:'Phuộc sau mono cho Yamaha R25/MT25, hoàn thiện Premium Black. Kiểm tra đúng phiên bản và chân liên kết.',features:['Monoshock','Premium Black','R25 / MT25'],code:'01M0132Z',images:['DSC09694-Photoroom.png?v=1785311278','DSC00408-Photoroom.png?v=1785311319']},
-        {type:'Monoshock điện tử',name:'RCB SS Line Monoshock',fit:'Dòng mono cao cấp có bình dầu rời và nhiều cấp điều chỉnh. Dòng xe tương thích cần đối chiếu theo mã thực tế.',features:['Điều chỉnh điện tử','Compression','Rebound','Preload'],code:'Liên hệ kiểm tra mã',images:['listing_26.jpg?v=1784176673','Add_text_beside_arrow_202608040929.jpg?v=1785806997']},
-        {type:'Phuộc đôi',name:'RCB C2 Series Absorber',fit:'275 mm cho Yamaha Lagenda; 335 mm cho Honda EX5, Wave, Dash và Yamaha RXZ theo danh mục RCB.',features:['Phuộc đôi','Chỉnh tải lò xo','275 / 335 mm'],code:'01A0326 / 01A0327',images:['listing_25_55393e66-1afd-494f-90d9-43f16c61c5df.jpg?v=1784173025','Gloved_hand_holding_shock_absorber_202608040941.jpg?v=1785807675']},
-        {type:'Phuộc đôi',name:'RCB S2 Series Absorber',fit:'Cấu hình 305 mm cho NVX/NMAX và 330 mm cho NMAX V1; màu Black hoặc Premium Black.',features:['Chỉnh rebound','Chỉnh preload','305 / 330 mm'],code:'01A0313 / 01A0358',images:['listing_24.jpg?v=1784169943','listing_23.jpg?v=1784169943']},
-        {featured:true,type:'Monoshock scooter',name:'RCB Tarmax Series Absorber',fit:'Monoshock cho scooter: Vario 125/150 cỡ 330 mm và Vario 160 cỡ 340 mm.',features:['Twin-tube piston','Chỉnh preload','Chỉnh rebound','Dành cho scooter'],code:'01M0344 / 01M0345',images:['listing_18.jpg?v=1784167091','listing_19.jpg?v=1784167090','listing_20.jpg?v=1784167090']},
-        {type:'Bình dầu rời',name:'RCB Flow S Series Absorber',fit:'Cấu hình 340 mm cho Click 160/Vario 160; màu Titanium, Red, White hoặc Premium Black tùy mã.',features:['340 mm','Bình dầu rời','Nhiều màu'],code:'Kiểm tra màu và mã xe',images:['listing_15.jpg?v=1784107236','listing_14.jpg?v=1784107236','listing_16.jpg?v=1784107236']},
-        {type:'30th Limited',brand:'RCB 30th Anniversary',name:'S3 Line Monoshock Limited',fit:'Bản kỷ niệm 30 năm: 205 mm cho Yamaha Y15ZR/Y16ZR và 200 mm cho Yamaha LC135.',features:['Phiên bản giới hạn','200 / 205 mm','Monoshock'],code:'01M0375Z / 01M0377Z',images:['listing_9.jpg?v=1784089776','listing_8.jpg?v=1784089776']},
-        {type:'30th Limited',brand:'RCB 30th Anniversary',name:'Flow Pro Dual Shocks Limited',fit:'Bản phuộc đôi Flow Pro kỷ niệm 30 năm, thiết kế phối màu đặc biệt; cần kiểm tra số lượng còn lại.',features:['Phuộc đôi','Phiên bản giới hạn','Bình dầu'],code:'01A0343Z',images:['PL-FLOWPRONVX1.jpg?v=1784085270','PL-FLOWPRONVX2.jpg?v=1784085270']},
-        {type:'Phuộc đôi cao cấp',name:'RCB VR Series Absorber',fit:'Cấu hình Lagenda 275 mm, EX5/Wave/RXZ 335 mm, XMAX 350 mm, NVX 290 mm và Vespa theo vị trí lắp.',features:['Premium Black','Nhiều kích thước','Phuộc đôi'],code:'Chọn đúng vị trí trước/sau',images:['Slide2_b8d1408d-564a-4a76-96e4-79c710f37d75.png?v=1783042781','Slide1_0e8390f6-263e-4dbe-bc6d-67f00f309fa2.png?v=1783042781']},
-        {type:'Bình dầu 45°',name:'RCB VD Series 45 Degree',fit:'Phuộc sau 350 mm cho Yamaha XMAX 250; tùy chọn Silver hoặc Premium Black theo mã.',features:['Bình dầu 45°','350 mm','XMAX 250'],code:'01A0332',images:['Slide1_0be48fd2-e531-422b-b8ee-c5bc333a6b71.png?v=1782979755','Slide2_cd8498d7-94dd-4278-8122-a5f72e54fd0b.png?v=1782979755']},
-        {featured:true,type:'Phuộc đôi bình dầu',name:'RCB Flow Pro Dual Shock Absorber',fit:'Cấu hình cho NVX 305 mm, ADV 150/160 395 mm và NVX hạ 30 mm cỡ 275 mm; có Red hoặc Premium Black.',features:['Phuộc đôi','Bình dầu rời','275–395 mm','Nhiều cấu hình'],code:'Chọn chiều dài theo xe',images:['Slide2_308baab4-35c7-40d1-a59e-627e979b1447.png?v=1782977281','Slide1_6e41cb00-9a78-4667-8516-889ba972eab0.png?v=1782977281']},
-        {type:'Absorber & Mono',name:'RCB A3 Series Absorber & Monoshock',fit:'Dòng đa cấu hình: Lagenda 275 mm, EX5/Wave/Dash 335 mm, Ego/Avantiz 305 mm và Vario 160 340 mm.',features:['Black / Red','Phuộc đôi & mono','Nhiều dòng xe'],code:'Chọn đúng chân và chiều dài',images:['Slide1_6581ee88-ebba-44f2-929a-3909beddc84d.png?v=1782964600','Slide2_57cb1989-772a-4040-a3f2-2201a76be537.png?v=1782964600']}
+        {type:'Monoshock',name:'RCB S2 Line',price:'≈ 6.900.000 ₫',fit:'Phuộc sau mono cho Yamaha R25/MT25, hoàn thiện Premium Black. Kiểm tra đúng phiên bản và chân liên kết.',features:['Monoshock','Premium Black','R25 / MT25'],code:'01M0132Z',images:['DSC09694-Photoroom.png?v=1785311278','DSC00408-Photoroom.png?v=1785311319']},
+        {type:'Monoshock điện tử',name:'RCB SS Line Monoshock',price:'12.650.000 ₫',fit:'Dòng mono cao cấp có bình dầu rời và nhiều cấp điều chỉnh. Dòng xe tương thích cần đối chiếu theo mã thực tế.',features:['Điều chỉnh điện tử','Compression','Rebound','Preload'],code:'Liên hệ kiểm tra mã',images:['listing_26.jpg?v=1784176673','Add_text_beside_arrow_202608040929.jpg?v=1785806997']},
+        {type:'Phuộc đôi',name:'RCB C2 Series Absorber',price:'1.890.000 ₫',fit:'275 mm cho Yamaha Lagenda; 335 mm cho Honda EX5, Wave, Dash và Yamaha RXZ theo danh mục RCB.',features:['Phuộc đôi','Chỉnh tải lò xo','275 / 335 mm'],code:'01A0326 / 01A0327',images:['listing_25_55393e66-1afd-494f-90d9-43f16c61c5df.jpg?v=1784173025','Gloved_hand_holding_shock_absorber_202608040941.jpg?v=1785807675']},
+        {type:'Phuộc đôi',name:'RCB S2 Series Absorber',price:'4.350.000 ₫',fit:'Cấu hình 305 mm cho NVX/NMAX và 330 mm cho NMAX V1; màu Black hoặc Premium Black.',features:['Chỉnh rebound','Chỉnh preload','305 / 330 mm'],code:'01A0313 / 01A0358',images:['listing_24.jpg?v=1784169943','listing_23.jpg?v=1784169943']},
+        {featured:true,type:'Monoshock scooter',name:'RCB Tarmax Series Absorber',price:'2.050.000 ₫',fit:'Monoshock cho scooter: Vario 125/150 cỡ 330 mm và Vario 160 cỡ 340 mm.',features:['Twin-tube piston','Chỉnh preload','Chỉnh rebound','Dành cho scooter'],code:'01M0344 / 01M0345',images:['listing_18.jpg?v=1784167091','listing_19.jpg?v=1784167090','listing_20.jpg?v=1784167090']},
+        {type:'Bình dầu rời',name:'RCB Flow S Series Absorber',price:'3.500.000 ₫',fit:'Cấu hình 340 mm cho Click 160/Vario 160; màu Titanium, Red, White hoặc Premium Black tùy mã.',features:['340 mm','Bình dầu rời','Nhiều màu'],code:'Kiểm tra màu và mã xe',images:['listing_15.jpg?v=1784107236','listing_14.jpg?v=1784107236','listing_16.jpg?v=1784107236']},
+        {type:'30th Limited',brand:'RCB 30th Anniversary',name:'S3 Line Monoshock Limited',price:'2.500.000 ₫',fit:'Bản kỷ niệm 30 năm: 205 mm cho Yamaha Y15ZR/Y16ZR và 200 mm cho Yamaha LC135.',features:['Phiên bản giới hạn','200 / 205 mm','Monoshock'],code:'01M0375Z / 01M0377Z',images:['listing_9.jpg?v=1784089776','listing_8.jpg?v=1784089776']},
+        {type:'30th Limited',brand:'RCB 30th Anniversary',name:'Flow Pro Dual Shocks Limited',price:'7.770.000 ₫',fit:'Bản phuộc đôi Flow Pro kỷ niệm 30 năm, thiết kế phối màu đặc biệt; cần kiểm tra số lượng còn lại.',features:['Phuộc đôi','Phiên bản giới hạn','Bình dầu'],code:'01A0343Z',images:['PL-FLOWPRONVX1.jpg?v=1784085270','PL-FLOWPRONVX2.jpg?v=1784085270']},
+        {type:'Phuộc đôi cao cấp',name:'RCB VR Series Absorber',price:'≈ 20.800.000 ₫',fit:'Cấu hình Lagenda 275 mm, EX5/Wave/RXZ 335 mm, XMAX 350 mm, NVX 290 mm và Vespa theo vị trí lắp.',features:['Premium Black','Nhiều kích thước','Phuộc đôi'],code:'Chọn đúng vị trí trước/sau',images:['Slide2_b8d1408d-564a-4a76-96e4-79c710f37d75.png?v=1783042781','Slide1_0e8390f6-263e-4dbe-bc6d-67f00f309fa2.png?v=1783042781']},
+        {type:'Bình dầu 45°',name:'RCB VD Series 45 Degree',price:'≈ 6.500.000 ₫',fit:'Phuộc sau 350 mm cho Yamaha XMAX 250; tùy chọn Silver hoặc Premium Black theo mã.',features:['Bình dầu 45°','350 mm','XMAX 250'],code:'01A0332',images:['Slide1_0be48fd2-e531-422b-b8ee-c5bc333a6b71.png?v=1782979755','Slide2_cd8498d7-94dd-4278-8122-a5f72e54fd0b.png?v=1782979755']},
+        {featured:true,type:'Phuộc đôi bình dầu',name:'RCB Flow Pro Dual Shock Absorber',price:'6.670.000 ₫',fit:'Cấu hình cho NVX 305 mm, ADV 150/160 395 mm và NVX hạ 30 mm cỡ 275 mm; có Red hoặc Premium Black.',features:['Phuộc đôi','Bình dầu rời','275–395 mm','Nhiều cấu hình'],code:'Chọn chiều dài theo xe',images:['Slide2_308baab4-35c7-40d1-a59e-627e979b1447.png?v=1782977281','Slide1_6e41cb00-9a78-4667-8516-889ba972eab0.png?v=1782977281']},
+        {type:'Absorber & Mono',name:'RCB A3 Series Absorber & Monoshock',price:'1.510.000 ₫',fit:'Dòng đa cấu hình: Lagenda 275 mm, EX5/Wave/Dash 335 mm, Ego/Avantiz 305 mm và Vario 160 340 mm.',features:['Black / Red','Phuộc đôi & mono','Nhiều dòng xe'],code:'Chọn đúng chân và chiều dài',images:['Slide1_6581ee88-ebba-44f2-929a-3909beddc84d.png?v=1782964600','Slide2_57cb1989-772a-4040-a3f2-2201a76be537.png?v=1782964600']}
       ]
     };
     function slugify(name){return name.toLowerCase().replace(/&/g,' ').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
@@ -235,7 +311,7 @@
     function safe(text){return String(text).replace(/[&<>'"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]})}
     function card(p){
       const thumbs=p.images.map(function(img,i){return '<button class="angle" type="button" aria-label="Xem góc '+(i+1)+' của '+safe(p.name)+'" aria-pressed="'+(i===0)+'" data-src="'+safe(imageUrl(p,i))+'" data-alt="'+safe(p.name+' - góc '+(i+1))+'"><img src="'+safe(imageUrl(p,i))+'" alt="'+safe('Ảnh góc '+(i+1)+' '+p.name)+'" width="180" height="180" loading="lazy"></button>'}).join('');
-      return '<article class="shock-card'+(p.featured?' featured':'')+'"><div class="shock-visual"><span class="type-tag">'+safe(p.type)+'</span><span class="source-tag">Nền AI • Ảnh RCB</span><img class="main-shot" src="'+safe(imageUrl(p,0))+'" alt="'+safe(p.name)+' trên background AI có hộp RCB" width="900" height="900" loading="lazy"><div class="angles" aria-label="Ảnh nhiều góc">'+thumbs+'</div></div><div class="shock-body"><span class="brand-line">'+safe(p.brand||'RCB Suspension')+'</span><h3>'+safe(p.name)+'</h3><p class="fit">'+safe(p.fit)+'</p><ul class="features">'+p.features.map(function(f){return '<li>'+safe(f)+'</li>'}).join('')+'</ul><div class="card-action"><span>'+safe(p.code)+'</span><a href="index.html?san-pham='+encodeURIComponent(p.name)+'#lien-he">Tư vấn đúng xe →</a></div></div></article>'
+      return '<article class="shock-card'+(p.featured?' featured':'')+'"><div class="shock-visual"><span class="type-tag">'+safe(p.type)+'</span><span class="source-tag">Nền AI • Ảnh RCB</span><img class="main-shot" src="'+safe(imageUrl(p,0))+'" alt="'+safe(p.name)+' trên background AI có hộp RCB" width="900" height="900" loading="lazy"><div class="angles" aria-label="Ảnh nhiều góc">'+thumbs+'</div></div><div class="shock-body"><span class="brand-line">'+safe(p.brand||'RCB Suspension')+'</span><h3>'+safe(p.name)+'</h3><p class="fit">'+safe(p.fit)+'</p><ul class="features">'+p.features.map(function(f){return '<li>'+safe(f)+'</li>'}).join('')+'</ul><div class="shock-price"><span>Giá tham khảo</span><strong>'+safe(p.price||'Liên hệ giá')+'</strong></div><div class="card-action"><span>'+safe(p.code)+'</span><a href="index.html?san-pham='+encodeURIComponent(p.name)+'#lien-he">Tư vấn đúng xe →</a></div></div></article>'
     }
     document.getElementById('front-grid').innerHTML=products.front.map(card).join('');
     document.getElementById('rear-grid').innerHTML=products.rear.map(card).join('');
