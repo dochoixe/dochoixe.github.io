@@ -62,7 +62,7 @@
   `;
   document.head.appendChild(style);
 
-  const existingHeaderCart = document.querySelector("header .cart-button, header [data-open-disc-cart], header [data-header-cart]");
+  const existingHeaderCart = document.querySelector("header .cart-button, header .cart-link, header [data-open-disc-cart], header [data-header-cart], header a[href*='cart=open']");
   if (!existingHeaderCart) {
     const headerHost = document.querySelector("header .nav-actions") || document.querySelector("header .nav");
     if (headerHost) {
@@ -104,12 +104,13 @@
 
         <div class="shared-footer-right">
           <nav class="shared-footer-nav" aria-label="Liên kết cuối trang">
-            <a href="/#kham-pha-xe">Dòng xe</a>
-            <a href="/#phu-tung">Phụ tùng</a>
-            <a href="/#phu-kien">Phụ kiện</a>
-            <a href="/rcb-rs-series-floating.html">RCB RS</a>
+            <a href="/dia-thang-xe-may.html">Đĩa thắng</a>
+            <a href="/heo-dau-xe-may.html">Heo dầu</a>
+            <a href="/tay-thang-cnc.html">Tay thắng</a>
+            <a href="/phuoc-rcb.html">Phuộc RCB</a>
+            <a href="/po-va-co-po.html">Pô & cổ pô</a>
+            <a href="/dan-ao-va-op.html">Dàn áo</a>
             <a href="/bai-viet/">Blog</a>
-            <a href="/#lien-he">Liên hệ</a>
           </nav>
 
           <div class="shared-footer-social-wrap"><span>Kết nối</span><div class="shared-footer-social" role="navigation" aria-label="Mạng xã hội DOCHOIXE99">${socialMarkup}</div></div>
