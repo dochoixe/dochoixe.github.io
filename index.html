@@ -5,12 +5,48 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "DOCHOIXE99",
-  "url": "https://dochoixe.github.io/",
-  "logo": "https://dochoixe.github.io/assets/images/logo-dochoixe99.webp",
-  "telephone": "+84878976186",
-  "description": "Website đồ chơi, phụ tùng và phụ kiện xe máy DOCHOIXE99."
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dochoixe.github.io/#organization",
+      "name": "DOCHOIXE99",
+      "url": "https://dochoixe.github.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dochoixe.github.io/assets/images/logo-dochoixe99.webp"
+      },
+      "telephone": "+84878976186",
+      "description": "Website đồ chơi, phụ tùng và phụ kiện xe máy DOCHOIXE99."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dochoixe.github.io/#website",
+      "url": "https://dochoixe.github.io/",
+      "name": "DOCHOIXE99",
+      "inLanguage": "vi-VN",
+      "publisher": {
+        "@id": "https://dochoixe.github.io/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://dochoixe.github.io/#webpage",
+      "url": "https://dochoixe.github.io/",
+      "name": "Đồ Chơi Xe Máy, Phụ Tùng & Phụ Kiện Đẹp | DOCHOIXE99",
+      "description": "DOCHOIXE99 chuyên đồ chơi, phụ tùng và phụ kiện độ kiểng cho xe tay ga, xe số và xe côn tay, đa dạng mẫu mã, tư vấn tận tâm.",
+      "inLanguage": "vi-VN",
+      "isPartOf": {
+        "@id": "https://dochoixe.github.io/#website"
+      },
+      "about": {
+        "@id": "https://dochoixe.github.io/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://dochoixe.github.io/anh-dai-dien.jpg"
+      }
+    }
+  ]
 }
 </script>
 <!-- ẢNH ĐẠI DIỆN KHI CHIA SẺ WEBSITE -->
@@ -166,13 +202,15 @@
     .hero-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:62px;padding:82px 0 58px}.hero-copy{max-width:760px}.hero h1{font-size:clamp(56px,5.6vw,84px);line-height:.9}.hero-copy p{max-width:650px}.hero-proof{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 0;padding:0;list-style:none}.hero-proof li{padding:9px 12px;border:1px solid #30343d;border-radius:999px;background:rgba(255,255,255,.035);color:#c9ccd3;font-size:12px;font-weight:800}.hero-proof li::before{content:"✓";margin-right:7px;color:#ff5e58}
     .product-stage{position:relative;display:grid;min-height:640px;place-items:center}.combo-shell{position:relative;width:min(640px,100%);aspect-ratio:1.02;padding:24px;border:1px solid rgba(255,255,255,.13);border-radius:40px;background:linear-gradient(145deg,#262b32,#0a0c10 72%);box-shadow:0 42px 110px rgba(0,0,0,.58),0 0 0 28px rgba(255,255,255,.02);transform:rotate(-1.2deg)}.combo-shell::before{content:"COMBO 4 MÓN";position:absolute;z-index:5;top:-14px;left:28px;padding:10px 15px;border-radius:999px;background:var(--red-solid);box-shadow:0 14px 32px rgba(217,31,38,.34);font-size:10px;font-weight:950;letter-spacing:.14em}.combo-grid{display:grid;width:100%;height:100%;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;overflow:hidden;border-radius:28px;background:#090b0e}.combo-tile{position:relative;min-width:0;margin:0;overflow:hidden;border-radius:18px;background:radial-gradient(circle at 50% 45%,#343840,#0b0d11 73%)}.combo-tile img{width:100%;height:100%;padding:14px;object-fit:contain;transition:.45s}.combo-tile::after{content:"";position:absolute;inset:46% 0 0;background:linear-gradient(transparent,rgba(3,4,6,.88))}.combo-tile figcaption{position:absolute;z-index:2;left:16px;bottom:12px;color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.combo-shell:hover .combo-tile img{transform:scale(1.05)}.combo-hub{position:absolute;z-index:4;left:50%;top:50%;display:grid;width:64px;height:64px;place-items:center;border:8px solid #0c0e12;border-radius:50%;background:linear-gradient(145deg,#ff4b45,#a90b13);box-shadow:0 16px 38px rgba(0,0,0,.54);font-size:32px;font-weight:300;transform:translate(-50%,-50%)}.combo-caption{position:absolute;z-index:5;right:-18px;bottom:30px;min-width:250px;padding:13px 16px;border:1px solid rgba(255,255,255,.15);border-radius:14px;background:rgba(10,12,15,.9);box-shadow:0 17px 38px rgba(0,0,0,.38);backdrop-filter:blur(12px);transform:rotate(1.5deg)}.combo-caption small{display:block;color:#ff7772;font-size:9px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.combo-caption strong{display:block;margin-top:4px;font-size:14px}
     .category-section{padding:88px 0 102px;background:#0d0f13}.category-section .section-head p{color:#9da1aa}.category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.category-card{position:relative;display:grid;grid-template-columns:145px 1fr;min-height:180px;align-items:center;overflow:hidden;border:1px solid #2d3139;border-radius:22px;background:linear-gradient(135deg,#191c22,#111318);transition:.3s}.category-card::before{content:"";position:absolute;width:170px;height:170px;left:-55px;top:-55px;border-radius:50%;background:rgba(255,53,47,.11)}.category-card:hover{transform:translateY(-6px);border-color:rgba(255,83,77,.58);box-shadow:0 22px 48px rgba(0,0,0,.32)}.category-card img{position:relative;width:145px;height:160px;padding:14px;object-fit:contain;filter:drop-shadow(0 16px 16px rgba(0,0,0,.38));transition:.35s}.category-card:hover img{transform:scale(1.06) rotate(-2deg)}.category-copy{position:relative;padding:24px 22px 24px 3px}.category-copy small{color:#ff7772;font-size:10px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.category-copy h3{margin:7px 0 7px;font-size:23px;letter-spacing:-.04em}.category-copy p{margin:0;color:#9fa3ac;font-size:12px;line-height:1.55}.category-copy b{display:inline-block;margin-top:13px;color:#fff;font-size:12px}
-    .featured{padding:84px 0 96px;background:var(--paper);color:#141519}.featured .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,500px);align-items:start;gap:28px;margin-bottom:26px}.featured .section-head p{max-width:500px;padding-top:10px}.featured-groups{display:grid;gap:30px}.featured-group{display:grid;gap:14px}.featured-group-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:13px;border-bottom:1px solid #d7d3cc}.featured-group-head h3{margin:0;font-size:27px;letter-spacing:-.045em}.featured-group-head a{color:#ad151b;font-size:12px;font-weight:900}.featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.store-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid #d8d4cd;border-radius:22px;background:#fff;box-shadow:0 14px 38px rgba(20,22,27,.08);transition:.3s}.store-card:hover{transform:translateY(-7px);box-shadow:0 23px 54px rgba(20,22,27,.14)}.store-photo{position:relative;display:grid;height:250px;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 43%,#353941,#101216 72%)}.store-photo img{width:100%;height:100%;padding:16px;object-fit:contain;transition:.4s}.store-card:hover .store-photo img{transform:scale(1.05) rotate(-1deg)}.store-badge{position:absolute;top:13px;left:13px;padding:7px 9px;border-radius:999px;background:#fff;color:#17191d;font-size:9px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.store-body{display:flex;flex:1;flex-direction:column;padding:18px}.store-brand{color:#b01820;font-size:10px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}.store-body h3{margin:8px 0 9px;font-size:18px;line-height:1.22;letter-spacing:-.035em}.store-fit{color:#74777e;font-size:12px;line-height:1.5}.store-price{margin-top:auto;padding-top:15px}.store-price strong{display:block;color:#bf171f;font-size:21px;letter-spacing:-.035em}.store-price small{color:#85888e;font-size:10px}.store-action{display:flex;min-height:44px;align-items:center;justify-content:center;margin-top:15px;border-radius:11px;background:#15171b;color:#fff;font-size:12px;font-weight:900;transition:.2s}.store-action:hover{background:var(--red-solid)}.featured-more{display:flex;justify-content:center;margin-top:32px}
+    .featured{padding:84px 0 96px;background:var(--paper);color:#141519}.featured .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,500px);align-items:start;gap:28px;margin-bottom:26px}.featured .section-head p{max-width:500px;padding-top:10px}.featured-groups{display:grid;gap:30px}.featured-group{display:grid;gap:14px}.featured-group-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:13px;border-bottom:1px solid #d7d3cc}.featured-group-head h3{margin:0;font-size:27px;letter-spacing:-.045em}.featured-group-head a{color:#ad151b;font-size:12px;font-weight:900}.featured-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.store-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid #d8d4cd;border-radius:22px;background:#fff;box-shadow:0 14px 38px rgba(20,22,27,.08);transition:.3s}.store-card:hover{transform:translateY(-7px);box-shadow:0 23px 54px rgba(20,22,27,.14)}.store-photo{position:relative;display:grid;height:250px;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 43%,#353941,#101216 72%)}.store-photo img{width:100%;height:100%;padding:16px;object-fit:contain;transition:.4s}.store-card:hover .store-photo img{transform:scale(1.05) rotate(-1deg)}.store-badge{position:absolute;top:13px;left:13px;padding:7px 9px;border-radius:999px;background:#fff;color:#17191d;font-size:9px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.store-body{display:flex;flex:1;flex-direction:column;padding:18px}.store-brand{color:#b01820;font-size:10px;font-weight:950;letter-spacing:.13em;text-transform:uppercase}.store-body h3{margin:8px 0 9px;font-size:18px;line-height:1.22;letter-spacing:-.035em}.store-fit{color:#676b73;font-size:12px;line-height:1.5}.store-price{margin-top:auto;padding-top:15px}.store-price strong{display:block;color:#bf171f;font-size:21px;letter-spacing:-.035em}.store-price small{color:#666a72;font-size:10px}.store-action{display:flex;min-height:44px;align-items:center;justify-content:center;margin-top:15px;border-radius:11px;background:#15171b;color:#fff;font-size:12px;font-weight:900;transition:.2s}.store-action:hover{background:var(--red-solid)}.featured-more{display:flex;justify-content:center;margin-top:32px}
     .fit-section{padding:0 0 96px;background:var(--paper);color:#fff}.fit-box{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;overflow:hidden;padding:38px 42px;border-radius:25px;background:linear-gradient(115deg,#15181d,#22262d);box-shadow:0 22px 55px rgba(15,17,21,.16)}.fit-box::after{content:"99";position:absolute;right:26%;top:-62px;color:rgba(255,255,255,.035);font-size:190px;font-weight:1000}.fit-copy,.fit-actions{position:relative;z-index:1}.fit-copy small{color:#ff7772;font-weight:950;letter-spacing:.16em;text-transform:uppercase}.fit-copy h2{margin:8px 0 7px;font-size:clamp(28px,4vw,45px);letter-spacing:-.05em}.fit-copy p{max-width:700px;margin:0;color:#aeb2bb}.fit-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
     @media(max-width:1120px){.hero-grid{gap:22px}.category-grid{grid-template-columns:repeat(2,1fr)}.featured-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:820px){.cart-link span:not(.cart-count){display:none}.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;padding:64px 0 54px}.hero-copy{text-align:left}.hero-copy .eyebrow{justify-content:flex-start}.hero-buttons{justify-content:flex-start}.product-stage{min-height:470px}.category-grid{grid-template-columns:1fr}.fit-box{grid-template-columns:1fr;padding:32px}.fit-actions{justify-content:flex-start}}
     @media(max-width:560px){.nav-actions{gap:7px}.cart-link{width:42px;min-height:42px;padding:0;justify-content:center}.cart-count{position:absolute;right:-5px;top:-6px}.hero h1{font-size:49px}.hero-copy p{font-size:15px}.product-stage{min-height:390px}.combo-shell{padding:15px;border-radius:27px}.combo-grid{border-radius:18px}.combo-hub{width:46px;height:46px;border-width:6px;font-size:24px}.combo-caption{right:-4px;bottom:17px;min-width:190px}.category-card{grid-template-columns:118px 1fr}.category-card img{width:118px;height:145px}.category-copy{padding-right:15px}.featured-grid{grid-template-columns:1fr}.store-photo{height:315px}.fit-box{padding:28px 23px}}
   </style>
 <link href="/site-polish.css?v=20260819-1" rel="stylesheet"/>
+<link rel="preload" as="image" href="assets/images/hero-dochoixe99-640.webp" media="(max-width: 820px)" fetchpriority="high"/>
+<link rel="preload" as="image" href="assets/images/hero-dochoixe99-1672.webp" media="(min-width: 821px)" fetchpriority="high"/>
 <style id="homepage-final-fix">
 /* ===== DOCHOIXE99: final homepage header + hero fix ===== */
 /* Bỏ thanh menu pill được site-polish.js chèn bên dưới header, chỉ giữ menu chính phía trên. */
@@ -251,7 +289,7 @@
 <div class="topbar"><div class="container"><span>Chuyên phụ tùng • phụ kiện • đồ chơi xe máy</span><span><b>Hotline:</b> <span data-phone-text="">0878 976 186</span>   •   Kiểm tra đúng xe trước khi giao</span></div></div>
 <header id="header">
 <div class="container nav">
-<a aria-label="DOCHOIXE99 trang chủ" class="brand" href="https://dochoixe.github.io/"><img alt="Logo DOCHOIXE99" class="brand-logo" decoding="async" height="160" src="assets/images/logo-dochoixe99.webp" width="160"/><span class="brand-copy"><span class="brand-name">DOCHOIXE<em>99</em></span><span class="brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a>
+<a class="brand" href="https://dochoixe.github.io/"><img alt="Logo DOCHOIXE99" class="brand-logo" decoding="async" height="160" src="assets/images/logo-dochoixe99.webp" width="160"/><span class="brand-copy"><span class="brand-name">DOCHOIXE<em>99</em></span><span class="brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a>
 <nav class="navlinks" id="navlinks"><a href="https://dochoixe.github.io/">Trang chủ</a><a href="#danh-muc">Danh mục</a>
 <details class="nav-dropdown">
 <summary>Sản phẩm <span>▾</span></summary>
@@ -272,7 +310,7 @@
 </div>
 </details>
 <a href="#lien-he">Liên hệ</a></nav>
-<div class="nav-actions"><a aria-label="Mở giỏ hàng" class="cart-link" href="dia-thang-xe-may.html?cart=open"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 8H6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="9" cy="20" fill="currentColor" r="1.4"></circle><circle cx="17" cy="20" fill="currentColor" r="1.4"></circle></svg><span>Giỏ hàng</span><b class="cart-count" id="homeCartCount">0</b></a><a class="cta-small" href="#lien-he">Nhận tư vấn</a><button aria-controls="navlinks" aria-expanded="false" aria-label="Mở menu" class="menu-btn" id="menuBtn" type="button">☰</button></div>
+<div class="nav-actions"><a class="cart-link" href="dia-thang-xe-may.html?cart=open"><svg aria-hidden="true" fill="none" viewbox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 8H6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="9" cy="20" fill="currentColor" r="1.4"></circle><circle cx="17" cy="20" fill="currentColor" r="1.4"></circle></svg><span>Giỏ hàng</span><b class="cart-count" id="homeCartCount">0</b></a><a class="cta-small" href="#lien-he">Nhận tư vấn</a><button aria-controls="navlinks" aria-expanded="false" aria-label="Mở menu" class="menu-btn" id="menuBtn" type="button">☰</button></div>
 </div>
 </header>
 <main>
@@ -288,10 +326,10 @@
 <div aria-label="Combo bốn nhóm phụ tùng xe máy" class="product-stage reveal">
 <div class="combo-shell">
 <div class="combo-grid">
-<figure class="combo-tile"><img alt="Đĩa thắng RCB" height="900" src="assets/images/rcb-rs-floating.webp" width="900"/><figcaption>Đĩa thắng</figcaption></figure>
-<figure class="combo-tile"><img alt="Heo dầu RCB" height="1200" src="assets/images/rcb-r1-brake-caliper-1.webp" width="1200"/><figcaption>Heo dầu &amp; dây dầu</figcaption></figure>
-<figure class="combo-tile"><img alt="Phuộc RCB S2 Series" height="900" src="assets/images/rcb-s2-series-absorber-1.webp" width="900"/><figcaption>Phuộc RCB</figcaption></figure>
-<figure class="combo-tile"><img alt="Đồ chơi tay lái xe máy RCB" height="1200" src="assets/images/rcb-gp2-v2-lever-guard.webp" width="1200"/><figcaption>Đồ chơi tay lái</figcaption></figure>
+<figure class="combo-tile"><img alt="Đĩa thắng RCB" height="900" src="assets/images/rcb-rs-floating.webp" width="900" loading="lazy" decoding="async" fetchpriority="low"/><figcaption>Đĩa thắng</figcaption></figure>
+<figure class="combo-tile"><img alt="Heo dầu RCB" height="1200" src="assets/images/rcb-r1-brake-caliper-1.webp" width="1200" loading="lazy" decoding="async" fetchpriority="low"/><figcaption>Heo dầu &amp; dây dầu</figcaption></figure>
+<figure class="combo-tile"><img alt="Phuộc RCB S2 Series" height="900" src="assets/images/rcb-s2-series-absorber-1.webp" width="900" loading="lazy" decoding="async" fetchpriority="low"/><figcaption>Phuộc RCB</figcaption></figure>
+<figure class="combo-tile"><img alt="Đồ chơi tay lái xe máy RCB" height="1200" src="assets/images/rcb-gp2-v2-lever-guard.webp" width="1200" loading="lazy" decoding="async" fetchpriority="low"/><figcaption>Đồ chơi tay lái</figcaption></figure>
 </div>
 <span aria-hidden="true" class="combo-hub">+</span>
 <div class="combo-caption"><small>Trọn bộ nâng cấp theo xe</small><strong>Phanh • Treo • Tay lái</strong></div>
@@ -342,7 +380,7 @@
 <div class="container"><div class="contact-box reveal">
 <div class="contact-copy"><div class="eyebrow">Tư vấn miễn phí</div><h2>Xe của bạn.<br/>Gu của bạn.</h2><p>Gửi dòng xe, phiên bản và nhu cầu. DOCHOIXE99 sẽ kiểm tra nhóm phụ kiện phù hợp trước khi tư vấn.</p><div class="contact-list"><a data-link="phone" href="tel:0878976186">☎ <span data-phone-text="">0878 976 186</span></a><a data-link="zalo" href="https://zalo.me/0878976186" rel="noopener" target="_blank">◉ Chat Zalo ngay</a><a data-link="website" href="https://dochoixe.github.io" rel="noopener" target="_blank">⌂ <span data-website-text="">dochoixe.github.io</span></a></div></div>
 <form class="contact-form" id="contactForm">
-<div aria-hidden="true" class="hp-field"><label for="contactCompany">Công ty</label><input autocomplete="off" id="contactCompany" name="company" tabindex="-1"/></div>
+<div aria-hidden="true" class="hp-field" inert><label for="contactCompany">Công ty</label><input autocomplete="off" id="contactCompany" name="company" tabindex="-1"/></div>
 <div class="field-row"><div class="field"><label for="contactName">HỌ VÀ TÊN (KHÔNG BẮT BUỘC)</label><input autocomplete="name" id="contactName" maxlength="80" name="name" placeholder="Tên của bạn"/></div><div class="field"><label for="contactPhone">SỐ ĐIỆN THOẠI</label><input autocomplete="tel" id="contactPhone" inputmode="tel" maxlength="15" minlength="8" name="phone" pattern="[0-9+ ]{8,15}" placeholder="09xx xxx xxx" required="" title="Nhập số điện thoại từ 8 đến 15 ký tự" type="tel"/></div></div>
 <div class="field-row"><div class="field"><label for="contactBike">DÒNG XE</label><select id="contactBike" name="bike" required=""><option disabled="" selected="" value="">Chọn dòng xe</option><option>Vario</option><option>SH</option><option>Vespa</option><option>Exciter</option><option>Sirius</option><option>Winner</option><option>Wave</option><option>Air Blade</option><option>Vision</option><option>NVX</option><option>Janus</option><option>Lead</option></select></div><div class="field"><label for="contactVersion">PHIÊN BẢN / ĐỜI XE</label><input id="contactVersion" maxlength="80" name="version" placeholder="Ví dụ: Vario 160 đời 2024" required=""/></div></div>
 <div class="field-row"><div class="field"><label for="contactBudget">NGÂN SÁCH (KHÔNG BẮT BUỘC)</label><select id="contactBudget" name="budget"><option selected="" value="">Chưa xác định</option><option>Dưới 1 triệu</option><option>1–3 triệu</option><option>3–5 triệu</option><option>Trên 5 triệu</option></select></div><div class="field"><label for="contactNeed">NHU CẦU CỦA BẠN</label><textarea id="contactNeed" maxlength="1000" name="need" placeholder="Ví dụ: muốn nâng cấp phanh cho Vario 160..." required=""></textarea></div></div>
@@ -353,11 +391,11 @@
 </section>
 </main>
 <aside aria-label="Liên hệ nhanh DOCHOIXE99" class="home-contact-float">
-<a aria-label="Gọi DOCHOIXE99 0878 976 186" class="home-contact-phone" data-link="phone" href="tel:0878976186">
+<a class="home-contact-phone" data-link="phone" href="tel:0878976186">
 <span class="contact-float-icon"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M7.2 3.5 9.6 8l-1.8 1.8a15.2 15.2 0 0 0 6.4 6.4l1.8-1.8 4.5 2.4v2.7c0 .8-.7 1.5-1.5 1.5C10.2 21 3 13.8 3 5c0-.8.7-1.5 1.5-1.5h2.7Z"></path></svg></span>
 <span><small>Hotline tư vấn</small><strong data-phone-text="">0878 976 186</strong></span>
 </a>
-<a aria-label="Nhắn Zalo DOCHOIXE99" class="home-contact-zalo" data-link="zalo" href="https://zalo.me/0878976186" rel="noopener" target="_blank">
+<a class="home-contact-zalo" data-link="zalo" href="https://zalo.me/0878976186" rel="noopener" target="_blank">
 <span class="contact-float-icon zalo-mark">Zalo</span>
 <span><small>Phản hồi nhanh</small><strong>Nhắn Zalo</strong></span>
 </a>

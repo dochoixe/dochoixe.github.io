@@ -28,7 +28,7 @@
     const inner = item.icon;
     return validSocialUrl(SOCIAL_LINKS[item.key])
       ? `<a href="${SOCIAL_LINKS[item.key]}" target="_blank" rel="noopener noreferrer" aria-label="${item.label}" title="${item.label}">${inner}</a>`
-      : `<span class="is-disabled" aria-label="${item.label} — link đang cập nhật" title="${item.label} — link đang cập nhật">${inner}</span>`;
+      : `<span class="is-disabled" role="img" aria-label="${item.label} — link đang cập nhật" title="${item.label} — link đang cập nhật">${inner}</span>`;
   }).join("");
 
   const style = document.createElement("style");
@@ -127,8 +127,8 @@
   const vehiclePath = config.VEHICLE_SELECTOR_PATH || "chon-phu-kien-theo-xe.html";
   document.body.insertAdjacentHTML("beforeend", `
     <nav class="mobile-lead-bar" aria-label="Liên hệ nhanh">
-      <a href="tel:${phone}" aria-label="Gọi DOCHOIXE99">☎ GỌI</a>
-      <a href="https://zalo.me/${phone}" target="_blank" rel="noopener" aria-label="Nhắn Zalo DOCHOIXE99">ZALO</a>
+      <a href="tel:${phone}">☎ GỌI</a>
+      <a href="https://zalo.me/${phone}" target="_blank" rel="noopener">ZALO</a>
       <a href="${(config.HOME_URL || "/").replace(/\/?$/, "/") + vehiclePath}">TÌM ĐỒ CHO XE</a>
     </nav>`);
 })();
