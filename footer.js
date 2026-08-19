@@ -85,7 +85,7 @@
   const footer = document.querySelector("footer");
   if (!footer) return;
   const logo = footer.querySelector("img") || document.querySelector(".brand img, .foot-brand img");
-  const logoSource = logo ? logo.getAttribute("src") : "assets/images/logo-dochoixe99.webp";
+  const logoSource = logo ? logo.getAttribute("src") : "/assets/images/logo-dochoixe99.webp";
 
   footer.outerHTML = `
     <footer id="shared-site-footer">
@@ -105,11 +105,11 @@
         <div class="shared-footer-right">
           <nav class="shared-footer-nav" aria-label="Liên kết cuối trang">
             <a href="/dia-thang-xe-may.html">Đĩa thắng</a>
-            <a href="/heo-dau-xe-may.html">Heo dầu</a>
-            <a href="/tay-thang-cnc.html">Tay thắng</a>
+            <a href="/heo-dau-xe-may.html">Heo & dây dầu</a>
+            <a href="/do-choi-tay-lai.html">Đồ chơi tay lái</a>
             <a href="/phuoc-rcb.html">Phuộc RCB</a>
-            <a href="/po-va-co-po.html">Pô & cổ pô</a>
-            <a href="/dan-ao-va-op.html">Dàn áo</a>
+            <a href="/nhong-sen-dia.html">Nhông sên đĩa</a>
+            <a href="/mam-xe.html">Mâm xe</a>
             <a href="/bai-viet/">Blog</a>
           </nav>
 

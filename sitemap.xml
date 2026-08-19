@@ -1,259 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dochoixe.github.io/</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/hero-dochoixe99-1672.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-rs-floating.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/heo-dau-xe-may.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-phuoc-sau.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-tay-thang.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dan-ao-va-op.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/po-va-co-po.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/phu-kien-xe-may.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-e2-plus-floating.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-e2-steel.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/galfer-floating-w-cw.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/combo-he-thong-phanh.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/day-dau-phanh.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/he-thong-phanh.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-he-thong-treo.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-hero.webp</image:loc>
-    </image:image>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/he-thong-phanh.html</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-phanh-xe-may.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/heo-dau-xe-may.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/tay-thang-cnc.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/day-dau-phanh.jpg</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/cnc-he-thong-treo.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-hero.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-tay-thang.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-phuoc-sau.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-bao-tay-gu.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-oc-kieng.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-binh-dau.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-tro-luc.webp</image:loc>
-    </image:image>
   </url>
-
+  <url>
+    <loc>https://dochoixe.github.io/dia-thang-xe-may.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
   <url>
     <loc>https://dochoixe.github.io/heo-dau-xe-may.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/heo-dau-xe-may.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/combo-he-thong-phanh.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/day-dau-phanh.jpg</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/he-thong-phanh.webp</image:loc>
-    </image:image>
   </url>
-
+  <url>
+    <loc>https://dochoixe.github.io/do-choi-tay-lai.html</loc>
+    <lastmod>2026-08-19</lastmod>
+  </url>
   <url>
     <loc>https://dochoixe.github.io/tay-thang-cnc.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-tay-thang.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-bao-tay-gu.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-binh-dau.webp</image:loc>
-    </image:image>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/phuoc-rcb.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-phuoc-sau.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-he-thong-treo.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/cnc-hero.webp</image:loc>
-    </image:image>
   </url>
-
   <url>
-    <loc>https://dochoixe.github.io/dan-ao-va-op.html</loc>
+    <loc>https://dochoixe.github.io/nhong-sen-dia.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dan-ao-va-op.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-vario-160.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-exciter-155.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-wave-alpha.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-sh160i.webp</image:loc>
-    </image:image>
   </url>
-
   <url>
-    <loc>https://dochoixe.github.io/po-va-co-po.html</loc>
+    <loc>https://dochoixe.github.io/mam-xe.html</loc>
     <lastmod>2026-08-19</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/po-va-co-po.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-vario-160.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-exciter-155.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-wave-alpha.webp</image:loc>
-    </image:image>
   </url>
-
-  <url>
-    <loc>https://dochoixe.github.io/dia-thang-xe-may.html</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
-    </image:image>
-  </url>
-
   <url>
     <loc>https://dochoixe.github.io/gioi-thieu.html</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/phu-kien-xe-may.webp</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/chon-phu-kien-theo-xe.html</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-sh160i.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-vario-160.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-air-blade.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-lead-125.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-vision.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-winner-x.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/honda-wave-alpha.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-nvx-155.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-exciter-155.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-janus-125.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/yamaha-sirius-fi.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/vespa-sprint.webp</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/rcb-rs-series-floating.html</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-rs-floating.webp</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/bai-viet/</loc>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
-
   <url>
     <loc>https://dochoixe.github.io/bai-viet/dia-thang-rcb-260mm.html</loc>
-    <lastmod>2026-08-18</lastmod>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/rcb-e2-plus-floating.webp</image:loc>
-    </image:image>
-    <image:image>
-      <image:loc>https://dochoixe.github.io/assets/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
-    </image:image>
+    <lastmod>2026-08-19</lastmod>
   </url>
 </urlset>
