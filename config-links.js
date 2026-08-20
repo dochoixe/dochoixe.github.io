@@ -32,6 +32,6 @@ window.DOCHOIXE99_CONFIG = {
 
   /* Dán URL Google Apps Script kết thúc bằng /exec vào đây */
   LEAD_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbzUozX90mQ5-bVJ4-yI5hlsCetRQOWgPgwE1wzobvTMl34wOJfCJELsXQs2Sy3eO3EP/exec",
-   ORDER_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbzSzSIKQxHkD6GmlICljLsWMSOfD3xFzFGE9QkHebt5vHXUQuTQ5JS4Q0s_FeCBrehDcQ/exec", 
+   ORDER_WEB_APP_URL: "https://script.google.com/macros/s/AKfycbz_WdPAP2dSh4Pulqrxuk4qSI7mTM18HZmr6yJUkoOdhVSAndxF2SajXi3OApDwSHk54Q/exec"
    
 };
