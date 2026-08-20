@@ -118,7 +118,7 @@
             <nav class="shared-footer-links" aria-label="Liên kết cuối trang">
               <a href="/">Trang chủ</a>
               <a href="/bai-viet/">Blog</a>
-              <a href="/index.html#lien-he">Liên hệ</a>
+              <a href="/#tai-khoan">Tài khoản</a>
               <a href="/chinh-sach.html">Chính sách</a>
               <a href="tel:${config.PHONE_RAW || "0878976186"}">${config.PHONE_DISPLAY || "0878 976 186"}</a>
             </nav>
