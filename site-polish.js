@@ -488,17 +488,7 @@
 
     if (accountButton) {
       accountButton.addEventListener("click", () => {
-        const accountSection =
-          qs("#tai-khoan") ||
-          qs("#account") ||
-          qs("[data-account-section]");
-
-        if (accountSection) {
-          accountSection.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-        }
+        window.location.href = "/tai-khoan.html";
       });
     }
   }

@@ -40,7 +40,7 @@
   const store=window.DOCHOIXE99_ORDERS;
   const qs=s=>document.querySelector(s);
   const escapeHTML=value=>String(value||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
-  const session=store?store.getSession():null;
+  let session=store?store.getSession():null;
   const loggedOut=qs('#loggedOutBox'), dashboard=qs('#accountDashboard'), hero=qs('#heroProfile');
 
   function formatDate(value){const d=new Date(value);return Number.isNaN(d.getTime())?"":new Intl.DateTimeFormat('vi-VN',{dateStyle:'medium',timeStyle:'short'}).format(d)}
@@ -69,12 +69,18 @@
     panel.hidden=false;qs('#guestOrderCount').textContent=String(orders.length);renderOrderList(qs('#guestOrderList'),orders);
   }
 
-  if(session&&session.email){
-    loggedOut.hidden=true;dashboard.hidden=false;hero.hidden=false;
-    qs('#heroName').textContent=session.name||'Khách hàng';qs('#heroEmail').textContent=session.email;
-    qs('#profileName').textContent=session.name||'Khách hàng';qs('#profileEmail').textContent=session.email;
-    renderOrders();
-  }else{loggedOut.hidden=false;dashboard.hidden=true;hero.hidden=true;renderGuestOrders();}
+  function renderAccountState(){
+    session=store?store.getSession():null;
+    if(session&&session.email){
+      loggedOut.hidden=true;dashboard.hidden=false;hero.hidden=false;
+      qs('#heroName').textContent=session.name||'Khách hàng';qs('#heroEmail').textContent=session.email;
+      qs('#profileName').textContent=session.name||'Khách hàng';qs('#profileEmail').textContent=session.email;
+      renderOrders();
+    }else{
+      loggedOut.hidden=false;dashboard.hidden=true;hero.hidden=true;renderGuestOrders();
+    }
+  }
+  renderAccountState();
 
   function openExistingAuth(kind){
     const id=kind==='register'?'#dx99RegisterButton':'#dx99LoginButton';
@@ -84,8 +90,11 @@
   qs('#openLogin')?.addEventListener('click',()=>openExistingAuth('login'));
   qs('#openRegister')?.addEventListener('click',()=>openExistingAuth('register'));
   qs('#accountLogout')?.addEventListener('click',()=>{localStorage.removeItem(store.SESSION_KEY);location.reload()});
-  window.addEventListener('storage',event=>{if(session&&event.key&&event.key.startsWith(store.ORDER_PREFIX))renderOrders()});
-  window.addEventListener('pageshow',()=>{if(session)renderOrders()});
+  window.addEventListener('storage',event=>{
+    if(event.key===store.SESSION_KEY){renderAccountState();return;}
+    if(session&&event.key&&event.key.startsWith(store.ORDER_PREFIX))renderOrders();
+  });
+  window.addEventListener('pageshow',()=>renderAccountState());
 
   const menuBtn=qs('#accountMenuBtn'),nav=qs('#accountNav');
   if(menuBtn&&nav){menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.setAttribute('aria-label',open?'Đóng menu':'Mở menu')});}
