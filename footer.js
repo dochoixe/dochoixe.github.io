@@ -52,7 +52,7 @@
     .shared-footer-social a:hover{border-color:#ef233c;background:#151012;color:#ef233c;transform:translateY(-2px)}
     .shared-footer-social .is-disabled{opacity:.55;cursor:not-allowed}
     .shared-footer-social svg{width:15px;height:15px;fill:currentColor}
-    .shared-footer-bottom{margin-top:28px;padding-top:16px;border-top:1px solid #171a20;color:#737983;font-size:12px}
+    .shared-footer-bottom{margin-top:28px;padding-top:16px;border-top:1px solid #171a20;color:#737983;font-size:12px;line-height:1.65}.shared-footer-legal{margin-top:8px;max-width:980px;color:#676d76;font-size:11px;line-height:1.6}
     .shared-header-cart{position:relative;display:inline-flex!important;width:44px;height:44px;flex:0 0 44px;align-items:center;justify-content:center;padding:0!important;border:1px solid #3b4049!important;border-radius:13px!important;background:#171a20!important;color:#fff!important;text-decoration:none!important;box-shadow:none!important}
     .shared-header-cart:hover{border-color:#ef233c!important;color:#ff6577!important;transform:translateY(-1px)}
     .shared-header-cart svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -123,7 +123,7 @@
             </nav>
           </div>
         </div>
-        <div class="shared-footer-bottom">© 2026 DOCHOIXE99. Đồ chơi và phụ kiện xe máy.</div>
+        <div class="shared-footer-bottom">© 2026 DOCHOIXE99. Đồ chơi và phụ kiện xe máy.<div class="shared-footer-legal">Tên và logo của các thương hiệu bên thứ ba được sử dụng để nhận diện sản phẩm. Việc hiển thị thương hiệu không hàm ý DOCHOIXE99 là website chính thức, đại lý hoặc đơn vị được ủy quyền của thương hiệu, trừ khi có thông tin xác nhận riêng. Một số hình ảnh có thể được biên tập hoặc dàn dựng bối cảnh để trưng bày; màu sắc, bao bì và chi tiết thực tế có thể thay đổi theo phiên bản hoặc lô hàng.</div></div>
       </div>
     </footer>`;
 
