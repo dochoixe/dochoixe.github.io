@@ -81,8 +81,13 @@
   renderCatalog();
 
   const storageKey="dochoixe99DiscCartV1";
+  const brakeStorageKey="dochoixe99BrakeCartV1";
+  const rsStorageKey="dochoixe99CartV1";
+  const brakeFallback={"rcb-r1":{"id":"rcb-r1","name":"RCB R1 Brake Caliper","image":"assets/images/rcb-r1-brake-caliper-1.webp","price":3490000,"brand":"RCB","source":"brake"},"rcb-e45":{"id":"rcb-e45","name":"RCB E-45 Rear Caliper","image":"assets/images/rcb-e-45-rear-caliper-1.webp","price":1190000,"brand":"RCB","source":"brake"},"rcb-e-series":{"id":"rcb-e-series","name":"RCB E Series Brake Caliper","image":"assets/images/rcb-e-series-brake-caliper-1.webp","price":1490000,"brand":"RCB","source":"brake"},"rcb-r55":{"id":"rcb-r55","name":"RCB R55 Brake Caliper","image":"assets/images/rcb-r55-brake-caliper-1.webp","price":2490000,"brand":"RCB","source":"brake"},"rcb-s45":{"id":"rcb-s45","name":"RCB S45 Series Rear Brake Caliper","image":"assets/images/rcb-s45-series-brake-caliper-1.webp","price":1290000,"brand":"RCB","source":"brake"},"rcb-s65":{"id":"rcb-s65","name":"RCB S65 Series Rear Brake Caliper","image":"assets/images/rcb-s65-series-brake-caliper-1.webp","price":1690000,"brand":"RCB","source":"brake"},"rcb-s26":{"id":"rcb-s26","name":"RCB S26 Front Brake Caliper","image":"assets/images/rcb-s26-front-brake-caliper-1.webp","price":1990000,"brand":"RCB","source":"brake"},"rcb-r55-evo":{"id":"rcb-r55-evo","name":"RCB R55-EVO Series Brake Caliper","image":"assets/images/rcb-brake-caliper-r55-evo-series-1.webp","price":5490000,"brand":"RCB","source":"brake"},"rcb-r1-evo":{"id":"rcb-r1-evo","name":"RCB R1-EVO Series Right / Left","image":"assets/images/rcb-brake-caliper-r1-evo-series-right-left-1.webp","price":6790000,"brand":"RCB","source":"brake"},"rcb-r34":{"id":"rcb-r34","name":"RCB R34 Radial Brake Caliper 4 Piston","image":"assets/images/rcb-r34-radial-brake-caliper-4-piston-size-100mm-108mm-universal-1.webp","price":5790000,"brand":"RCB","source":"brake"},"rcb-s27":{"id":"rcb-s27","name":"RCB S27 Series Brake Caliper","image":"assets/images/rcb-s27-series-brake-caliper-1.webp","price":2290000,"brand":"RCB","source":"brake"},"rcb-s26-30th":{"id":"rcb-s26-30th","name":"RCB 30th Anniversary S26 Limited","image":"assets/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-copy-1.webp","price":2390000,"brand":"RCB","source":"brake"},"rcb-r1-30th":{"id":"rcb-r1-30th","name":"RCB 30th Anniversary R1 Limited","image":"assets/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-1.webp","price":7490000,"brand":"RCB","source":"brake"},"rcb-e-hose":{"id":"rcb-e-hose","name":"RCB E Series Brake Hose","image":"assets/images/rcb-eseries-brake-hose-1.webp","price":490000,"brand":"RCB","source":"brake"},"rcb-s-hose":{"id":"rcb-s-hose","name":"RCB S Series Brake Hose","image":"assets/images/rcb-s-series-brake-hose-1.webp","price":890000,"brand":"RCB","source":"brake"}};
+  const rsFallback={"rs267":{"id":"rs267","name":"RCB RS Series Floating 267mm","image":"assets/images/rcb-rs-floating.webp","price":1790000,"brand":"RCB","source":"rs"},"rs298":{"id":"rs298","name":"RCB RS Series Floating 298mm","image":"assets/images/rcb-rs-floating.webp","price":1990000,"brand":"RCB","source":"rs"}};
   let cart=[];
   try{cart=JSON.parse(localStorage.getItem(storageKey)||"[]").filter(item=>byId[item.id]&&Number.isInteger(item.quantity)&&item.quantity>0)}catch(error){cart=[]}
+  cart=cart.map(item=>{const p=byId[item.id];return {...item,name:p.name,price:p.price,image:p.image,brand:p.brand,source:"disc"}});
   const cartButtons=document.querySelectorAll("[data-open-disc-cart]");
   const cartCounts=document.querySelectorAll("[data-disc-cart-count]");
   const drawer=document.getElementById("discCartDrawer");
@@ -90,53 +95,60 @@
   const cartItems=document.getElementById("discCartItems");
   const totalNode=document.getElementById("discCartTotal");
   const quoteNode=document.getElementById("discQuoteCount");
-  const form=document.getElementById("discOrderForm");
+  const checkoutButton=document.getElementById("discCheckoutButton");
+  const continueButton=document.getElementById("discContinueShopping");
   const toast=document.getElementById("discToast");
 
-  function saveCart(){try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch(error){}}
-  function showToast(message,isError=false){toast.textContent=message;toast.classList.toggle("error",isError);toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove("show"),2600)}
-  function openCart(){document.body.classList.add("cart-open");drawer.classList.add("open");backdrop.classList.add("open");drawer.setAttribute("aria-hidden","false");cartButtons.forEach(button=>button.setAttribute("aria-expanded","true"));document.getElementById("discCartClose").focus()}
-  function closeCart(){document.body.classList.remove("cart-open");drawer.classList.remove("open");backdrop.classList.remove("open");drawer.setAttribute("aria-hidden","true");cartButtons.forEach(button=>button.setAttribute("aria-expanded","false"))}
-  function addToCart(id){const existing=cart.find(item=>item.id===id);if(existing)existing.quantity=Math.min(10,existing.quantity+1);else cart.push({id,quantity:1});saveCart();renderCart();showToast("Đã thêm vào giỏ hàng");openCart()}
-  function updateQuantity(id,change){const item=cart.find(entry=>entry.id===id);if(!item)return;item.quantity=Math.max(0,Math.min(10,item.quantity+change));cart=cart.filter(entry=>entry.quantity>0);saveCart();renderCart()}
-  function removeItem(id){cart=cart.filter(item=>item.id!==id);saveCart();renderCart()}
-
-  function renderCart(){
-    const count=cart.reduce((sum,item)=>sum+item.quantity,0);
-    const total=cart.reduce((sum,item)=>sum+(byId[item.id].price||0)*item.quantity,0);
-    const quoteCount=cart.reduce((sum,item)=>sum+(byId[item.id].price?0:item.quantity),0);
+  function readStored(key){try{const v=JSON.parse(localStorage.getItem(key)||"[]");return Array.isArray(v)?v:[]}catch(error){return []}}
+  function writeStored(key,items){try{localStorage.setItem(key,JSON.stringify(items))}catch(error){}}
+  function saveCart(){writeStored(storageKey,cart)}
+  function normalizeStored(items,source,fallback){return items.filter(item=>item&&item.id&&Number(item.quantity)>0).map(item=>{const p=item.name?item:(fallback[item.id]||{});return {id:item.id,quantity:Number(item.quantity)||1,name:item.name||p.name||item.id,price:Number(item.price??p.price)||0,image:item.image||p.image||"assets/images/logo-dochoixe99.webp",brand:item.brand||p.brand||"Sản phẩm",source}})}
+  function allCartItems(){
+    const discs=normalizeStored(cart,"disc",byId);
+    const brakes=normalizeStored(readStored(brakeStorageKey),"brake",brakeFallback);
+    const rs=normalizeStored(readStored(rsStorageKey),"rs",rsFallback);
+    return [...discs,...brakes,...rs];
+  }
+  function totalCount(){return allCartItems().reduce((sum,item)=>sum+item.quantity,0)}
+  function syncHeaderCount(count){
     cartCounts.forEach(node=>node.textContent=String(count));
-    totalNode.textContent=formatMoney(total);
-    quoteNode.textContent=quoteCount?`${quoteCount} sản phẩm cần shop kiểm tra cấu hình.`:"Tất cả sản phẩm trong giỏ đều có giá cố định.";
-    cartItems.innerHTML=cart.length?cart.map(item=>{const product=byId[item.id];return `<article class="cart-item"><img src="${product.image}" alt=""><div><h3>${product.name}</h3><div class="cart-item-price">${product.price?formatMoney(product.price):"Chờ báo giá"}</div><div class="quantity"><button type="button" data-disc-decrease="${item.id}" aria-label="Giảm số lượng">−</button><strong>${item.quantity}</strong><button type="button" data-disc-increase="${item.id}" aria-label="Tăng số lượng">+</button></div></div><div><button class="remove-item" type="button" data-disc-remove="${item.id}">Xóa</button></div></article>`}).join(""):'<div class="cart-empty"><strong>Giỏ hàng đang trống</strong><p>Chọn đĩa theo xe, size hoặc thương hiệu ở catalog.</p></div>';
-    form.querySelector('button[type="submit"]').disabled=!cart.length;
+    document.querySelectorAll("[data-dx-shell-cart-count],[data-global-cart-count]").forEach(node=>node.textContent=String(count));
+  }
+  function showToast(message,isError=false){toast.textContent=message;toast.classList.toggle("error",isError);toast.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>toast.classList.remove("show"),2600)}
+  function openCart(event){if(event)event.preventDefault();renderCart();document.body.classList.add("cart-open");drawer.classList.add("open");backdrop.classList.add("open");drawer.setAttribute("aria-hidden","false");cartButtons.forEach(button=>button.setAttribute("aria-expanded","true"));document.getElementById("discCartClose").focus()}
+  function closeCart(){document.body.classList.remove("cart-open");drawer.classList.remove("open");backdrop.classList.remove("open");drawer.setAttribute("aria-hidden","true");cartButtons.forEach(button=>button.setAttribute("aria-expanded","false"))}
+  function addToCart(id){const existing=cart.find(item=>item.id===id),p=byId[id];if(existing)existing.quantity=Math.min(10,existing.quantity+1);else cart.push({id,quantity:1,name:p.name,price:p.price,image:p.image,brand:p.brand,source:"disc"});saveCart();renderCart();showToast("Đã thêm vào giỏ hàng");openCart()}
+  function updateStored(source,id,change,remove=false){
+    if(source==="disc"){const item=cart.find(entry=>entry.id===id);if(item&&!remove)item.quantity=Math.max(0,Math.min(10,item.quantity+change));cart=remove?cart.filter(x=>x.id!==id):cart.filter(x=>x.quantity>0);saveCart();return}
+    const key=source==="brake"?brakeStorageKey:rsStorageKey;
+    let items=readStored(key);const item=items.find(entry=>entry.id===id);
+    if(item&&!remove)item.quantity=Math.max(0,Math.min(10,(Number(item.quantity)||1)+change));
+    items=remove?items.filter(x=>x.id!==id):items.filter(x=>(Number(x.quantity)||0)>0);writeStored(key,items);
+  }
+  function renderCart(){
+    const items=allCartItems();
+    const count=items.reduce((sum,item)=>sum+item.quantity,0);
+    const total=items.reduce((sum,item)=>sum+item.price*item.quantity,0);
+    syncHeaderCount(count);totalNode.textContent=formatMoney(total);
+    quoteNode.textContent=count?`${count} sản phẩm trong giỏ · kiểm tra đúng cấu hình trước khi giao.`:"Giỏ hàng đang trống.";
+    cartItems.innerHTML=items.length?items.map(item=>`<article class="cart-item"><img src="${item.image}" alt=""><div><h3>${item.name}</h3><div class="cart-item-price">${item.price?formatMoney(item.price):"Chờ báo giá"}</div><span class="cart-source">${item.source==="brake"?"Heo & dây dầu":item.source==="rs"?"RCB RS":"Đĩa thắng"}</span><div class="quantity"><button type="button" data-global-minus="${item.id}" data-source="${item.source}" aria-label="Giảm số lượng">−</button><strong>${item.quantity}</strong><button type="button" data-global-plus="${item.id}" data-source="${item.source}" aria-label="Tăng số lượng">+</button></div></div><div><button class="remove-item" type="button" data-global-remove="${item.id}" data-source="${item.source}">Xóa</button></div></article>`).join(""):'<div class="cart-empty"><strong>Giỏ hàng đang trống</strong><p>Hãy thêm sản phẩm từ các danh mục trước khi đặt hàng.</p></div>';
+    checkoutButton.classList.toggle("is-disabled",!items.length);checkoutButton.setAttribute("aria-disabled",String(!items.length));
   }
 
   root.addEventListener("click",event=>{const button=event.target.closest("[data-add-disc]");if(button)addToCart(button.dataset.addDisc)});
-  cartItems.addEventListener("click",event=>{const decrease=event.target.closest("[data-disc-decrease]"),increase=event.target.closest("[data-disc-increase]"),remove=event.target.closest("[data-disc-remove]");if(decrease)updateQuantity(decrease.dataset.discDecrease,-1);if(increase)updateQuantity(increase.dataset.discIncrease,1);if(remove)removeItem(remove.dataset.discRemove)});
+  cartItems.addEventListener("click",event=>{
+    const minus=event.target.closest("[data-global-minus]"),plus=event.target.closest("[data-global-plus]"),remove=event.target.closest("[data-global-remove]");
+    if(minus)updateStored(minus.dataset.source,minus.dataset.globalMinus,-1);
+    if(plus)updateStored(plus.dataset.source,plus.dataset.globalPlus,1);
+    if(remove)updateStored(remove.dataset.source,remove.dataset.globalRemove,0,true);
+    if(minus||plus||remove)renderCart();
+  });
   cartButtons.forEach(button=>button.addEventListener("click",openCart));
   document.getElementById("discCartClose").addEventListener("click",closeCart);
   backdrop.addEventListener("click",closeCart);
+  continueButton.addEventListener("click",closeCart);
   addEventListener("keydown",event=>{if(event.key==="Escape")closeCart()});
-
-  form.addEventListener("submit",async event=>{
-    event.preventDefault();
-    if(!cart.length){showToast("Giỏ hàng đang trống",true);return}
-    if(!form.reportValidity())return;
-    const endpoint=config.LEAD_WEB_APP_URL||"";
-    if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){showToast("Kênh nhận đơn đang bảo trì. Vui lòng nhắn Zalo.",true);return}
-    const formData=Object.fromEntries(new FormData(form).entries());
-    if(formData.company)return;
-    const button=form.querySelector('button[type="submit"]');
-    const original=button.textContent;
-    const totalKnown=cart.reduce((sum,item)=>sum+(byId[item.id].price||0)*item.quantity,0);
-    const payload={type:"disc_catalog_order",name:formData.name,phone:formData.phone,bike:formData.bike,note:formData.note,items:cart.map(item=>({...byId[item.id],quantity:item.quantity})),totalKnown,page:location.href,submittedAt:new Date().toISOString()};
-    button.disabled=true;button.textContent="Đang gửi...";
-    try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});cart=[];saveCart();renderCart();form.reset();closeCart();showToast("Đã gửi giỏ hàng — shop sẽ liên hệ xác nhận!")}
-    catch(error){showToast("Không gửi được. Vui lòng gọi hoặc nhắn Zalo.",true)}
-    finally{button.disabled=!cart.length;button.textContent=original}
-  });
-
-  renderCart();
+  addEventListener("storage",renderCart);
+  saveCart();renderCart();
   if(new URLSearchParams(location.search).get("cart")==="open")openCart();
 })();

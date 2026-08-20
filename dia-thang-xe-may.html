@@ -163,21 +163,15 @@
 <section class="cta"><div class="container cta-box"><div><h2>Chưa chắc mã đĩa nào phù hợp?</h2><p>Gửi tên xe, đời xe, ảnh mâm và đĩa hiện tại để được đối chiếu trước khi đặt.</p></div><a class="btn" href="tel:0878976186">Gọi DOCHOIXE99: 0878 976 186</a></div></section>
 </main>
 <div class="cart-backdrop" id="discCartBackdrop"></div>
-<aside aria-hidden="true" aria-label="Giỏ hàng đĩa thắng" class="cart-drawer" id="discCartDrawer">
-<div class="cart-head"><h2>Giỏ đĩa thắng</h2><button aria-label="Đóng giỏ hàng" class="cart-close" id="discCartClose" type="button">×</button></div>
+<aside aria-hidden="true" aria-label="Giỏ hàng" class="cart-drawer" id="discCartDrawer">
+<div class="cart-head"><h2>Giỏ hàng</h2><button aria-label="Đóng giỏ hàng" class="cart-close" id="discCartClose" type="button">×</button></div>
 <div class="cart-content" id="discCartItems"></div>
 <div class="cart-summary">
-<div class="cart-total"><span>Tạm tính phần đã có giá</span><strong id="discCartTotal">0 ₫</strong></div>
-<div class="quote-count" id="discQuoteCount">Tất cả sản phẩm trong giỏ đều có giá cố định.</div>
-<form class="order-form" id="discOrderForm">
-<div aria-hidden="true" class="hp-field"><label for="discOrderCompany">Công ty</label><input autocomplete="off" id="discOrderCompany" name="company" tabindex="-1"/></div>
-<input autocomplete="name" name="name" placeholder="Họ tên" required="" type="text"/>
-<input autocomplete="tel" inputmode="tel" name="phone" pattern="[0-9 +().-]{8,20}" placeholder="Số điện thoại" required="" type="tel"/>
-<input name="bike" placeholder="Xe và đời xe (ví dụ: Exciter 155 2023)" required="" type="text"/>
-<textarea name="note" placeholder="Mâm, heo, pat hoặc yêu cầu thêm"></textarea>
-<button type="submit">Gửi giỏ hàng để xác nhận</button>
-</form>
-<p class="order-note">Chưa phát sinh thanh toán. Shop sẽ xác nhận mã, giá, tồn kho và khả năng tương thích trước khi chốt.</p>
+<div class="cart-total"><span>Tổng tiền hàng</span><strong id="discCartTotal">0 ₫</strong></div>
+<div class="quote-count" id="discQuoteCount">0 sản phẩm trong giỏ.</div>
+<a class="checkout-button is-disabled" id="discCheckoutButton" href="/thanh-toan.html" aria-disabled="true">Đặt hàng <span>→</span></a>
+<button class="continue-shopping" id="discContinueShopping" type="button">Tiếp tục mua hàng</button>
+<p class="order-note">Thông tin người nhận, địa chỉ giao hàng và phương thức thanh toán sẽ được nhập ở bước tiếp theo.</p>
 </div>
 </aside>
 <div aria-live="polite" class="toast" id="discToast" role="status"></div>

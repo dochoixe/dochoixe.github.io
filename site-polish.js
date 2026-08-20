@@ -23,8 +23,8 @@
     }));
   }
   try{
-    const items=JSON.parse(localStorage.getItem('dochoixe99DiscCartV1')||'[]');
-    const count=Array.isArray(items)?items.reduce((sum,item)=>sum+(Number(item.quantity)||0),0):0;
+    const keys=['dochoixe99DiscCartV1','dochoixe99BrakeCartV1','dochoixe99CartV1'];
+    const count=keys.reduce((total,key)=>{const items=JSON.parse(localStorage.getItem(key)||'[]');return total+(Array.isArray(items)?items.reduce((sum,item)=>sum+(Number(item.quantity)||0),0):0)},0);
     header.querySelectorAll('[data-dx-shell-cart-count]').forEach(el=>el.textContent=String(count));
   }catch(error){}
   const path=(location.pathname.replace(/\/+$/,'')||'/').toLowerCase();

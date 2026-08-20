@@ -393,7 +393,7 @@ body.brake-cart-open{overflow:hidden}
 <section class="category-links"><div class="container"><h2>Xem các nhóm phụ tùng khác</h2><div class="category-link-grid"><a class="category-link" href="dia-thang-xe-may.html">Đĩa thắng →</a><a class="category-link" href="tay-thang-cnc.html">Tay thắng CNC →</a><a class="category-link" href="phuoc-rcb.html">Phuộc RCB →</a><a class="category-link" href="index.html#lien-he">Nhờ tư vấn theo xe →</a></div></div></section>
 </main>
 <div class="brake-cart-backdrop" id="brakeCartBackdrop"></div>
-<aside aria-hidden="true" aria-label="Giỏ hàng heo dầu và dây dầu" class="brake-cart" id="brakeCart"><div class="brake-cart-head"><h2>Giỏ hàng RCB</h2><button aria-label="Đóng giỏ hàng" class="brake-cart-close" id="brakeCartClose" type="button">×</button></div><div class="brake-cart-items" id="brakeCartItems"></div><form class="brake-order" id="brakeOrderForm"><div class="brake-total"><span>Tổng tạm tính</span><strong id="brakeCartTotal">0 ₫</strong></div><div class="brake-order-grid"><input autocomplete="name" name="name" placeholder="Họ và tên" required=""/><input autocomplete="tel" inputmode="tel" name="phone" pattern="[0-9 +()-]{8,15}" placeholder="Số điện thoại" required=""/><input name="bike" placeholder="Xe / đời xe" required=""/><textarea name="note" placeholder="Ghi chú màu, vị trí lắp..."></textarea><input autocomplete="off" class="honeypot" name="company" tabindex="-1"/></div><button class="brake-order-submit" type="submit">Gửi giỏ hàng để xác nhận</button></form></aside>
+<aside aria-hidden="true" aria-label="Giỏ hàng" class="brake-cart" id="brakeCart"><div class="brake-cart-head"><h2>Giỏ hàng</h2><button aria-label="Đóng giỏ hàng" class="brake-cart-close" id="brakeCartClose" type="button">×</button></div><div class="brake-cart-items" id="brakeCartItems"></div><div class="brake-order"><div class="brake-total"><span>Tạm tính nhóm heo & dây dầu</span><strong id="brakeCartTotal">0 ₫</strong></div><a class="brake-checkout" id="brakeCheckoutButton" href="/dia-thang-xe-may.html?cart=open">Xem toàn bộ giỏ hàng <span>→</span></a><p class="brake-checkout-note">Giỏ hàng tổng hợp và nút Đặt hàng nằm ở bước tiếp theo.</p></div></aside>
 <div aria-live="polite" class="brake-toast" id="brakeToast" role="status"></div>
 <footer class="dx-shell-footer-fallback"><div class="dx-shell-container dx-shell-footer-grid"><div><a class="brand dx-shell-brand dx-shell-footer-brand" href="/"><img alt="Logo DOCHOIXE99" class="dx-shell-brand-logo" decoding="async" height="160" loading="lazy" src="/assets/images/logo-dochoixe99.webp" width="160"/><span class="dx-shell-brand-copy"><span class="dx-shell-brand-name">DOCHOIXE<em>99</em></span><span class="dx-shell-brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a><div class="dx-shell-footer-copyright">© 2026 DOCHOIXE99. Đồ chơi và phụ kiện xe máy.</div><div class="dx-shell-footer-disclaimer">Thông tin sản phẩm, giá, tồn kho và khả năng tương thích được xác nhận theo đúng dòng xe trước khi đặt. Tên và logo thương hiệu bên thứ ba chỉ dùng để nhận diện sản phẩm; việc hiển thị không hàm ý quan hệ đại lý hoặc ủy quyền. Một số bối cảnh hình ảnh có thể được biên tập hoặc dàn dựng; vui lòng đối chiếu mã và hình thực tế trước khi đặt.</div></div><nav aria-label="Danh mục cuối trang" class="dx-shell-footer-links"><a href="/dia-thang-xe-may.html">Đĩa thắng</a><a href="/heo-dau-xe-may.html">Heo dầu</a><a href="/tay-thang-cnc.html">Tay thắng</a><a href="/phuoc-rcb.html">Phuộc</a></nav></div></footer>
 <script>
@@ -466,11 +466,12 @@ window.DOCHOIXE99_CONFIG={PHONE_DISPLAY:"0878 976 186",PHONE_RAW:"0878976186",LE
   const storageKey="dochoixe99BrakeCartV1";
   let cart=[];
   try{cart=JSON.parse(localStorage.getItem(storageKey)||"[]").filter(item=>productById[item.id]&&Number.isInteger(item.quantity)&&item.quantity>0)}catch(error){cart=[]}
+  cart=cart.map(item=>{const p=productById[item.id];return {...item,name:p.name,price:p.price,image:p.image,brand:"RCB",source:"brake"}});
+  try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch(error){}
   const drawer=document.getElementById("brakeCart");
   const backdrop=document.getElementById("brakeCartBackdrop");
   const itemsNode=document.getElementById("brakeCartItems");
   const totalNode=document.getElementById("brakeCartTotal");
-  const form=document.getElementById("brakeOrderForm");
   const toast=document.getElementById("brakeToast");
 
   function totalStoredCount(key){
@@ -482,13 +483,12 @@ window.DOCHOIXE99_CONFIG={PHONE_DISPLAY:"0878 976 186",PHONE_RAW:"0878976186",LE
   function closeCart(){drawer.classList.remove("open");backdrop.classList.remove("open");drawer.setAttribute("aria-hidden","true");document.body.classList.remove("brake-cart-open")}
   function render(){
     const brakeCount=cart.reduce((sum,item)=>sum+item.quantity,0);
-    const allCount=brakeCount+totalStoredCount("dochoixe99DiscCartV1");
-    document.querySelectorAll("[data-global-cart-count]").forEach(node=>node.textContent=String(allCount));
+    const allCount=brakeCount+totalStoredCount("dochoixe99DiscCartV1")+totalStoredCount("dochoixe99CartV1");
+    document.querySelectorAll("[data-global-cart-count],[data-dx-shell-cart-count]").forEach(node=>node.textContent=String(allCount));
     totalNode.textContent=money(cart.reduce((sum,item)=>sum+productById[item.id].price*item.quantity,0));
     itemsNode.innerHTML=cart.length?cart.map(item=>{const product=productById[item.id];return `<article class="brake-cart-item"><img src="${product.image}" alt=""><div><h3>${product.name}</h3><div class="brake-cart-item-price">${money(product.price)}</div><div class="brake-quantity"><button type="button" data-brake-minus="${item.id}" aria-label="Giảm số lượng">−</button><strong>${item.quantity}</strong><button type="button" data-brake-plus="${item.id}" aria-label="Tăng số lượng">+</button></div></div><button class="brake-remove" type="button" data-brake-remove="${item.id}">Xóa</button></article>`}).join(""):'<div class="brake-cart-empty"><strong>Giỏ hàng đang trống</strong><p>Chọn từng mẫu heo dầu hoặc dây dầu ở catalog.</p></div>';
-    form.querySelector('button[type="submit"]').disabled=!cart.length;
   }
-  function add(id){const current=cart.find(item=>item.id===id);if(current)current.quantity=Math.min(10,current.quantity+1);else cart.push({id,quantity:1});save();render();showToast("Đã thêm sản phẩm vào giỏ");openCart()}
+  function add(id){const current=cart.find(item=>item.id===id),p=productById[id];if(current)current.quantity=Math.min(10,current.quantity+1);else cart.push({id,quantity:1,name:p.name,price:p.price,image:p.image,brand:"RCB",source:"brake"});save();render();showToast("Đã thêm sản phẩm vào giỏ")}
   function change(id,amount){const item=cart.find(entry=>entry.id===id);if(!item)return;item.quantity=Math.max(0,Math.min(10,item.quantity+amount));cart=cart.filter(entry=>entry.quantity>0);save();render()}
 
   document.addEventListener("click",event=>{const button=event.target.closest("[data-add-brake]");if(button)add(button.dataset.addBrake)});
@@ -498,23 +498,6 @@ window.DOCHOIXE99_CONFIG={PHONE_DISPLAY:"0878 976 186",PHONE_RAW:"0878976186",LE
   backdrop.addEventListener("click",closeCart);
   addEventListener("keydown",event=>{if(event.key==="Escape")closeCart()});
 
-  form.addEventListener("submit",async event=>{
-    event.preventDefault();
-    if(!cart.length){showToast("Giỏ hàng đang trống",true);return}
-    if(!form.reportValidity())return;
-    const config=window.DOCHOIXE99_CONFIG||{};
-    const endpoint=config.LEAD_WEB_APP_URL||"";
-    if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){showToast("Kênh nhận đơn đang bảo trì. Vui lòng nhắn Zalo.",true);return}
-    const values=Object.fromEntries(new FormData(form).entries());
-    if(values.company)return;
-    const button=form.querySelector('button[type="submit"]');
-    const original=button.textContent;
-    const payload={type:"rcb_brake_order",name:values.name,phone:values.phone,bike:values.bike,note:values.note,items:cart.map(item=>({...productById[item.id],quantity:item.quantity})),totalKnown:cart.reduce((sum,item)=>sum+productById[item.id].price*item.quantity,0),page:location.href,submittedAt:new Date().toISOString()};
-    button.disabled=true;button.textContent="Đang gửi...";
-    try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});cart=[];save();render();form.reset();closeCart();showToast("Đã gửi giỏ hàng — shop sẽ liên hệ xác nhận!")}
-    catch(error){showToast("Không gửi được. Vui lòng gọi hoặc nhắn Zalo.",true)}
-    finally{button.disabled=!cart.length;button.textContent=original}
-  });
 
   render();
   if(new URLSearchParams(location.search).get("cart")==="open")openCart();

@@ -24,7 +24,8 @@
     .cart-backdrop{position:fixed;z-index:1190;inset:0;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:.25s}.cart-backdrop.open{opacity:1;pointer-events:auto}.cart-drawer{position:fixed;z-index:1200;top:0;right:0;width:min(470px,100%);height:100dvh;display:flex;flex-direction:column;border-left:1px solid #353a43;background:#0f1115;box-shadow:-24px 0 70px rgba(0,0,0,.45);transform:translateX(102%);transition:.28s}.cart-drawer.open{transform:none}.cart-head{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid #30343c}.cart-head h2{margin:0;font-size:25px}.cart-close{width:42px;height:42px;border:1px solid #393e47;border-radius:12px;background:#191c22;color:#fff;font-size:22px}.cart-content{flex:1;overflow:auto;padding:18px 22px}.cart-empty{padding:36px 12px;text-align:center;color:#a3a7b0}.cart-item{display:grid;grid-template-columns:76px 1fr auto;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid #292d35}.cart-item img{width:76px;height:76px;padding:7px;border-radius:12px;background:#181b21;object-fit:contain}.cart-item h3{margin:0 0 5px;font-size:15px}.cart-item-price{color:#ff7672;font-size:13px;font-weight:850}.quantity{display:flex;align-items:center;gap:7px;margin-top:8px}.quantity button{width:28px;height:28px;border:1px solid #3a3f48;border-radius:8px;background:#1b1e24;color:#fff}.remove-item{border:0;background:transparent;color:#9297a1;font-size:12px;text-decoration:underline}.cart-summary{padding:18px 22px;border-top:1px solid #30343c;background:#121419}.cart-total{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}.cart-total strong{color:#ff6d68;font-size:23px}.order-form{display:grid;gap:9px}.order-form input,.order-form textarea{width:100%;padding:12px 13px;border:1px solid #343943;border-radius:11px;background:#1a1d23;color:#fff;outline:0}.order-form textarea{min-height:70px;resize:vertical}.order-form input:focus,.order-form textarea:focus{border-color:var(--hot)}.order-form button{min-height:49px;border:0;border-radius:12px;background:var(--red);color:#fff;font-weight:950}.order-note{margin:8px 0 0;color:#8f949d;font-size:11px;line-height:1.55}.hp-field{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.toast{position:fixed;z-index:1300;left:50%;bottom:28px;padding:13px 17px;border-radius:11px;background:#fff;color:#111;font-weight:850;box-shadow:var(--shadow);opacity:0;transform:translate(-50%,24px);transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translate(-50%,0)}.toast.error{background:#b42129;color:#fff}
     @media(max-width:880px){.navlinks{display:none}.hero-grid,.detail-grid{grid-template-columns:1fr}.hero-product{max-width:560px}.section-head{display:block}.section-head p{margin-top:18px}}
     @media(max-width:620px){:root{--container:calc(100% - 24px)}.nav{min-height:68px}.brand{font-size:20px}.brand img{width:46px;height:46px}.brand small{display:none}.cart-button{margin-left:auto;padding:0 13px}.hero{padding:35px 0 58px}.hero h1{font-size:47px}.product-grid{grid-template-columns:1fr}.product-image{height:330px}.product-actions{grid-template-columns:1fr}.details{padding:65px 0}.cart-item{grid-template-columns:64px 1fr}.cart-item img{width:64px;height:64px}.cart-item>div:last-child{grid-column:2}}
-  </style>
+  .checkout-button{display:flex;min-height:49px;align-items:center;justify-content:center;border:1px solid #e12626;border-radius:12px;background:#d7253b;color:#fff;text-decoration:none;font-weight:950}.checkout-button.is-disabled{pointer-events:none;opacity:.45}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -197,15 +198,7 @@
 <div class="cart-content" id="cartItems"></div>
 <div class="cart-summary">
 <div class="cart-total"><span>Tạm tính</span><strong id="cartTotal">0 ₫</strong></div>
-<form class="order-form" id="orderForm">
-<div aria-hidden="true" class="hp-field"><label for="orderCompany">Công ty</label><input autocomplete="off" id="orderCompany" name="company" tabindex="-1"/></div>
-<input autocomplete="name" maxlength="80" name="name" placeholder="Tên của bạn (không bắt buộc)"/>
-<input autocomplete="tel" inputmode="tel" maxlength="15" minlength="8" name="phone" pattern="[0-9+ ]{8,15}" placeholder="Số điện thoại *" required="" type="tel"/>
-<input maxlength="80" name="bike" placeholder="Dòng xe, phiên bản, đời xe *" required=""/>
-<textarea maxlength="500" name="note" placeholder="Ghi chú thêm"></textarea>
-<button type="submit">Gửi yêu cầu đặt hàng</button>
-</form>
-<p class="order-note">Gửi giỏ hàng không phải thanh toán trực tuyến. Shop sẽ liên hệ xác nhận đúng mã, giá, tồn kho và khả năng tương thích trước khi chốt.</p>
+<a class="checkout-button" id="rsCheckoutButton" href="/dia-thang-xe-may.html?cart=open">Xem toàn bộ giỏ hàng →</a><p class="order-note">Giỏ hàng tổng hợp và nút Đặt hàng nằm ở bước tiếp theo.</p>
 </div>
 </aside>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
@@ -220,25 +213,34 @@
     const storageKey = "dochoixe99CartV1";
     let cart = [];
     try{cart=JSON.parse(localStorage.getItem(storageKey)||"[]").filter(item=>products[item.id]&&Number.isInteger(item.quantity)&&item.quantity>0)}catch(error){cart=[]}
-    const cartButton=document.getElementById("cartButton"),cartCount=document.getElementById("cartCount"),cartDrawer=document.getElementById("cartDrawer"),cartBackdrop=document.getElementById("cartBackdrop"),cartItems=document.getElementById("cartItems"),cartTotal=document.getElementById("cartTotal"),orderForm=document.getElementById("orderForm"),toast=document.getElementById("toast");
+    cart=cart.map(item=>{const p=products[item.id];return {...item,name:p.name,price:p.price,image:p.image,brand:"RCB",source:"rs"}});
+    try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch(error){}
+    const cartButton=document.getElementById("cartButton"),cartCount=document.getElementById("cartCount"),cartDrawer=document.getElementById("cartDrawer"),cartBackdrop=document.getElementById("cartBackdrop"),cartItems=document.getElementById("cartItems"),cartTotal=document.getElementById("cartTotal"),toast=document.getElementById("toast");
     document.querySelectorAll('[data-price="rs267"]').forEach(el=>el.textContent=formatMoney(products.rs267.price));
     document.querySelectorAll('[data-price="rs298"]').forEach(el=>el.textContent=formatMoney(products.rs298.price));
     function saveCart(){try{localStorage.setItem(storageKey,JSON.stringify(cart))}catch(error){}}
     function openCart(){document.body.classList.add("cart-open");cartDrawer.classList.add("open");cartBackdrop.classList.add("open");cartDrawer.setAttribute("aria-hidden","false");cartButton.setAttribute("aria-expanded","true");document.getElementById("cartClose").focus()}
     function closeCart(){document.body.classList.remove("cart-open");cartDrawer.classList.remove("open");cartBackdrop.classList.remove("open");cartDrawer.setAttribute("aria-hidden","true");cartButton.setAttribute("aria-expanded","false")}
-    function addToCart(id){const existing=cart.find(item=>item.id===id);if(existing)existing.quantity=Math.min(10,existing.quantity+1);else cart.push({id,quantity:1});saveCart();renderCart();showToast("Đã thêm sản phẩm vào giỏ hàng");openCart()}
+    function addToCart(id){const existing=cart.find(item=>item.id===id),p=products[id];if(existing)existing.quantity=Math.min(10,existing.quantity+1);else cart.push({id,quantity:1,name:p.name,price:p.price,image:p.image,brand:"RCB",source:"rs"});saveCart();renderCart();showToast("Đã thêm sản phẩm vào giỏ hàng");openCart()}
     function updateQuantity(id,change){const item=cart.find(entry=>entry.id===id);if(!item)return;item.quantity=Math.max(0,Math.min(10,item.quantity+change));cart=cart.filter(entry=>entry.quantity>0);saveCart();renderCart()}
     function removeItem(id){cart=cart.filter(item=>item.id!==id);saveCart();renderCart()}
+    function globalCartCount(){
+      const keys=["dochoixe99DiscCartV1","dochoixe99BrakeCartV1","dochoixe99CartV1"];
+      try{return keys.reduce((total,key)=>{const items=JSON.parse(localStorage.getItem(key)||"[]");return total+(Array.isArray(items)?items.reduce((sum,item)=>sum+(Number(item.quantity)||0),0):0)},0)}catch(error){return cart.reduce((sum,item)=>sum+item.quantity,0)}
+    }
     function renderCart(){
-      const count=cart.reduce((sum,item)=>sum+item.quantity,0),total=cart.reduce((sum,item)=>sum+products[item.id].price*item.quantity,0);
+      const count=cart.reduce((sum,item)=>sum+item.quantity,0),total=cart.reduce((sum,item)=>sum+products[item.id].price*item.quantity,0),globalCount=globalCartCount();
       cartCount.textContent=count;cartTotal.textContent=formatMoney(total);
+      document.querySelectorAll("[data-dx-shell-cart-count],[data-global-cart-count]").forEach(node=>node.textContent=String(globalCount));
       cartItems.innerHTML=cart.length?cart.map(item=>{const product=products[item.id];return `<article class="cart-item"><img src="${product.image}" alt=""><div><h3>${product.name}</h3><div class="cart-item-price">${formatMoney(product.price)}</div><div class="quantity"><button type="button" data-decrease="${item.id}" aria-label="Giảm số lượng">−</button><strong>${item.quantity}</strong><button type="button" data-increase="${item.id}" aria-label="Tăng số lượng">+</button></div></div><div><button class="remove-item" type="button" data-remove="${item.id}">Xóa</button></div></article>`}).join(""):'<div class="cart-empty"><strong>Giỏ hàng đang trống</strong><p>Chọn phiên bản RCB RS phù hợp để thêm vào giỏ.</p></div>';
-      orderForm.querySelector('button[type="submit"]').disabled=!cart.length;
     }
     let toastTimer;function showToast(message,isError=false){clearTimeout(toastTimer);toast.textContent=message;toast.classList.toggle("error",isError);toast.classList.add("show");toastTimer=setTimeout(()=>toast.classList.remove("show"),3800)}
     document.addEventListener("click",event=>{const add=event.target.closest("[data-add]"),increase=event.target.closest("[data-increase]"),decrease=event.target.closest("[data-decrease]"),remove=event.target.closest("[data-remove]");if(add)addToCart(add.dataset.add);if(increase)updateQuantity(increase.dataset.increase,1);if(decrease)updateQuantity(decrease.dataset.decrease,-1);if(remove)removeItem(remove.dataset.remove)});
-    document.querySelectorAll("[data-open-cart]").forEach(button=>button.addEventListener("click",openCart));cartButton.addEventListener("click",openCart);document.getElementById("cartClose").addEventListener("click",closeCart);cartBackdrop.addEventListener("click",closeCart);addEventListener("keydown",event=>{if(event.key==="Escape")closeCart()});
-    orderForm.addEventListener("submit",async event=>{event.preventDefault();if(!cart.length){showToast("Giỏ hàng đang trống",true);return}if(!orderForm.reportValidity())return;const endpoint=config.LEAD_WEB_APP_URL||"";if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){showToast("Kênh nhận đơn đang bảo trì. Vui lòng nhắn Zalo.",true);return}const formData=Object.fromEntries(new FormData(orderForm).entries());if(formData.company)return;const button=orderForm.querySelector('button[type="submit"]'),original=button.textContent,total=cart.reduce((sum,item)=>sum+products[item.id].price*item.quantity,0);const payload={type:"cart_order",name:formData.name,phone:formData.phone,bike:formData.bike,note:formData.note,items:cart.map(item=>({...products[item.id],quantity:item.quantity})),total,page:location.href,submittedAt:new Date().toISOString()};button.disabled=true;button.textContent="Đang gửi...";try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});cart=[];saveCart();renderCart();orderForm.reset();closeCart();showToast("Đã nhận giỏ hàng — shop sẽ liên hệ xác nhận!")}catch(error){showToast("Không gửi được. Vui lòng gọi hoặc nhắn Zalo.",true)}finally{button.disabled=!cart.length;button.textContent=original}});
+    document.querySelectorAll("[data-open-cart]").forEach(button=>button.addEventListener("click",openCart));
+    cartButton.addEventListener("click",openCart);
+    document.getElementById("cartClose").addEventListener("click",closeCart);
+    cartBackdrop.addEventListener("click",closeCart);
+    addEventListener("keydown",event=>{if(event.key==="Escape")closeCart()});
     renderCart();
   </script>
 <script src="/footer.js?v=20260819-6"></script>

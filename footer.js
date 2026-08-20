@@ -69,8 +69,8 @@
     if (headerHost) {
       let count = 0;
       try {
-        const items = JSON.parse(localStorage.getItem("dochoixe99DiscCartV1") || "[]");
-        count = Array.isArray(items) ? items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0) : 0;
+        const keys = ["dochoixe99DiscCartV1","dochoixe99BrakeCartV1","dochoixe99CartV1"];
+        count = keys.reduce((total,key) => { const items=JSON.parse(localStorage.getItem(key)||"[]"); return total + (Array.isArray(items) ? items.reduce((sum,item)=>sum+(Number(item.quantity)||0),0) : 0); },0);
       } catch (error) {}
       const cartLink = document.createElement("a");
       cartLink.className = "shared-header-cart";
