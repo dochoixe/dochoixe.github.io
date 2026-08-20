@@ -3,13 +3,12 @@
    - Chỉ hiển thị 1 bộ tài khoản trên header
    - Đăng ký bằng Gmail
    - Đăng ký xong tự đăng nhập
-   - Lưu tài khoản trên trình duyệt
+   - Tài khoản lưu trên Google Sheets; trình duyệt chỉ giữ phiên đăng nhập
    ========================================================= */
 
 (function () {
   "use strict";
 
-  const USERS_KEY = "DOCHOIXE99_USERS_V2";
   const SESSION_KEY = "DOCHOIXE99_SESSION_V2";
 
   /* =====================================================
@@ -33,18 +32,6 @@
       .replace(/'/g, "&#039;");
   }
 
-  function getUsers() {
-    try {
-      const data = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
-      return Array.isArray(data) ? data : [];
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function saveUsers(users) {
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
-  }
 
   function getSession() {
     try {
@@ -77,18 +64,111 @@
     );
   }
 
-  async function hashPassword(password) {
-    if (!window.crypto || !window.crypto.subtle) {
-      return btoa(unescape(encodeURIComponent(password)));
+
+  /* =====================================================
+     GOOGLE SHEETS ACCOUNT API
+     ACCOUNT_API_URL lấy từ config-links.js
+  ===================================================== */
+
+  function getAccountApiUrl() {
+    return String(
+      window.DOCHOIXE99_CONFIG &&
+      window.DOCHOIXE99_CONFIG.ACCOUNT_API_URL
+        ? window.DOCHOIXE99_CONFIG.ACCOUNT_API_URL
+        : ""
+    ).trim();
+  }
+
+  async function accountApi(payload) {
+    const apiUrl = getAccountApiUrl();
+
+    if (!apiUrl) {
+      throw new Error(
+        "Chưa cài ACCOUNT_API_URL trong config-links.js."
+      );
     }
 
-    const data = new TextEncoder().encode(password);
-    const buffer = await crypto.subtle.digest("SHA-256", data);
+    const body = new URLSearchParams();
 
-    return Array.from(new Uint8Array(buffer))
-      .map(byte => byte.toString(16).padStart(2, "0"))
-      .join("");
+    Object.entries(payload || {}).forEach(([key, value]) => {
+      body.append(
+        key,
+        value === undefined || value === null
+          ? ""
+          : String(value)
+      );
+    });
+
+    const controller = new AbortController();
+
+    const timeout = setTimeout(() => {
+      controller.abort();
+    }, 15000);
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        body,
+        redirect: "follow",
+        cache: "no-store",
+        credentials: "omit",
+        signal: controller.signal
+      });
+
+      const responseText = await response.text();
+
+      let result;
+
+      try {
+        result = JSON.parse(responseText);
+      } catch (error) {
+        console.error(
+          "DOCHOIXE99 ACCOUNT API RESPONSE:",
+          responseText
+        );
+
+        throw new Error(
+          "Google Sheets trả về dữ liệu không hợp lệ."
+        );
+      }
+
+      return result;
+    } catch (error) {
+      if (error && error.name === "AbortError") {
+        throw new Error(
+          "Kết nối Google Sheets quá lâu. Vui lòng thử lại."
+        );
+      }
+
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
   }
+
+  function setSubmitLoading(form, loading, loadingText) {
+    if (!form) return;
+
+    const button = qs('button[type="submit"]', form);
+    if (!button) return;
+
+    if (loading) {
+      if (!button.dataset.originalText) {
+        button.dataset.originalText = button.textContent.trim();
+      }
+
+      button.disabled = true;
+      button.textContent = loadingText || "Đang xử lý...";
+      return;
+    }
+
+    button.disabled = false;
+
+    if (button.dataset.originalText) {
+      button.textContent = button.dataset.originalText;
+    }
+  }
+
 
   /* =====================================================
      CSS
@@ -808,56 +888,93 @@
       return;
     }
 
-    const users = getUsers();
-
-    const existed = users.some(
-      user =>
-        String(user.email).toLowerCase() === email
+    setSubmitLoading(
+      form,
+      true,
+      "Đang tạo tài khoản..."
     );
 
-    if (existed) {
+    try {
+      const result = await accountApi({
+        action: "register",
+        name,
+        email,
+        password
+      });
+
+      if (!result || !result.ok) {
+        showMessage(
+          "dx99RegisterMessage",
+          result && result.message
+            ? result.message
+            : "Không thể tạo tài khoản."
+        );
+
+        if (
+          result &&
+          result.code === "EMAIL_EXISTS"
+        ) {
+          setTimeout(() => {
+            switchTab("login");
+
+            const loginForm = qs("#dx99LoginForm");
+            const loginEmail = loginForm
+              ? qs('input[name="email"]', loginForm)
+              : null;
+
+            if (loginEmail) {
+              loginEmail.value = email;
+              loginEmail.focus();
+            }
+          }, 600);
+        }
+
+        return;
+      }
+
+      /*
+        ĐĂNG KÝ THÀNH CÔNG:
+        Google Sheets đã lưu tài khoản.
+        Trình duyệt chỉ lưu SESSION để tự đăng nhập.
+      */
+      saveSession(
+        result.user || {
+          name,
+          email
+        }
+      );
+
       showMessage(
         "dx99RegisterMessage",
-        "Gmail này đã được đăng ký. Hãy đăng nhập."
+        "Đăng ký thành công. Bạn đã được đăng nhập tự động.",
+        "success"
       );
-      return;
+
+      form.reset();
+
+      renderHeaderAuth();
+      renderAccountSection();
+
+      setTimeout(() => {
+        closeAuth();
+      }, 650);
+    } catch (error) {
+      console.error(
+        "DOCHOIXE99 REGISTER ERROR:",
+        error
+      );
+
+      showMessage(
+        "dx99RegisterMessage",
+        error && error.message
+          ? error.message
+          : "Không thể kết nối Google Sheets."
+      );
+    } finally {
+      setSubmitLoading(form, false);
     }
-
-    const passwordHash = await hashPassword(password);
-
-    const user = {
-      id: "DXU-" + Date.now(),
-      name,
-      email,
-      passwordHash,
-      createdAt: Date.now()
-    };
-
-    users.push(user);
-
-    saveUsers(users);
-
-    /*
-      QUAN TRỌNG:
-      ĐĂNG KÝ XONG TỰ ĐĂNG NHẬP
-    */
-    saveSession(user);
-
-    showMessage(
-      "dx99RegisterMessage",
-      "Đăng ký thành công. Bạn đã được đăng nhập tự động.",
-      "success"
-    );
-
-    form.reset();
-
-    renderHeaderAuth();
-    renderAccountSection();
-
-    setTimeout(() => {
-      closeAuth();
-    }, 650);
   }
+
 
   /* =====================================================
      ĐĂNG NHẬP
@@ -879,48 +996,75 @@
       data.get("password") || ""
     );
 
-    if (!email || !password) {
+    if (!isGmail(email) || !password) {
       showMessage(
         "dx99LoginMessage",
-        "Vui lòng nhập Gmail và mật khẩu."
+        "Vui lòng nhập đúng Gmail và mật khẩu."
       );
       return;
     }
 
-    const passwordHash = await hashPassword(password);
-
-    const users = getUsers();
-
-    const user = users.find(item => {
-      return (
-        String(item.email).toLowerCase() === email &&
-        item.passwordHash === passwordHash
-      );
-    });
-
-    if (!user) {
-      showMessage(
-        "dx99LoginMessage",
-        "Gmail hoặc mật khẩu không đúng."
-      );
-      return;
-    }
-
-    saveSession(user);
-
-    showMessage(
-      "dx99LoginMessage",
-      "Đăng nhập thành công.",
-      "success"
+    setSubmitLoading(
+      form,
+      true,
+      "Đang đăng nhập..."
     );
 
-    renderHeaderAuth();
-    renderAccountSection();
+    try {
+      const result = await accountApi({
+        action: "login",
+        email,
+        password
+      });
 
-    setTimeout(() => {
-      closeAuth();
-    }, 450);
+      if (!result || !result.ok) {
+        showMessage(
+          "dx99LoginMessage",
+          result && result.message
+            ? result.message
+            : "Gmail hoặc mật khẩu không đúng."
+        );
+        return;
+      }
+
+      saveSession(
+        result.user || {
+          name: "Khách hàng",
+          email
+        }
+      );
+
+      showMessage(
+        "dx99LoginMessage",
+        "Đăng nhập thành công.",
+        "success"
+      );
+
+      form.reset();
+
+      renderHeaderAuth();
+      renderAccountSection();
+
+      setTimeout(() => {
+        closeAuth();
+      }, 450);
+    } catch (error) {
+      console.error(
+        "DOCHOIXE99 LOGIN ERROR:",
+        error
+      );
+
+      showMessage(
+        "dx99LoginMessage",
+        error && error.message
+          ? error.message
+          : "Không thể kết nối Google Sheets."
+      );
+    } finally {
+      setSubmitLoading(form, false);
+    }
   }
+
 
   /* =====================================================
      KHU TÀI KHOẢN Ở TRANG CHỦ
