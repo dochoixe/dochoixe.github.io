@@ -101,6 +101,6 @@ window.DOCHOIXE99_CONFIG = {
   },
 
   /* Tài khoản hiện chạy cục bộ trên trình duyệt. Để trống cho tới khi nối backend xác thực thật. */
-   ORDER_API_URL:: "https://script.google.com/macros/s/AKfycbx6HUviM41SFs67xGjtyITYw9Y5YX3Nr6Z87bTVfuuJBYDHbW-FIVp1PFJdRKfKugQm/exec",
+   ORDER_API_URL:"https://script.google.com/macros/s/AKfycbx6HUviM41SFs67xGjtyITYw9Y5YX3Nr6Z87bTVfuuJBYDHbW-FIVp1PFJdRKfKugQm/exec",
 
 };
