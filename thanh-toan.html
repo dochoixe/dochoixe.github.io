@@ -39,7 +39,7 @@ a{color:inherit}
 <div class="field"><label>Họ và tên <span class="required">*</span></label><input name="name" autocomplete="name" required placeholder="Tên người nhận"></div>
 <div class="field"><label>Số điện thoại <span class="required">*</span></label><input name="phone" autocomplete="tel" inputmode="tel" pattern="[0-9 +().-]{8,20}" required placeholder="09xx xxx xxx"></div>
 <div class="field"><label>Email</label><input name="email" autocomplete="email" type="email" placeholder="Không bắt buộc"></div>
-<div class="field"><label>Xe / đời xe <span class="required">*</span></label><input name="bike" required placeholder="Ví dụ: Exciter 155 2023"></div>
+
 <div class="field"><label>Tỉnh / Thành phố <span class="required">*</span></label><input name="province" autocomplete="address-level1" required placeholder="Ví dụ: Bình Định"></div>
 <div class="field"><label>Quận / Huyện <span class="required">*</span></label><input name="district" autocomplete="address-level2" required placeholder="Quận, huyện, thị xã"></div>
 <div class="field"><label>Phường / Xã <span class="required">*</span></label><input name="ward" autocomplete="address-level3" required placeholder="Phường / xã"></div>
@@ -75,7 +75,7 @@ a{color:inherit}
     const values=Object.fromEntries(new FormData(form).entries());if(values.company)return;
     const endpoint=config.LEAD_WEB_APP_URL||"";if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){alert("Kênh nhận đơn đang bảo trì. Vui lòng gọi hotline hoặc nhắn Zalo.");return}
     const sum=data.reduce((s,x)=>s+x.price*x.quantity,0), orderCode="DX99-"+Date.now().toString().slice(-8);
-    const payload={type:"checkout_order",orderCode,name:values.name,phone:values.phone,email:values.email||"",bike:values.bike,province:values.province,district:values.district,ward:values.ward,address:values.address,note:values.note||"",shipping:values.shipping,payment:values.payment,items:data,totalKnown:sum,page:location.href,submittedAt:new Date().toISOString()};
+    const payload={type:"checkout_order",orderCode,name:values.name,phone:values.phone,email:values.email||"",province:values.province,district:values.district,ward:values.ward,address:values.address,note:values.note||"",shipping:values.shipping,payment:values.payment,items:data,totalKnown:sum,page:location.href,submittedAt:new Date().toISOString()};
     const original=button.textContent;button.disabled=true;button.textContent="Đang đặt hàng...";
     try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});keys.forEach(k=>localStorage.removeItem(k));document.getElementById("successOrderCode").textContent=orderCode;document.getElementById("successOrderTotal").textContent=money(sum);document.getElementById("checkoutSuccess").classList.add("open");document.getElementById("checkoutSuccess").setAttribute("aria-hidden","false");render()}
     catch(error){alert("Không gửi được đơn hàng. Vui lòng gọi hotline hoặc nhắn Zalo.")}
