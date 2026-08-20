@@ -70,17 +70,281 @@ a{color:inherit}
   const form=document.getElementById("checkoutForm"), list=document.getElementById("checkoutItems"), empty=document.getElementById("checkoutEmpty"), count=document.getElementById("checkoutItemCount"), subtotal=document.getElementById("checkoutSubtotal"), total=document.getElementById("checkoutTotal"), button=document.getElementById("placeOrderButton"), paymentHelp=document.getElementById("paymentHelp");
   function render(){const data=items(),sum=data.reduce((s,x)=>s+x.price*x.quantity,0),qty=data.reduce((s,x)=>s+x.quantity,0);count.textContent=String(qty);subtotal.textContent=money(sum);total.textContent=money(sum);empty.hidden=!!data.length;list.hidden=!data.length;button.disabled=!data.length;list.innerHTML=data.map(x=>`<article class="checkout-product"><img src="${x.image}" alt=""><div><div class="checkout-product-brand">${x.brand}</div><h3>${x.name}</h3><div class="checkout-product-meta">Số lượng: ${x.quantity}</div></div><strong>${x.price?money(x.price*x.quantity):"Chờ báo giá"}</strong></article>`).join("")}
   document.querySelectorAll('input[name="payment"]').forEach(r=>r.addEventListener("change",()=>{paymentHelp.innerHTML=r.value==="bank"?"<strong>Chuyển khoản / QR:</strong> shop sẽ gửi thông tin thanh toán sau khi kiểm tra đúng sản phẩm, tồn kho và phí giao hàng.":"<strong>Thanh toán khi nhận hàng (COD):</strong> thanh toán cho đơn vị giao hàng khi nhận sản phẩm. Shop sẽ xác nhận trước khi gửi."}));
-  form.addEventListener("submit",async event=>{
-    event.preventDefault();const data=items();if(!data.length){render();return}if(!form.reportValidity())return;
-    const values=Object.fromEntries(new FormData(form).entries());if(values.company)return;
-    const endpoint=config.LEAD_WEB_APP_URL||"";if(!/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)){alert("Kênh nhận đơn đang bảo trì. Vui lòng gọi hotline hoặc nhắn Zalo.");return}
-    const sum=data.reduce((s,x)=>s+x.price*x.quantity,0), orderCode="DX99-"+Date.now().toString().slice(-8);
-    const payload={type:"checkout_order",orderCode,name:values.name,phone:values.phone,email:values.email||"",province:values.province,district:values.district,ward:values.ward,address:values.address,note:values.note||"",shipping:values.shipping,payment:values.payment,items:data,totalKnown:sum,page:location.href,submittedAt:new Date().toISOString()};
-    const original=button.textContent;button.disabled=true;button.textContent="Đang đặt hàng...";
-    try{await fetch(endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload),keepalive:true});keys.forEach(k=>localStorage.removeItem(k));document.getElementById("successOrderCode").textContent=orderCode;document.getElementById("successOrderTotal").textContent=money(sum);document.getElementById("checkoutSuccess").classList.add("open");document.getElementById("checkoutSuccess").setAttribute("aria-hidden","false");render()}
-    catch(error){alert("Không gửi được đơn hàng. Vui lòng gọi hotline hoặc nhắn Zalo.")}
-    finally{button.textContent=original;if(items().length)button.disabled=false}
-  });
+  form.addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const data = items();
+
+  if (!data.length) {
+    render();
+    return;
+  }
+
+  if (!form.reportValidity()) {
+    return;
+  }
+
+  const values =
+    Object.fromEntries(
+      new FormData(form).entries()
+    );
+
+  // Honeypot chống spam
+  if (values.company) {
+    return;
+  }
+
+  /* ==============================
+     LINK GOOGLE APPS SCRIPT
+  ============================== */
+
+  const endpoint =
+    config.ORDER_API_URL || "";
+
+  if (
+    !/^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/.test(endpoint)
+  ) {
+    alert(
+      "Chưa cấu hình ORDER_API_URL trong config-links.js."
+    );
+    return;
+  }
+
+
+  /* ==============================
+     TÍNH TỔNG ĐƠN
+  ============================== */
+
+  const sum = data.reduce(
+    (total, item) =>
+      total +
+      Number(item.price || 0) *
+      Number(item.quantity || 1),
+    0
+  );
+
+
+  /* ==============================
+     DANH SÁCH SẢN PHẨM
+  ============================== */
+
+  const productsText = data
+    .map(item => {
+
+      const quantity =
+        Number(item.quantity || 1);
+
+      const price =
+        Number(item.price || 0);
+
+      const lineTotal =
+        price * quantity;
+
+      return [
+        item.name,
+        "SL: " + quantity,
+        "Đơn giá: " + money(price),
+        "Thành tiền: " + money(lineTotal)
+      ].join(" | ");
+
+    })
+    .join("\n");
+
+
+  /* ==============================
+     DỮ LIỆU GỬI SANG GOOGLE SHEET
+  ============================== */
+
+  const body =
+    new URLSearchParams();
+
+  body.append(
+    "name",
+    values.name || ""
+  );
+
+  body.append(
+    "phone",
+    values.phone || ""
+  );
+
+  body.append(
+    "email",
+    values.email || ""
+  );
+
+  body.append(
+    "province",
+    values.province || ""
+  );
+
+  body.append(
+    "district",
+    values.district || ""
+  );
+
+  body.append(
+    "ward",
+    values.ward || ""
+  );
+
+  body.append(
+    "address",
+    values.address || ""
+  );
+
+  body.append(
+    "note",
+    values.note || ""
+  );
+
+  body.append(
+    "products",
+    productsText
+  );
+
+  body.append(
+    "subtotal",
+    String(sum)
+  );
+
+  body.append(
+    "shipping",
+    "Shop xác nhận"
+  );
+
+  body.append(
+    "total",
+    String(sum)
+  );
+
+
+  /* ==============================
+     KHÓA NÚT KHI ĐANG GỬI
+  ============================== */
+
+  const originalText =
+    button.textContent;
+
+  button.disabled = true;
+
+  button.textContent =
+    "Đang đặt hàng...";
+
+
+  try {
+
+    /* ==============================
+       GỬI ĐƠN SANG GOOGLE SHEETS
+    ============================== */
+
+    await fetch(
+      endpoint,
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: body
+      }
+    );
+
+
+    /* ==============================
+       TẠO MÃ ĐƠN HIỂN THỊ
+    ============================== */
+
+    const now =
+      new Date();
+
+    const orderCode =
+      "DX99-" +
+      now.getFullYear() +
+      String(
+        now.getMonth() + 1
+      ).padStart(2, "0") +
+      String(
+        now.getDate()
+      ).padStart(2, "0") +
+      "-" +
+      String(
+        now.getHours()
+      ).padStart(2, "0") +
+      String(
+        now.getMinutes()
+      ).padStart(2, "0") +
+      String(
+        now.getSeconds()
+      ).padStart(2, "0");
+
+
+    /* ==============================
+       XÓA GIỎ HÀNG SAU KHI ĐẶT
+    ============================== */
+
+    keys.forEach(key => {
+      localStorage.removeItem(key);
+    });
+
+
+    /* ==============================
+       HIỆN POPUP THÀNH CÔNG
+    ============================== */
+
+    document.getElementById(
+      "successOrderCode"
+    ).textContent =
+      orderCode;
+
+
+    document.getElementById(
+      "successOrderTotal"
+    ).textContent =
+      money(sum);
+
+
+    const successBox =
+      document.getElementById(
+        "checkoutSuccess"
+      );
+
+
+    successBox.classList.add(
+      "open"
+    );
+
+    successBox.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+
+    form.reset();
+
+    render();
+
+
+  } catch (error) {
+
+    console.error(
+      "ORDER ERROR:",
+      error
+    );
+
+    alert(
+      "Không gửi được đơn hàng. Vui lòng kiểm tra mạng rồi thử lại."
+    );
+
+
+  } finally {
+
+    button.textContent =
+      originalText;
+
+    if (items().length) {
+      button.disabled = false;
+    }
+
+  }
+});
   document.getElementById("successHome").addEventListener("click",()=>location.href="/");
   document.getElementById("successClose").addEventListener("click",()=>{const box=document.getElementById("checkoutSuccess");box.classList.remove("open");box.setAttribute("aria-hidden","true")});
   render();
