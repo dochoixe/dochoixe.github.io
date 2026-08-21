@@ -3,14 +3,14 @@
    Sau khi sửa, nhấn Commit changes. Không cần sửa index.html.
    ============================================================ */
 window.DOCHOIXE99_CONFIG = {
-  HOME_URL: "https://dochoixe.github.io/",
+  HOME_URL: "https://dochoixe99.com/",
   VEHICLE_SELECTOR_PATH: "chon-phu-kien-theo-xe.html",
   RCB_RS_PAGE_PATH: "rcb-rs-series-floating.html",
  
   PHONE_DISPLAY: "0878 976 186",
   PHONE_RAW: "0878976186",
 
-  WEBSITE_LABEL: "dochoixe.github.io",
+  WEBSITE_LABEL: "dochoixe99.com",
 
   /* Để trống cho tới khi có liên kết thật. Footer sẽ tự ẩn icon trống. */
   TIKTOK_URL: "",
