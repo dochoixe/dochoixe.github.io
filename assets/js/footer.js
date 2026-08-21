@@ -1,7 +1,7 @@
 (function renderSharedFooter() {
   const config = window.DOCHOIXE99_CONFIG || {};
   const SOCIAL_LINKS = {
-    facebook: config.FACEBOOK_URL || "",
+    facebook: config.FACEBOOK_URL || "https://www.facebook.com/dochoixe99com?locale=vi_VN",
     tiktok: config.TIKTOK_URL || "",
     instagram: config.INSTAGRAM_URL || ""
   };
