@@ -425,11 +425,108 @@
 </script>
 <link rel="stylesheet" href="/assets/css/site-polish.css?v=20260819-6"/>
 <script src="/assets/js/config-links.js"></script>
+
+<style id="dx-cart-drawer-style">
+  .dx-cart-overlay{
+    position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.56);
+    opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;
+  }
+  .dx-cart-overlay.is-open{opacity:1;visibility:visible}
+  .dx-cart-drawer{
+    position:fixed;z-index:9999;top:0;right:0;width:min(596px,100%);
+    height:100dvh;background:#0d0d0d;color:#f7f7f7;
+    border-left:1px solid #2a2a2a;box-shadow:-24px 0 70px rgba(0,0,0,.42);
+    transform:translateX(100%);transition:transform .26s ease;
+    display:grid;grid-template-rows:auto minmax(0,1fr) auto;
+  }
+  .dx-cart-drawer.is-open{transform:translateX(0)}
+  .dx-cart-head{
+    min-height:118px;padding:26px 22px 26px 27px;
+    display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid #2a2a2a;
+  }
+  .dx-cart-head h2{margin:0;font-size:29px;line-height:1;font-weight:950;letter-spacing:-.7px}
+  .dx-cart-close{
+    width:54px;height:54px;border:1px solid #363636;border-radius:14px;
+    background:#171717;color:#fff;font-size:31px;line-height:1;cursor:pointer;
+    display:grid;place-items:center;
+  }
+  .dx-cart-close:hover{background:#202020}
+  .dx-cart-items{overflow:auto;padding:13px 22px 24px 27px}
+  .dx-cart-item{
+    display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:15px;
+    align-items:center;padding:20px 0 18px;border-bottom:1px solid #2b2b2b;
+  }
+  .dx-cart-item-image{
+    width:90px;height:90px;border-radius:13px;overflow:hidden;background:#171717;
+    display:grid;place-items:center;
+  }
+  .dx-cart-item-image img{width:100%;height:100%;object-fit:contain;padding:5px}
+  .dx-cart-item-name{
+    margin:0 0 5px;font-size:18px;line-height:1.25;font-weight:900;color:#f4f4f4;
+  }
+  .dx-cart-item-price{
+    margin-bottom:10px;font-size:17px;font-weight:950;color:#ff4149;
+  }
+  .dx-cart-item-type{
+    margin-bottom:12px;font-size:13px;font-weight:900;letter-spacing:.8px;
+    text-transform:uppercase;color:#777;
+  }
+  .dx-cart-qty{display:flex;align-items:center;gap:8px}
+  .dx-cart-qty button{
+    width:34px;height:34px;border:1px solid #3d3d3d;border-radius:9px;
+    background:#181818;color:#fff;font-size:21px;line-height:1;cursor:pointer;
+  }
+  .dx-cart-qty strong{min-width:18px;text-align:center;font-size:18px}
+  .dx-cart-remove{
+    appearance:none;border:0;background:none;color:#8e8e8e;
+    text-decoration:underline;cursor:pointer;padding:8px 0 8px 10px;font-size:13px;
+  }
+  .dx-cart-remove:hover{color:#fff}
+  .dx-cart-empty{
+    min-height:260px;display:grid;place-items:center;text-align:center;color:#8b8b8b;
+    padding:40px 18px;font-size:15px;
+  }
+  .dx-cart-footer{
+    border-top:1px solid #303030;background:#111;padding:23px 27px 18px;
+  }
+  .dx-cart-total-row{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:13px;
+  }
+  .dx-cart-total-row span{font-size:19px;font-weight:800}
+  .dx-cart-total-row strong{font-size:24px;color:#ff4149}
+  .dx-cart-summary{font-size:14px;color:#c7c7c7;margin:0 0 18px}
+  .dx-cart-checkout,.dx-cart-continue{
+    width:100%;height:61px;border-radius:12px;font-size:19px;font-weight:950;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;
+  }
+  .dx-cart-checkout{
+    border:1px solid #ff3038;background:linear-gradient(90deg,#e71920,#c7080d);
+    color:#fff;box-shadow:0 9px 25px rgba(231,25,32,.14);margin-bottom:10px;
+  }
+  .dx-cart-checkout:hover{filter:brightness(1.07)}
+  .dx-cart-continue{border:1px solid #3b3b3b;background:#171717;color:#fff}
+  .dx-cart-continue:hover{background:#202020}
+  .dx-cart-note{font-size:12px;line-height:1.5;color:#777;margin:11px 0 0}
+  body.dx-cart-lock{overflow:hidden}
+  @media (max-width:620px){
+    .dx-cart-drawer{width:100%}
+    .dx-cart-head{min-height:96px;padding:20px 18px}
+    .dx-cart-head h2{font-size:26px}
+    .dx-cart-close{width:48px;height:48px}
+    .dx-cart-items{padding:10px 18px 18px}
+    .dx-cart-item{grid-template-columns:78px minmax(0,1fr) auto;gap:12px}
+    .dx-cart-item-image{width:78px;height:78px}
+    .dx-cart-item-name{font-size:16px}
+    .dx-cart-footer{padding:20px 18px 16px}
+  }
+</style>
+
 </head>
 <body>
 
 <div class="dx-shell-topbar"><div class="dx-shell-container"><span>Chuyên phụ tùng • phụ kiện • đồ chơi xe máy</span><span><b>Hotline:</b> <span data-phone-text="">0878 976 186</span> &nbsp; • &nbsp; Kiểm tra đúng xe trước khi giao</span></div></div>
-<header id="header" class="dx-shell-header"><div class="dx-shell-container dx-shell-nav"><a class="brand dx-shell-brand" href="/" aria-label="DOCHOIXE99 - Trang chủ"><img class="dx-shell-brand-logo" src="/assets/images/logo-dochoixe99.webp" alt="Logo DOCHOIXE99" width="160" height="160" decoding="async"/><span class="dx-shell-brand-copy"><span class="dx-shell-brand-name">DOCHOIXE<em>99</em></span><span class="dx-shell-brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a><nav class="dx-shell-navlinks nav" id="mainNav" data-dx-shell-nav="" aria-label="Điều hướng chính"><a href="/">Trang chủ</a><a href="/#danh-muc">Danh mục</a><details class="dx-shell-dropdown"><summary>Sản phẩm <span>▾</span></summary><div class="dx-shell-dropdown-menu"><a href="/dia-thang-xe-may.html">Đĩa thắng</a><a href="/heo-dau-xe-may.html">Heo dầu và dây dầu</a><a href="/do-choi-tay-lai.html">Đồ chơi tay lái</a><a href="/phuoc-rcb.html">Phuộc RCB</a><a href="/nhong-sen-dia.html">Nhông sên đĩa</a><a href="/mam-xe.html">Mâm xe</a></div></details><details class="dx-shell-dropdown"><summary>Blog <span>▾</span></summary><div class="dx-shell-dropdown-menu"><a href="/bai-viet/">Bài viết</a><a href="/gioi-thieu.html">Giới thiệu DOCHOIXE99</a></div></details><a href="/#tai-khoan">Tài khoản</a></nav><div class="nav-actions dx-shell-nav-actions"><a class="cart-link dx-shell-cart-link" href="/thanh-toan.html" aria-label="Mở giỏ hàng"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 8H6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="9" cy="20" fill="currentColor" r="1.4"></circle><circle cx="17" cy="20" fill="currentColor" r="1.4"></circle></svg><span>Giỏ hàng</span><b class="cart-count dx-shell-cart-count" data-dx-shell-cart-count="">0</b></a><a class="cta-small dx-shell-cta" href="/#lien-he">Nhận tư vấn</a><button class="dx-shell-menu-btn menu-btn" id="menuBtn" data-dx-shell-menu="" aria-controls="mainNav" aria-expanded="false" aria-label="Mở menu" type="button">☰</button></div></div></header>
+<header id="header" class="dx-shell-header"><div class="dx-shell-container dx-shell-nav"><a class="brand dx-shell-brand" href="/" aria-label="DOCHOIXE99 - Trang chủ"><img class="dx-shell-brand-logo" src="/assets/images/logo-dochoixe99.webp" alt="Logo DOCHOIXE99" width="160" height="160" decoding="async"/><span class="dx-shell-brand-copy"><span class="dx-shell-brand-name">DOCHOIXE<em>99</em></span><span class="dx-shell-brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a><nav class="dx-shell-navlinks nav" id="mainNav" data-dx-shell-nav="" aria-label="Điều hướng chính"><a href="/">Trang chủ</a><a href="/#danh-muc">Danh mục</a><details class="dx-shell-dropdown"><summary>Sản phẩm <span>▾</span></summary><div class="dx-shell-dropdown-menu"><a href="/dia-thang-xe-may.html">Đĩa thắng</a><a href="/heo-dau-xe-may.html">Heo dầu và dây dầu</a><a href="/do-choi-tay-lai.html">Đồ chơi tay lái</a><a href="/phuoc-rcb.html">Phuộc RCB</a><a href="/nhong-sen-dia.html">Nhông sên đĩa</a><a href="/mam-xe.html">Mâm xe</a></div></details><details class="dx-shell-dropdown"><summary>Blog <span>▾</span></summary><div class="dx-shell-dropdown-menu"><a href="/bai-viet/">Bài viết</a><a href="/gioi-thieu.html">Giới thiệu DOCHOIXE99</a></div></details><a href="/#tai-khoan">Tài khoản</a></nav><div class="nav-actions dx-shell-nav-actions"><a class="cart-link dx-shell-cart-link" href="#" data-cart-open aria-label="Mở giỏ hàng" aria-controls="dxCartDrawer" aria-expanded="false"><svg aria-hidden="true" fill="none" viewBox="0 0 24 24"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 8H6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><circle cx="9" cy="20" fill="currentColor" r="1.4"></circle><circle cx="17" cy="20" fill="currentColor" r="1.4"></circle></svg><span>Giỏ hàng</span><b class="cart-count dx-shell-cart-count" data-dx-shell-cart-count="">0</b></a><a class="cta-small dx-shell-cta" href="/#lien-he">Nhận tư vấn</a><button class="dx-shell-menu-btn menu-btn" id="menuBtn" data-dx-shell-menu="" aria-controls="mainNav" aria-expanded="false" aria-label="Mở menu" type="button">☰</button></div></div></header>
 <main>
 <section class="hero">
 <div class="container hero-inner">
@@ -590,6 +687,26 @@
 </div>
 </section>
 </main>
+
+<div class="dx-cart-overlay" id="dxCartOverlay" aria-hidden="true"></div>
+<aside class="dx-cart-drawer" id="dxCartDrawer" aria-hidden="true" aria-label="Giỏ hàng">
+  <div class="dx-cart-head">
+    <h2>Giỏ hàng</h2>
+    <button class="dx-cart-close" type="button" data-cart-close aria-label="Đóng giỏ hàng">×</button>
+  </div>
+  <div class="dx-cart-items" id="dxCartItems"></div>
+  <div class="dx-cart-footer">
+    <div class="dx-cart-total-row">
+      <span>Tổng tiền hàng</span>
+      <strong id="dxCartTotal">0 ₫</strong>
+    </div>
+    <p class="dx-cart-summary" id="dxCartSummary">0 sản phẩm trong giỏ · kiểm tra đúng cấu hình trước khi giao.</p>
+    <a class="dx-cart-checkout" href="/thanh-toan.html">Đặt hàng&nbsp; →</a>
+    <button class="dx-cart-continue" type="button" data-cart-close>Tiếp tục mua hàng</button>
+    <p class="dx-cart-note">Thông tin người nhận, địa chỉ giao hàng và phương thức thanh toán sẽ được nhập ở bước tiếp theo.</p>
+  </div>
+</aside>
+
 <footer class="dx-shell-footer-fallback"><div class="dx-shell-container dx-shell-footer-grid"><div><a class="brand dx-shell-brand dx-shell-footer-brand" href="/"><img class="dx-shell-brand-logo" src="/assets/images/logo-dochoixe99.webp" alt="Logo DOCHOIXE99" width="160" height="160" loading="lazy" decoding="async"/><span class="dx-shell-brand-copy"><span class="dx-shell-brand-name">DOCHOIXE<em>99</em></span><span class="dx-shell-brand-tagline">Đồ chơi xe máy • Phụ tùng • Phụ kiện</span></span></a><div class="dx-shell-footer-copyright">© 2026 DOCHOIXE99. Đồ chơi và phụ kiện xe máy.</div><div class="dx-shell-footer-disclaimer">Thông tin sản phẩm, giá, tồn kho và khả năng tương thích được xác nhận theo đúng dòng xe trước khi đặt.<br/><small>Tên và logo của các thương hiệu bên thứ ba được sử dụng để nhận diện sản phẩm; việc hiển thị không hàm ý quan hệ đại lý hoặc ủy quyền. Một số bối cảnh hình ảnh có thể được biên tập/dàn dựng; vui lòng đối chiếu mã và hình thực tế trước khi đặt.</small></div></div><nav class="dx-shell-footer-links" aria-label="Danh mục cuối trang"><a href="/dia-thang-xe-may.html">Đĩa thắng</a><a href="/heo-dau-xe-may.html">Heo dầu</a><a href="/tay-thang-cnc.html">Tay thắng</a><a href="/phuoc-rcb.html">Phuộc</a></nav></div></footer>
 <script>
     (() => {
@@ -710,6 +827,7 @@
         } catch (error) {}
 
         syncCartCount();
+        if (typeof renderCartDrawer === 'function' && cartDrawer?.classList.contains('is-open')) renderCartDrawer();
 
         const originalText = button.textContent;
         button.textContent = 'Đã thêm ✓';
@@ -723,6 +841,169 @@
       document.addEventListener('click', event => {
         const button = event.target.closest('[data-add-handlebar]');
         if (button) addHandlebarToCart(button);
+      });
+
+
+      const cartDrawer = document.getElementById('dxCartDrawer');
+      const cartOverlay = document.getElementById('dxCartOverlay');
+      const cartItemsNode = document.getElementById('dxCartItems');
+      const cartTotalNode = document.getElementById('dxCartTotal');
+      const cartSummaryNode = document.getElementById('dxCartSummary');
+
+      const money = value =>
+        new Intl.NumberFormat('vi-VN').format(Number(value) || 0) + ' ₫';
+
+      const writeCart = (key, items) => {
+        try {
+          localStorage.setItem(key, JSON.stringify(items));
+        } catch (error) {}
+      };
+
+      const allCartItems = () => {
+        const result = [];
+        cartKeys.forEach(key => {
+          readCart(key).forEach((item, index) => {
+            result.push({
+              ...item,
+              __cartKey: key,
+              __cartIndex: index
+            });
+          });
+        });
+        return result;
+      };
+
+      const itemQuantity = item => Math.max(1, Number(item.quantity ?? item.qty) || 1);
+      const itemPrice = item => Number(item.price ?? item.salePrice ?? item.unitPrice) || 0;
+
+      const renderCartDrawer = () => {
+        if (!cartItemsNode) return;
+
+        const items = allCartItems();
+        const totalQty = items.reduce((sum, item) => sum + itemQuantity(item), 0);
+        const totalMoney = items.reduce(
+          (sum, item) => sum + itemPrice(item) * itemQuantity(item),
+          0
+        );
+
+        if (!items.length) {
+          cartItemsNode.innerHTML = '<div class="dx-cart-empty">Giỏ hàng của bạn đang trống.</div>';
+        } else {
+          cartItemsNode.innerHTML = items.map((item, viewIndex) => {
+            const name = String(item.name || item.title || 'Sản phẩm');
+            const image = String(item.image || item.img || '/assets/images/logo-dochoixe99.webp');
+            const quantity = itemQuantity(item);
+            const price = itemPrice(item);
+            const label = String(item.brand || item.category || 'Sản phẩm').toUpperCase();
+
+            return `
+              <article class="dx-cart-item">
+                <div class="dx-cart-item-image">
+                  <img src="${image}" alt="${name.replace(/"/g, '&quot;')}" loading="lazy"/>
+                </div>
+                <div>
+                  <h3 class="dx-cart-item-name">${name}</h3>
+                  <div class="dx-cart-item-price">${money(price)}</div>
+                  <div class="dx-cart-item-type">${label}</div>
+                  <div class="dx-cart-qty">
+                    <button type="button" data-cart-minus="${viewIndex}" aria-label="Giảm số lượng">−</button>
+                    <strong>${quantity}</strong>
+                    <button type="button" data-cart-plus="${viewIndex}" aria-label="Tăng số lượng">+</button>
+                  </div>
+                </div>
+                <button class="dx-cart-remove" type="button" data-cart-remove="${viewIndex}">Xóa</button>
+              </article>
+            `;
+          }).join('');
+        }
+
+        if (cartTotalNode) cartTotalNode.textContent = money(totalMoney);
+        if (cartSummaryNode) {
+          cartSummaryNode.textContent =
+            `${totalQty} sản phẩm trong giỏ · kiểm tra đúng cấu hình trước khi giao.`;
+        }
+        syncCartCount();
+      };
+
+      const openCartDrawer = () => {
+        renderCartDrawer();
+        cartDrawer?.classList.add('is-open');
+        cartOverlay?.classList.add('is-open');
+        cartDrawer?.setAttribute('aria-hidden', 'false');
+        cartOverlay?.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('dx-cart-lock');
+        document.querySelectorAll('[data-cart-open]').forEach(node => node.setAttribute('aria-expanded','true'));
+      };
+
+      const closeCartDrawer = () => {
+        cartDrawer?.classList.remove('is-open');
+        cartOverlay?.classList.remove('is-open');
+        cartDrawer?.setAttribute('aria-hidden', 'true');
+        cartOverlay?.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('dx-cart-lock');
+        document.querySelectorAll('[data-cart-open]').forEach(node => node.setAttribute('aria-expanded','false'));
+      };
+
+      const mutateDrawerItem = (viewIndex, action) => {
+        const item = allCartItems()[Number(viewIndex)];
+        if (!item) return;
+
+        const items = readCart(item.__cartKey);
+        const current = items[item.__cartIndex];
+        if (!current) return;
+
+        const quantity = itemQuantity(current);
+
+        if (action === 'plus') {
+          current.quantity = Math.min(99, quantity + 1);
+        } else if (action === 'minus') {
+          if (quantity <= 1) {
+            items.splice(item.__cartIndex, 1);
+          } else {
+            current.quantity = quantity - 1;
+          }
+        } else if (action === 'remove') {
+          items.splice(item.__cartIndex, 1);
+        }
+
+        writeCart(item.__cartKey, items);
+        renderCartDrawer();
+      };
+
+      document.addEventListener('click', event => {
+        const opener = event.target.closest('[data-cart-open]');
+        if (opener) {
+          event.preventDefault();
+          openCartDrawer();
+          return;
+        }
+
+        if (event.target.closest('[data-cart-close]')) {
+          closeCartDrawer();
+          return;
+        }
+
+        const plus = event.target.closest('[data-cart-plus]');
+        if (plus) {
+          mutateDrawerItem(plus.getAttribute('data-cart-plus'), 'plus');
+          return;
+        }
+
+        const minus = event.target.closest('[data-cart-minus]');
+        if (minus) {
+          mutateDrawerItem(minus.getAttribute('data-cart-minus'), 'minus');
+          return;
+        }
+
+        const remove = event.target.closest('[data-cart-remove]');
+        if (remove) {
+          mutateDrawerItem(remove.getAttribute('data-cart-remove'), 'remove');
+        }
+      });
+
+      cartOverlay?.addEventListener('click', closeCartDrawer);
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeCartDrawer();
       });
 
       syncCartCount();
