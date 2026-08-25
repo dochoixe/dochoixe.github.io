@@ -1,45 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version='1.0' encoding='utf-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dochoixe99.com/</loc>
     <lastmod>2026-08-24</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/hero-dochoixe99-1672.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/hero-dochoixe99-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/logo-dochoixe99.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/phu-kien-xe-may.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ai-hero-products.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-brake-catalog-hero.webp</image:loc>
+    </image:image>
   </url>
   
   <url>
     <loc>https://dochoixe99.com/bai-viet/</loc>
     <lastmod>2026-08-24</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/site/anh-dai-dien.jpg</image:loc>
+    </image:image>
   </url>
-  <url>
-  <loc>https://dochoixe99.com/bai-viet/dia-thang-bi-cong-co-sao-khong.html</loc>
-  <lastmod>2026-08-25</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
   
-  <url>
-  <loc>https://dochoixe99.com/bai-viet/dia-thang-xe-may-bi-keu-do-dau.html</loc>
-  <lastmod>2026-08-25</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-  <url>
-  <loc>https://dochoixe99.com/bai-viet/khi-nao-can-thay-dia-thang-xe-may.html</loc>
-  <lastmod>2026-08-25</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-</url>
-  <url>
-  <loc>https://dochoixe99.com/bai-viet/phuoc-xe-may-la-gi.html</loc>
-  <lastmod>2026-08-24</lastmod>
-</url>
   <url>
     <loc>https://dochoixe99.com/bai-viet/dia-thang-floating-la-gi.html</loc>
     <lastmod>2026-08-24</lastmod>
+    <image:image>   
+      <image:loc>https://dochoixe99.com/images/galfer-fixed-round-v.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/galfer-floating-round-flv.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/galfer-floating-w-cw.webp</image:loc>
+    </image:image>
   </url>
+  
   <url>
     <loc>https://dochoixe99.com/bai-viet/dia-thang-rcb-260mm.html</loc>
     <lastmod>2026-08-24</lastmod>
   </url>
+  
   <url>
     <loc>https://dochoixe99.com/chinh-sach.html</loc>
     <lastmod>2026-08-21</lastmod>
@@ -47,14 +57,122 @@
   <url>
     <loc>https://dochoixe99.com/chon-phu-kien-theo-xe.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-air-blade.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-lead-125.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-sh160i.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-vario-160.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-vision.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-wave-alpha.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/honda-winner-x.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/vespa-sprint.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/dia-thang-xe-may.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/dia-phanh-xe-may.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/dia-thang-xe-may-dochoixe99.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e2-plus-floating.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e2-steel.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/do-choi-tay-lai.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/cnc-tay-thang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-adjustable-clipon-handle-bar.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ahg14-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ahg16-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ahg66-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ahg88-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-gp1-v2-lever-guard.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-gp2-v1-lever-guard.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-gp2-v2-lever-guard.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-gp3-carbon-lever-guard.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-handle-grip-nagamaki.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-hg55-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-hg66-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-hg77-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-hg88-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-hg99-handle-grip.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m1-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m2-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m3-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m4-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m5-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m6-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m7-series-balancer.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-m8-series-balancer.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/gioi-thieu.html</loc>
@@ -63,21 +181,270 @@
   <url>
     <loc>https://dochoixe99.com/heo-dau-xe-may.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/heo-dau-xe-may.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-copy-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-30th-anniversary-r1-brake-caliper-4-piston-limited-edition-copy-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-brake-caliper-r1-evo-series-right-left-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-brake-caliper-r1-evo-series-right-left-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-brake-caliper-r55-evo-series-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-brake-caliper-r55-evo-series-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e-45-rear-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e-45-rear-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e-series-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e-series-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-e-series-brake-hose-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-eseries-brake-hose-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-eseries-brake-hose-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r1-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r1-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r34-radial-brake-caliper-4-piston-size-100mm-108mm-universal-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r34-radial-brake-caliper-4-piston-size-100mm-108mm-universal-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r34-radial-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r55-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-r55-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s-series-brake-hose-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s-series-brake-hose-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s2-line-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s2-line-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s26-front-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s26-front-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s27-series-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s27-series-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s45-series-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s45-series-brake-caliper-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s65-series-brake-caliper-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-vd-series-45-degree-1.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/mam-xe.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-exciter-135-16-185.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-exciter-150-185-25.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-exciter-150-race-16-16.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-jupiter-sirius.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-sonic-16-16.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-vario-click.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-5-cay-winner-185-25.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-8-cay-click-beat-scoopy.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-8-cay-exciter-135-white.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-8-cay-exciter-150-155-gold.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-8-cay-exciter-150-155-white.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-rcb-ct600-vario-click.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/mam-xe-home.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/nhong-sen-dia.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/dia-rcb-s-series-428-gold.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/dia-recto-39t-exciter-135.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/dia-recto-52t-quantum.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-recto-13t.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-hero.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-home.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-probike-exciter-135.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-probike-exciter-155.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-probike-sirius.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-probike-wave-future.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-probike-winner.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-x1r-winner-crom.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/nhong-sen-dia-x1r-winner-vang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/sen-did-428d-124l.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/sen-recto-428sb-108l.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/phuoc-rcb.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/cnc-phuoc-sau.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/flow-pro-dual-shocks-limited-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-a3-series-absorber-monoshock-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-c2-series-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-c2-series-absorber-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-fd-front-fork-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-fe-front-fork-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ff-series-usd-front-fork-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-flow-pro-dual-shock-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-flow-s-series-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s2-series-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-s2-series-absorber-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ss-line-monoshock-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-ss-line-monoshock-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-tarmax-series-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-tarmax-series-absorber-2.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-tarmax-series-absorber-3.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-vr-series-absorber-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/s3-line-monoshock-limited-1.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dochoixe99.com/rcb-rs-series-floating.html</loc>
     <lastmod>2026-08-21</lastmod>
+    <image:image>
+      <image:loc>https://dochoixe99.com/images/rcb-rs-floating.webp</image:loc>
+    </image:image>
   </url>
 </urlset>
