@@ -31,18 +31,18 @@
 <link rel="stylesheet" href="/assets/css/site-polish.css?v=20260819-6">
 
 <style>
-.article-page{background:#f7f1e7!important;color:#202020;padding-bottom:48px}
-.article-page .breadcrumb{padding-top:18px}
-.article-page .article-hero{background:transparent!important}
-.article-page .article-content{
+.dx99-cream-page{background:#f7f1e7!important;color:#202020;padding-bottom:48px}
+.dx99-cream-page .breadcrumb{padding-top:18px}
+.dx99-cream-page .article-hero{background:transparent!important}
+.dx99-cream-page .article-content{
   background:#fffdf8;border:1px solid rgba(0,0,0,.07);border-radius:18px;
   box-shadow:0 8px 26px rgba(0,0,0,.05);padding:32px;
 }
-.article-page .article-content h1,.article-page .article-content h2,.article-page .article-content h3,
-.article-page .faq h2,.article-page .related h2{color:#202020}
-.article-page a{color:#b9181f}
-.article-page .article-hero h1{color:#202020}
-.article-page .article-hero p,.article-page .meta-row{color:#5f5a52}
+.dx99-cream-page .article-content h1,.dx99-cream-page .article-content h2,.dx99-cream-page .article-content h3,
+.dx99-cream-page .faq h2,.dx99-cream-page .related h2{color:#202020}
+.dx99-cream-page a{color:#b9181f}
+.dx99-cream-page .article-hero h1{color:#202020}
+.dx99-cream-page .article-hero p,.dx99-cream-page .meta-row{color:#5f5a52}
 .dx99-toc{margin:26px 0;padding:20px 24px;border:1px solid #eadfce;border-radius:14px;background:#faf4e9}
 .dx99-toc strong{display:block;margin-bottom:10px;font-size:18px}
 .dx99-toc ol{margin:0;padding-left:22px}
@@ -56,20 +56,165 @@
 }
 .warning{border-left:4px solid #c71920}
 .image-note{font-size:14px;color:#665f55;background:#fff8ec;border:1px dashed #d9c9b3;border-radius:12px;padding:14px 16px;margin:18px 0}
-.article-page .toc{background:#fffaf1;border:1px solid #eadfce}
-.article-page .cta-section{background:transparent!important}
-.article-page .cta-box{background:#2b2926;color:#fff;border-radius:18px}
-.article-page .cta-box h2,.article-page .cta-box p{color:#fff}
-.article-page .related{background:transparent!important}
-.article-page .post-card{background:#fffdf8;border:1px solid #eadfce}
-.article-page .faq details{background:#fffdf8;border:1px solid #eadfce;border-radius:14px}
-.article-page .faq details+details{margin-top:12px}
-.article-page .hero-product img{background:#fffdf8;border-radius:18px}
+.dx99-cream-page .toc{background:#fffaf1;border:1px solid #eadfce}
+.dx99-cream-page .cta-section{background:transparent!important}
+.dx99-cream-page .cta-box{background:#2b2926;color:#fff;border-radius:18px}
+.dx99-cream-page .cta-box h2,.dx99-cream-page .cta-box p{color:#fff}
+.dx99-cream-page .related{background:transparent!important}
+.dx99-cream-page .post-card{background:#fffdf8;border:1px solid #eadfce}
+.dx99-cream-page .faq details{background:#fffdf8;border:1px solid #eadfce;border-radius:14px}
+.dx99-cream-page .faq details+details{margin-top:12px}
+.dx99-cream-page .hero-product img{background:#fffdf8;border-radius:18px}
 @media(max-width:768px){
-  .article-page{padding-bottom:32px}
-  .article-page .article-content{padding:20px 16px;border-radius:14px}
+  .dx99-cream-page{padding-bottom:32px}
+  .dx99-cream-page .article-content{padding:20px 16px;border-radius:14px}
   .dx99-toc{padding:17px}
 }
+
+
+
+
+
+/* ===== DX99 ARTICLE CREAM THEME - KHÔNG XUNG ĐỘT CSS CHUNG ===== */
+.dx99-cream-page{
+  background:#f7f1e7 !important;
+  color:#000 !important;
+  padding-bottom:48px;
+}
+
+.dx99-cream-page .article-content{
+  background:#fffdf8 !important;
+  color:#000 !important;
+  border:1px solid rgba(0,0,0,.07);
+  border-radius:18px;
+  box-shadow:0 8px 26px rgba(0,0,0,.05);
+  padding:32px;
+}
+
+/* Nội dung chữ đen rõ */
+.dx99-cream-page .article-content p,
+.dx99-cream-page .article-content li,
+.dx99-cream-page .article-content strong,
+.dx99-cream-page .article-content em,
+.dx99-cream-page .article-content h1,
+.dx99-cream-page .article-content h2,
+.dx99-cream-page .article-content h3,
+.dx99-cream-page .article-content .lead,
+.dx99-cream-page .warning,
+.dx99-cream-page .warning *,
+.dx99-cream-page .image-note,
+.dx99-cream-page .image-note *{
+  color:#000000 !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+  filter:none !important;
+}
+
+/* Hero: chữ đen, meta vẫn rõ */
+.dx99-cream-page .article-hero h1,
+.dx99-cream-page .article-hero p{
+  color:#000000 !important;
+  opacity:1 !important;
+}
+
+.dx99-cream-page .meta-row{
+  color:#222222 !important;
+  opacity:1 !important;
+}
+
+/* Mục lục */
+.dx99-cream-page .dx99-toc{
+  background:#faf4e9 !important;
+  color:#000 !important;
+  border:1px solid #eadfce;
+}
+.dx99-cream-page .dx99-toc strong,
+.dx99-cream-page .dx99-toc li{
+  color:#000 !important;
+  opacity:1 !important;
+}
+.dx99-cream-page .dx99-toc a{
+  color:#b9181f !important;
+}
+
+/* Sidebar */
+.dx99-cream-page .toc{
+  background:#fffaf1 !important;
+  color:#000 !important;
+  border:1px solid #eadfce;
+}
+.dx99-cream-page .toc strong{
+  color:#000 !important;
+}
+.dx99-cream-page .toc a:not(.btn){
+  color:#b9181f !important;
+}
+
+/* Link trong nội dung */
+.dx99-cream-page .article-content a{
+  color:#b9181f !important;
+  opacity:1 !important;
+}
+
+/* Caption vẫn tối, dễ đọc */
+.dx99-cream-page .article-image figcaption,
+.dx99-cream-page .hero-product figcaption{
+  color:#222222 !important;
+  opacity:1 !important;
+}
+
+/* NÚT - không để rule link đỏ đè lên chữ nút */
+.dx99-cream-page .btn{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+.dx99-cream-page .btn.outline{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+
+/* Related posts */
+.dx99-cream-page .related,
+.dx99-cream-page .post-card{
+  color:#000 !important;
+}
+.dx99-cream-page .post-card h3,
+.dx99-cream-page .post-card p{
+  color:#000 !important;
+}
+.dx99-cream-page .post-card a{
+  color:#b9181f !important;
+}
+
+/* FAQ */
+.dx99-cream-page .faq,
+.dx99-cream-page .faq details{
+  color:#000 !important;
+}
+.dx99-cream-page .faq summary,
+.dx99-cream-page .faq p{
+  color:#000 !important;
+}
+
+/* CTA tối: chữ trắng */
+.dx99-cream-page .cta-box{
+  background:#2b2926 !important;
+  color:#fff !important;
+}
+.dx99-cream-page .cta-box h2,
+.dx99-cream-page .cta-box p,
+.dx99-cream-page .cta-box strong{
+  color:#fff !important;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .dx99-cream-page .article-content{
+    padding:20px 16px;
+    border-radius:14px;
+  }
+}
+
 </style>
 
 <script type="application/ld+json">
@@ -181,7 +326,7 @@
 
 <a class="skip" href="#main">Bỏ qua điều hướng</a>
 
-<main id="main" class="article-page">
+<main id="main" class="dx99-cream-page">
   <div class="container breadcrumb"><a href="/">Trang chủ</a> / <a href="/bai-viet/">Bài viết</a> / <span>Mâm xe máy bị cong có sao không</span></div>
 
   <section class="article-hero">
@@ -367,5 +512,125 @@
 <script src="/assets/js/footer.js?v=20260819-6"></script>
 <script src="/bai-viet/bai-viet.js"></script>
 <script src="/assets/js/site-polish.js?v=20260819-6"></script>
+
+<style id="dx99-mam-cong-force-colors">
+/* KHÓA MÀU CHỮ CUỐI TRANG - đặt sau toàn bộ CSS/JS chung */
+#main.dx99-cream-page .article-content,
+#main.dx99-cream-page .article-content p,
+#main.dx99-cream-page .article-content li,
+#main.dx99-cream-page .article-content span,
+#main.dx99-cream-page .article-content strong,
+#main.dx99-cream-page .article-content em,
+#main.dx99-cream-page .article-content h1,
+#main.dx99-cream-page .article-content h2,
+#main.dx99-cream-page .article-content h3,
+#main.dx99-cream-page .article-content .lead{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+  filter:none !important;
+  text-shadow:none !important;
+}
+
+#main.dx99-cream-page .article-hero h1,
+#main.dx99-cream-page .article-hero p{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+#main.dx99-cream-page .meta-row,
+#main.dx99-cream-page .meta-row span{
+  color:#222222 !important;
+  -webkit-text-fill-color:#222222 !important;
+  opacity:1 !important;
+}
+
+#main.dx99-cream-page .dx99-toc,
+#main.dx99-cream-page .dx99-toc strong,
+#main.dx99-cream-page .dx99-toc li{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+#main.dx99-cream-page .dx99-toc a{
+  color:#c71920 !important;
+  -webkit-text-fill-color:#c71920 !important;
+}
+
+#main.dx99-cream-page aside.toc,
+#main.dx99-cream-page aside.toc strong{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+#main.dx99-cream-page aside.toc nav a{
+  color:#c71920 !important;
+  -webkit-text-fill-color:#c71920 !important;
+}
+
+#main.dx99-cream-page .article-content a{
+  color:#b9181f !important;
+  -webkit-text-fill-color:#b9181f !important;
+  opacity:1 !important;
+}
+
+#main.dx99-cream-page figcaption{
+  color:#222222 !important;
+  -webkit-text-fill-color:#222222 !important;
+  opacity:1 !important;
+}
+
+#main.dx99-cream-page .warning,
+#main.dx99-cream-page .warning *,
+#main.dx99-cream-page .image-note,
+#main.dx99-cream-page .image-note *{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+
+#main.dx99-cream-page .related,
+#main.dx99-cream-page .related h2,
+#main.dx99-cream-page .post-card,
+#main.dx99-cream-page .post-card h3,
+#main.dx99-cream-page .post-card p{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+#main.dx99-cream-page .post-card a{
+  color:#b9181f !important;
+  -webkit-text-fill-color:#b9181f !important;
+}
+
+#main.dx99-cream-page .faq,
+#main.dx99-cream-page .faq h2,
+#main.dx99-cream-page .faq summary,
+#main.dx99-cream-page .faq p{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  opacity:1 !important;
+}
+
+#main.dx99-cream-page a.btn,
+#main.dx99-cream-page .toc-cta,
+#main.dx99-cream-page .hero-actions .btn,
+#main.dx99-cream-page .cta-box .btn{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  opacity:1 !important;
+  text-shadow:none !important;
+}
+
+#main.dx99-cream-page .cta-box,
+#main.dx99-cream-page .cta-box h2,
+#main.dx99-cream-page .cta-box p,
+#main.dx99-cream-page .cta-box strong{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  opacity:1 !important;
+}
+</style>
+
 </body>
 </html>
