@@ -71,45 +71,89 @@
   .dx99-toc{padding:17px}
 }
 
-/* Chữ bài viết đen rõ, không bị mờ */
+
+
+
+/* ===== DX99 FIX CHỮ ĐEN TUYỆT ĐỐI ===== */
+
+/* Toàn bộ chữ thường trong khu vực bài */
 .article-page,
+.article-page .article-hero,
+.article-page .article-hero *,
 .article-page .article-content,
-.article-page .article-content p,
-.article-page .article-content li,
-.article-page .article-content strong,
-.article-page .article-content em,
-.article-page .lead,
+.article-page .article-content *,
 .article-page .dx99-toc,
-.article-page .dx99-toc li,
-.article-page .hero-grid > div > p,
-.article-page .meta-row,
+.article-page .dx99-toc *,
+.article-page .toc,
+.article-page .toc *,
 .article-page .related,
-.article-page .post-card,
-.article-page .post-card p,
+.article-page .related *,
 .article-page .faq,
-.article-page .faq details,
-.article-page .faq details p,
-.article-page .faq summary,
-.article-page .image-note,
-.article-page .info-box,
-.article-page .warning{
-  color:#111111 !important;
+.article-page .faq *,
+.article-page .breadcrumb,
+.article-page .breadcrumb *{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
   opacity:1 !important;
+  filter:none !important;
   text-shadow:none !important;
 }
 
-.article-page .article-image figcaption,
-.article-page .hero-product figcaption{
-  color:#2b2b2b !important;
+/* Đoạn văn chính đậm nét hơn một chút để không bị nhạt trên nền kem */
+.article-page .article-content p,
+.article-page .article-content li,
+.article-page .related p,
+.article-page .faq p{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+  font-weight:500;
+}
+
+/* Heading đen rõ */
+.article-page h1,
+.article-page h2,
+.article-page h3,
+.article-page summary,
+.article-page strong{
+  color:#000000 !important;
+  -webkit-text-fill-color:#000000 !important;
+}
+
+/* Link vẫn giữ màu đỏ DOCHOIXE99 */
+.article-page a{
+  color:#b9181f !important;
+  -webkit-text-fill-color:#b9181f !important;
   opacity:1 !important;
 }
 
-/* Giữ CTA nền tối có chữ trắng để đảm bảo tương phản */
+/* Caption tối, không xám mờ */
+.article-page .article-image figcaption,
+.article-page .hero-product figcaption{
+  color:#222222 !important;
+  -webkit-text-fill-color:#222222 !important;
+  opacity:1 !important;
+  font-weight:500;
+}
+
+/* CTA nền tối phải giữ chữ trắng */
 .article-page .cta-box,
+.article-page .cta-box *,
 .article-page .cta-box h2,
 .article-page .cta-box p,
 .article-page .cta-box strong{
   color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+  opacity:1 !important;
+}
+
+/* Nút trong CTA: chữ theo thiết kế nút */
+.article-page .cta-box .btn{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
+}
+.article-page .cta-box .btn.outline{
+  color:#ffffff !important;
+  -webkit-text-fill-color:#ffffff !important;
 }
 
 </style>
