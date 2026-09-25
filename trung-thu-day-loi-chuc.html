@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#191331">
+<title>Trạm phát vía Trung thu 🐰🌕</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  :root {
+    color-scheme: dark;
+    --yellow: #ffe28a;
+    --pink: #ffb8d6;
+    --text: #fff8ec;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    min-width: 280px;
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(ellipse at 15% 15%, #513466 0, transparent 45%),
+      radial-gradient(ellipse at 90% 65%, #263d65 0, transparent 45%),
+      #191331;
+    overflow-x: hidden;
+  }
+
+  body.modal-open { overflow: hidden; }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 5px;
+  }
+
+  button:disabled { cursor: wait; }
+
+  .sky, .effects {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .sky { z-index: 0; }
+
+  .star {
+    position: absolute;
+    color: #ffe9ab;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+
+  .lantern {
+    position: absolute;
+    top: max(12px, env(safe-area-inset-top));
+    font-size: clamp(42px, 7vw, 72px);
+    transform-origin: top center;
+    animation: sway 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .lantern.left { left: 5%; }
+  .lantern.right { right: 5%; animation-delay: -2s; }
+
+  main {
+    position: relative;
+    z-index: 1;
+    width: min(720px, 100%);
+    min-height: 100svh;
+    margin: auto;
+    padding: max(78px, env(safe-area-inset-top)) 20px
+             max(28px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .top-tag {
+    padding: 8px 15px;
+    border: 1px solid #ffffff30;
+    border-radius: 99px;
+    background: #ffffff0b;
+    color: #f6dbff;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    margin: 20px 0 12px;
+    font-size: clamp(36px, 7vw, 66px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+  }
+
+  h1 span { color: var(--yellow); }
+
+  .intro {
+    max-width: 450px;
+    margin: 0;
+    color: #e0d7ed;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .playground {
+    position: relative;
+    width: min(360px, 100%);
+    height: 290px;
+    margin: 18px 0 8px;
+  }
+
+  .moon {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 160px;
+    line-height: 1.25;
+    filter: drop-shadow(0 0 30px #ffdc7950);
+    animation: moonFloat 4s ease-in-out infinite;
+  }
+
+  .moon:active { filter: drop-shadow(0 0 45px #ffdc79aa); }
+
+  .sticker {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    line-height: 1;
+  }
+
+  .rabbit {
+    right: 22px;
+    bottom: 12px;
+    font-size: 79px;
+    transform: rotate(8deg);
+    animation: rabbitHop 2.8s ease-in-out infinite;
+  }
+
+  .cake {
+    left: 22px;
+    bottom: 24px;
+    font-size: 66px;
+    transform: rotate(-12deg);
+    animation: cakeWiggle 4s ease-in-out infinite;
+  }
+
+  .label {
+    position: absolute;
+    z-index: 2;
+    padding: 8px 13px;
+    border: 2px solid #221b35;
+    border-radius: 11px;
+    box-shadow: 3px 4px 0 #0004;
+    color: #291d3a;
+    font-size: 13px;
+    font-weight: 800;
+    pointer-events: none;
+  }
+
+  .label-one {
+    top: 5px;
+    left: 0;
+    background: var(--pink);
+    transform: rotate(-10deg);
+  }
+
+  .label-two {
+    top: 105px;
+    right: 0;
+    background: #bbf2d6;
+    transform: rotate(10deg);
+  }
+
+  .label-three {
+    bottom: 0;
+    left: 95px;
+    background: var(--yellow);
+    transform: rotate(-5deg);
+  }
+
+  .speech {
+    max-width: 440px;
+    min-height: 54px;
+    margin: 4px 0 18px;
+    padding: 12px 17px;
+    border: 1px solid #ffffff25;
+    border-radius: 15px;
+    background: #ffffff09;
+    color: #e9dff5;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: min(100%, 360px);
+    min-height: 56px;
+    padding: 15px 20px;
+    border: 0;
+    border-radius: 16px;
+    background: var(--yellow);
+    color: #2c2040;
+    box-shadow: 0 5px 0 #c28f40, 0 12px 30px #0003;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.4;
+    transition: transform .15s, box-shadow .15s;
+  }
+
+  .primary:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #c28f40;
+  }
+
+  .hint {
+    margin: 17px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #c9bbdb;
+  }
+
+  .footer {
+    margin-top: 24px;
+    color: #c9bbdb;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  dialog {
+    position: fixed;
+    width: min(460px, calc(100% - 28px));
+    max-height: 88vh;
+    max-height: 88dvh;
+    margin: auto;
+    padding: 45px 25px 25px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border: 2px solid #ffe28a80;
+    border-radius: 25px;
+    background:
+      radial-gradient(circle at 50% 0%, #563d71, transparent 65%),
+      #261e3e;
+    color: var(--text);
+    text-align: center;
+    box-shadow: 0 30px 100px #0008;
+  }
+
+  dialog::backdrop {
+    background: #0e091ccc;
+    backdrop-filter: blur(8px);
+  }
+
+  dialog[open] { animation: popIn .3s ease-out; }
+
+  .close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff0d;
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .result-icon {
+    margin: 0 0 15px;
+    font-size: 65px;
+    line-height: 1.2;
+  }
+
+  .result-tag {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 99px;
+    background: #ffb8d621;
+    color: #ffcae3;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 16px 0;
+    color: var(--yellow);
+    font-size: 28px;
+    line-height: 1.25;
+  }
+
+  .wish-text {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+
+  .stamp {
+    display: inline-block;
+    margin: 22px 0;
+    padding: 8px 13px;
+    border: 2px dashed #baf0d5;
+    border-radius: 8px;
+    color: #baf0d5;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transform: rotate(-4deg);
+  }
+
+  .secondary {
+    width: min(100%, 360px);
+    min-height: 46px;
+    margin-top: 13px;
+    padding: 10px 14px;
+    border: 1px solid #ffffff40;
+    border-radius: 13px;
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  .status {
+    min-height: 23px;
+    margin: 14px 0 0;
+    color: #d4c5e2;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .effects { z-index: 5; }
+
+  .particle {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    font-size: 24px;
+    animation: confetti 1.2s ease-out forwards;
+  }
+
+  @keyframes twinkle {
+    from { opacity: .2; transform: scale(.8); }
+    to { opacity: .9; transform: scale(1.15); }
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-9deg); }
+    50% { transform: rotate(9deg); }
+  }
+
+  @keyframes moonFloat {
+    0%, 100% { transform: translate(-50%, 0) rotate(-4deg); }
+    50% { transform: translate(-50%, -8px) rotate(4deg); }
+  }
+
+  @keyframes rabbitHop {
+    0%, 70%, 100% { transform: translateY(0) rotate(8deg); }
+    80% { transform: translateY(-17px) rotate(-5deg); }
+    90% { transform: translateY(0) rotate(8deg); }
+  }
+
+  @keyframes cakeWiggle {
+    0%, 75%, 100% { transform: rotate(-12deg); }
+    85% { transform: rotate(6deg); }
+    93% { transform: rotate(-18deg); }
+  }
+
+  @keyframes popIn {
+    from { opacity: 0; transform: translateY(20px) scale(.9); }
+    to { opacity: 1; transform: none; }
+  }
+
+  @keyframes confetti {
+    to {
+      transform: translate(var(--x), var(--y)) rotate(var(--r));
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    main { padding-left: 16px; padding-right: 16px; }
+    .playground { height: 260px; }
+    .moon { font-size: 140px; }
+    .rabbit { font-size: 68px; right: 12px; }
+    .cake { font-size: 58px; left: 12px; }
+    .label { font-size: 12px; padding: 7px 10px; }
+    .label-two { top: 100px; }
+    .label-three { left: 75px; }
+    dialog { padding: 48px 20px 22px; }
+    .wish-text { font-size: 18px; }
+  }
+
+  @media (max-height: 740px) and (max-width: 600px) {
+    main { padding-top: 65px; }
+    h1 { margin-top: 14px; font-size: 38px; }
+    .playground { height: 225px; margin-top: 12px; }
+    .moon { top: 10px; font-size: 125px; }
+    .rabbit { font-size: 60px; bottom: 8px; }
+    .cake { font-size: 52px; bottom: 20px; }
+    .label-two { top: 82px; }
+    .footer { margin-top: 18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+
+<div class="lantern left" aria-hidden="true">🏮</div>
+<div class="lantern right" aria-hidden="true">🏮</div>
+
+<main>
+  <div class="top-tag">🐰 BƯU ĐIỆN CUNG TRĂNG</div>
+
+  <h1>Trung thu này,<br><span>nhận vía vui vẻ!</span></h1>
+
+  <p class="intro">
+    Thỏ ngọc có lời nhắn cho bạn.<br>
+    Không thu phí. Chỉ thu một nụ cười.
+  </p>
+
+  <div class="playground">
+    <span class="label label-one">100% vía nhà làm ✨</span>
+
+    <button class="moon" id="moonButton"
+            aria-label="Chạm vào trăng để mở lời chúc">🌝</button>
+
+    <span class="label label-two">Buồn là… cắn bánh!</span>
+
+    <button class="sticker cake" id="cakeButton"
+            aria-label="Chạm vào bánh để nghe lời nhắn vui">🥮</button>
+
+    <button class="sticker rabbit" id="rabbitButton"
+            aria-label="Chạm vào thỏ ngọc để nghe lời nhắn vui">🐇</button>
+
+    <span class="label label-three">Thỏ này hơi tấu hài</span>
+  </div>
+
+  <p class="speech" id="speech" role="status">
+    🐰 “Tui ở trên trăng xuống đây chỉ để chúc bạn đó!”
+  </p>
+
+  <button class="primary" id="openButton">
+    🎁 Bóc một lời chúc
+  </button>
+
+  <p class="hint">Thử chạm vào thỏ và bánh nữa nha 👀</p>
+
+  <div class="footer">
+    Trăng có thể tròn.<br>
+    Còn bạn thì phải vui. 💛
+  </div>
+</main>
+
+<dialog id="wishDialog" aria-labelledby="wishTitle">
+  <div class="effects" id="dialogEffects" aria-hidden="true"></div>
+
+  <button class="close" id="closeButton" aria-label="Đóng thiệp">×</button>
+
+  <p class="result-icon" id="resultIcon" aria-hidden="true">🐰💛</p>
+
+  <span class="result-tag" id="resultTag">THƯ TỪ CUNG TRĂNG</span>
+
+  <h2 id="wishTitle">Bạn có một lời chúc!</h2>
+
+  <p class="wish-text" id="wishText" aria-live="polite"></p>
+
+  <div class="stamp">THỎ NGỌC ĐÃ DUYỆT ✓</div>
+
+  <button class="primary" id="nextButton">
+    🥮 Bóc thêm cái nữa
+  </button>
+
+  <button class="secondary" id="copyButton">
+    📋 Sao chép lời chúc
+  </button>
+
+  <p class="status" id="status" role="status"></p>
+</dialog>
+
+<div class="effects" id="pageEffects" aria-hidden="true"></div>
+
+<script>
+  /*
+    SỬA LỜI CHÚC NGAY TRONG DANH SÁCH NÀY.
+    Không cần tạo file JSON hoặc thư mục assets.
+  */
+  const wishes = [
+    {
+      icon: "🌝💸",
+      tag: "VÍA VÍ TIỀN",
+      title: "Trăng tròn, ví cũng tròn!",
+      text: "Chúc bạn Trung thu này bánh có nhân, ví có tiền, điện thoại có người nhắn và tối về có người thương!"
+    },
+    {
+      icon: "🐰🥮",
+      tag: "THỎ NGỌC NHẮN RIÊNG",
+      title: "Ăn bánh trước, tính sau!",
+      text: "Chúc bạn một mùa Trung thu ngọt như bánh. Còn chuyện chia bánh thành mấy phần thì cứ chia sao cho phần của bạn to nhất nha!"
+    },
+    {
+      icon: "🏮💛",
+      tag: "VÍA BÌNH AN",
+      title: "Nhẹ lòng một chút nhé",
+      text: "Mong bạn bớt lo những chuyện chưa tới, bớt buồn những chuyện đã qua. Đêm nay cứ ăn miếng bánh, ngắm trăng và thương mình một chút."
+    },
+    {
+      icon: "🌕🫶",
+      tag: "VÍA YÊU THƯƠNG",
+      title: "Có người thương bạn nè",
+      text: "Nếu chưa ai chúc bạn Trung thu vui vẻ thì để tui! Chúc bạn luôn được yêu thương, được lắng nghe và được chừa cho miếng bánh cuối."
+    },
+    {
+      icon: "🐇🛵",
+      tag: "GIAO VÍA TẬN NƠI",
+      title: "Đơn hàng: một túi niềm vui",
+      text: "Thỏ ngọc giao bạn một túi bình an, hai hộp may mắn và nguyên thùng tiếng cười. Đơn này đã thanh toán bằng tình thương, bạn chỉ cần nhận!"
+    },
+    {
+      icon: "🥮🤭",
+      tag: "VÍA ĂN NGON",
+      title: "Bánh tròn, tình cũng tròn",
+      text: "Chúc bạn ăn bánh không gặp miếng mình ghét, uống trà vừa đúng độ ngon và ngồi cạnh đúng người mình thích."
+    },
+    {
+      icon: "💻🌝",
+      tag: "VÍA HẾT DEADLINE",
+      title: "Deadline né giùm!",
+      text: "Chúc bạn việc ít lại, niềm vui nhiều lên, deadline biết điều và sếp nhắn: “Nay về sớm ăn Trung thu đi em!”"
+    },
+    {
+      icon: "🏡🏮",
+      tag: "VÍA ĐOÀN VIÊN",
+      title: "Về nhà ăn bánh thôi",
+      text: "Chúc gia đình bạn luôn có tiếng cười, ấm trà nóng và những buổi ngồi bên nhau chẳng cần nhìn đồng hồ."
+    },
+    {
+      icon: "🌟😎",
+      tag: "VÍA RỰC RỠ",
+      title: "Bạn sáng hơn đèn lồng!",
+      text: "Chúc bạn bước ra đường gặp chuyện vui, mở điện thoại thấy tin tốt và soi gương thì nghĩ: “Ủa, nay mình cũng xịn dữ!”"
+    },
+    {
+      icon: "🐰📶",
+      tag: "TÍN HIỆU TỪ MẶT TRĂNG",
+      title: "Kết nối yêu thương thành công",
+      text: "Cung trăng hơi xa, sóng hơi yếu, nhưng lời chúc này vẫn tới: mong bạn luôn khỏe, luôn vui và ngủ một giấc thật ngon."
+    },
+    {
+      icon: "💌🌕",
+      tag: "VÍA TÌNH CẢM",
+      title: "Crush ơi, nhìn bên này!",
+      text: "Chúc người bạn thích cũng thích bạn. Nếu chưa thì ít nhất người ta cũng biết mua đúng vị bánh bạn mê!"
+    },
+    {
+      icon: "🥮☕",
+      tag: "VÍA THẢNH THƠI",
+      title: "Tạm nghỉ làm người bận rộn",
+      text: "Tối nay cho phép mình nghỉ một chút nhé. Bánh đã có, trà đã thơm, trăng đã lên. Mấy chuyện đau đầu để mai tính tiếp."
+    },
+    {
+      icon: "🎉🐇",
+      tag: "VÍA MAY MẮN",
+      title: "Mở trúng vía thơm!",
+      text: "Chúc bạn đi đâu cũng gặp người dễ thương, làm gì cũng có người giúp và đặt đồ ăn thì quán nhớ cho thêm topping."
+    },
+    {
+      icon: "🧋🌝",
+      tag: "VÍA NGỌT NGÀO",
+      title: "Đời bớt đắng, trà thêm ngon",
+      text: "Chúc cuộc sống của bạn ngọt vừa đủ, drama ít đá, niềm vui full topping và tình thương thì được miễn phí thêm."
+    },
+    {
+      icon: "🫂💛",
+      tag: "MỘT CHIẾC ÔM",
+      title: "Bạn đã cố gắng nhiều rồi",
+      text: "Trung thu này, mong bạn nhận ra mình đã đi được một quãng đường rất xa. Nghỉ một chút cũng được. Bạn không cần lúc nào cũng phải mạnh mẽ."
+    },
+    {
+      icon: "🌕🧧",
+      tag: "VÍA TÀI LỘC",
+      title: "Thông báo từ cung trăng",
+      text: "Tài khoản niềm vui của bạn vừa được cộng một khoản lớn. Chúc tài khoản ngân hàng cũng sớm học theo tinh thần đó!"
+    },
+    {
+      icon: "🐰🎓",
+      tag: "VÍA HỌC HÀNH",
+      title: "Bài trôi, điểm tới!",
+      text: "Chúc bạn học đâu hiểu đó, làm bài gặp đúng phần ôn và nộp báo cáo xong được thảnh thơi ăn nguyên một chiếc bánh."
+    },
+    {
+      icon: "😴🌙",
+      tag: "VÍA NGỦ NGON",
+      title: "Trăng trực đêm thay bạn",
+      text: "Chúc bạn đêm nay ngủ ngon, không mơ deadline, không bị muỗi làm phiền và sáng dậy thấy đời dễ thương hơn hôm qua."
+    },
+    {
+      icon: "🏮✨",
+      tag: "VÍA TUỔI THƠ",
+      title: "Cho mình bé lại một tối",
+      text: "Chúc bạn dù lớn đến đâu vẫn thấy vui khi đèn lồng sáng, vẫn háo hức lúc mở hộp bánh và vẫn giữ được một góc hồn nhiên trong lòng."
+    },
+    {
+      icon: "🐇💛",
+      tag: "LỜI CHÚC ĐẶC BIỆT",
+      title: "Không cần hoàn hảo đâu",
+      text: "Bánh còn có chiếc méo, trăng còn có hôm khuyết. Bạn không cần hoàn hảo mới xứng đáng được thương. Trung thu vui vẻ nha!"
+    },
+    {
+      icon: "🥮😂",
+      tag: "VÍA HÀI HƯỚC",
+      title: "Chia bánh theo tình cảm",
+      text: "Chúc bạn luôn gặp người chia bánh công bằng: bạn một nửa, người ta một nửa. Xong người ta bảo: “Ăn thêm phần của tui nè.”"
+    },
+    {
+      icon: "🌝🎁",
+      tag: "VÍA BẤT NGỜ",
+      title: "Niềm vui đang tới!",
+      text: "Mong những ngày tới có một lời hỏi thăm đúng lúc, một cuộc hẹn thật vui và một điều tốt đẹp mà bạn chưa từng nghĩ tới."
+    },
+    {
+      icon: "💼🐰",
+      tag: "VÍA CÔNG VIỆC",
+      title: "Lương lên như trăng!",
+      text: "Chúc công việc của bạn thuận lợi, đồng nghiệp dễ thương, lương tăng đều và lịch họp không đụng giờ ăn."
+    },
+    {
+      icon: "🌕❤️",
+      tag: "VÍA TRỌN VẸN",
+      title: "Một mùa trăng thật ấm",
+      text: "Dù bạn đang ở nhà, đi làm hay ở xa người thân, mong đêm nay bạn vẫn có một lý do để mỉm cười. Có lời chúc này ở bên bạn nè."
+    }
+  ];
+
+  const rabbitLines = [
+    "🐰 “Tui không béo. Tui đang tích trữ năng lượng để phát vía!”",
+    "🐰 “Làm thỏ ngọc cũng áp lực. Ai cũng hỏi bao giờ có người yêu!”",
+    "🐰 “Trên trăng không có Wi-Fi, nhưng có kết nối tâm hồn nha.”",
+    "🐰 “Chạm nữa là tui thu phí bằng bánh đó!”",
+    "🐰 “Bạn cười một cái đi, tui mới hoàn thành KPI Trung thu.”",
+    "🐰 “Đừng hỏi lương tui. Tui nhận lương bằng hạt sen.”",
+    "🐰 “Bạn dễ thương vậy mà giờ mới ghé thăm tui!”"
+  ];
+
+  const cakeLines = [
+    "🥮 “Tui nhỏ nhưng có nhân cách… à nhầm, có nhân bánh!”",
+    "🥮 “Đừng nhìn nữa. Nhìn là đói, đói là phải chia bánh!”",
+    "🥮 “Bên ngoài tròn trịa, bên trong ngọt ngào. Giống bạn đó!”",
+    "🥮 “Miếng cuối không tự biến mất. Có người thương bạn ăn giùm.”",
+    "🥮 “Tui là bánh Trung thu, không phải bánh để dành tới Tết!”"
+  ];
+
+  const $ = id => document.getElementById(id);
+  const dialog = $("wishDialog");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  let pool = [];
+  let previous = -1;
+  let currentWish = null;
+  let opened = 0;
+  let rabbitIndex = 0;
+  let cakeIndex = 0;
+  let copyBusy = false;
+
+  // Xáo trộn: xem hết danh sách rồi mới lặp.
+  function pickWish() {
+    if (pool.length === 0) {
+      pool = wishes.map((_, index) => index);
+
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+
+      const last = pool.length - 1;
+
+      if (pool.length > 1 && pool[last] === previous) {
+        [pool[0], pool[last]] = [pool[last], pool[0]];
+      }
+    }
+
+    previous = pool.pop();
+    return wishes[previous];
+  }
+
+  function burst(container, icons) {
+    if (reduceMotion.matches) return;
+
+    // Xóa hiệu ứng cũ để không bị lag khi bấm liên tục.
+    container.replaceChildren();
+
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement("span");
+      particle.className = "particle";
+      particle.textContent = icons[i % icons.length];
+
+      const distance = Math.min(window.innerWidth * 0.85, 480);
+
+      particle.style.setProperty(
+        "--x", `${(Math.random() - 0.5) * distance}px`
+      );
+      particle.style.setProperty(
+        "--y", `${(Math.random() - 0.5) * 460}px`
+      );
+      particle.style.setProperty(
+        "--r", `${(Math.random() - 0.5) * 300}deg`
+      );
+      particle.style.fontSize = `${17 + Math.random() * 16}px`;
+
+      container.appendChild(particle);
+      setTimeout(() => particle.remove(), 1300);
+    }
+  }
+
+  function showWish() {
+    currentWish = pickWish();
+    opened++;
+
+    $("resultIcon").textContent = currentWish.icon;
+    $("resultTag").textContent = currentWish.tag;
+    $("wishTitle").textContent = currentWish.title;
+    $("wishText").textContent = currentWish.text;
+    $("status").textContent = `Đã nhận ${opened} lời chúc · Vui thì bóc tiếp nha!`;
+
+    if (!dialog.open) {
+      dialog.showModal();
+      document.body.classList.add("modal-open");
+    }
+
+    burst($("dialogEffects"), ["✨", "💛", "🌟", "🎊", "🥮"]);
+  }
+
+  $("openButton").addEventListener("click", showWish);
+  $("moonButton").addEventListener("click", showWish);
+  $("nextButton").addEventListener("click", showWish);
+
+  $("rabbitButton").addEventListener("click", () => {
+    $("speech").textContent = rabbitLines[rabbitIndex % rabbitLines.length];
+    rabbitIndex++;
+    burst($("pageEffects"), ["🐰", "💛", "✨"]);
+  });
+
+  $("cakeButton").addEventListener("click", () => {
+    $("speech").textContent = cakeLines[cakeIndex % cakeLines.length];
+    cakeIndex++;
+    burst($("pageEffects"), ["🥮", "⭐", "💛"]);
+  });
+
+  $("closeButton").addEventListener("click", () => dialog.close());
+
+  dialog.addEventListener("close", () => {
+    document.body.classList.remove("modal-open");
+    $("dialogEffects").replaceChildren();
+  });
+
+  // Chạm ngoài thiệp để đóng; phím Escape cũng đóng được.
+  dialog.addEventListener("click", event => {
+    if (event.target !== dialog) return;
+
+    const rect = dialog.getBoundingClientRect();
+
+    if (
+      event.clientX < rect.left ||
+      event.clientX > rect.right ||
+      event.clientY < rect.top ||
+      event.clientY > rect.bottom
+    ) {
+      dialog.close();
+    }
+  });
+
+  // Sao chép; có phương án dự phòng khi mở file trên máy.
+  function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.cssText =
+      "position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;font-size:16px;";
+
+    dialog.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+    textarea.setSelectionRange(0, textarea.value.length);
+
+    let succeeded = false;
+
+    try {
+      succeeded = document.execCommand("copy");
+    } catch (_) {
+      succeeded = false;
+    }
+
+    textarea.remove();
+    $("copyButton").focus();
+
+    return succeeded;
+  }
+
+  $("copyButton").addEventListener("click", async () => {
+    if (!currentWish || copyBusy) return;
+
+    copyBusy = true;
+    $("copyButton").disabled = true;
+
+    const text = `${currentWish.icon} ${currentWish.text}`;
+    let succeeded = false;
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        succeeded = true;
+      }
+    } catch (_) {
+      succeeded = false;
+    }
+
+    if (!succeeded) succeeded = fallbackCopy(text);
+
+    $("status").textContent = succeeded
+      ? "Đã sao chép! Mang đi chúc người bạn thương thôi 💌"
+      : "Bạn nhấn giữ hoặc bôi đen lời chúc để sao chép nhé.";
+
+    copyBusy = false;
+    $("copyButton").disabled = false;
+  });
+
+  // Sao lấp lánh, giới hạn số lượng để nhẹ trên điện thoại.
+  const sky = $("sky");
+  const starCount = window.innerWidth < 600 ? 24 : 42;
+  const fragment = document.createDocumentFragment();
+
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("span");
+    star.className = "star";
+    star.textContent = i % 3 === 0 ? "✦" : "·";
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.fontSize = `${10 + Math.random() * 13}px`;
+    star.style.animationDelay = `${-Math.random() * 4}s`;
+    fragment.appendChild(star);
+  }
+
+  sky.appendChild(fragment);
+</script>
+</body>
+</html>
